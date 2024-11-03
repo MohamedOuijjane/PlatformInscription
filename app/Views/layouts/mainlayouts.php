@@ -8,81 +8,74 @@
     <!-- Bootstrap 5.3.3 CSS avec integrity et crossorigin -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        /* Ajout de styles pour la navigation */
+    /* Styles de base pour l'ensemble de la page */
+    * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
         .navbar {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre subtile pour la barre de navigation */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* Espacement pour le pied de page */
-        footer {
-            background-color: #f8f9fa; /* Couleur de fond légère */
-            border-top: 1px solid #e7e7e7; /* Bordure subtile en haut */
-        }
-
-        /* Style global pour le conteneur de la page */
+        /* Conteneur de page principal */
         .page-content {
-            min-height: 80vh; /* S'assure que le contenu remplit au moins l'écran */
+            min-height: 80vh;
             padding-top: 20px;
         }
-        body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #111;
-  color: #ddd;
-}
 
-.footer {
-  background-color: #222;
-  color: #ddd;
-  padding: 40px 0;
-  text-align: left;
-}
+        /* Footer */
+        .footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 40px 0;
+            text-align: left;
+        }
 
-.container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
 
-.footer-section {
-  flex: 1;
-  margin: 10px;
-  min-width: 250px;
-}
+        .footer-section {
+            flex: 1;
+            margin: 10px;
+            min-width: 250px;
+        }
 
-.footer-section h3 {
-  color: #00bcd4;
-  margin-bottom: 15px;
-}
+        .footer-section h3 {
+            color: #00bcd4;
+            margin-bottom: 15px;
+        }
 
-.footer-section p,
-.footer-section a {
-  color: #ddd;
-  text-decoration: none;
-  line-height: 1.6;
-}
+        .footer-section p,
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            line-height: 1.8;
+        }
 
-.footer-section a:hover {
-  color: #00bcd4;
-}
+        .footer-section a:hover {
+            color: #00bcd4;
+        }
 
-.footer-bottom {
-  text-align: center;
-  padding-top: 10px;
-  border-top: 1px solid #333;
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  margin-bottom: 10px;
-}
+        .footer-bottom {
+            text-align: center;
+            padding-top: 10px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+            margin-top: 20px;
+        }
 
     </style>
 </head>

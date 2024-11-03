@@ -6,49 +6,20 @@ Page d'Accueil
 
 <?= $this->section('content') ?>
 <style>
-    /* Styles pour les icônes des flèches */
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-color: #3498db; /* Couleur des flèches */
-        border-radius: 50%; /* Arrondir les bords */
-        width: 40px;
-        height: 40px;
-    }
+    /* Styles spécifiques à la page d'accueil */
 
-    /* Arrière-plan de la section de contenu */
-    .content-background {
-        background-color: #f4f4f9; /* Couleur de fond douce et professionnelle */
-        padding: 30px; /* Espacement intérieur pour un look plus aéré */
-        border-radius: 10px; /* Arrondir les bords */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre subtile */
-        max-width: 1200px; /* Largeur maximale de la section */
-        margin: 20px auto; /* Centrer et ajouter un peu d'espace vertical */
-    }
-
-    /* Styles pour le carrousel */
+    /* Carrousel */
     .carousel {
-        max-width: 1000px; /* Largeur maximale du carrousel */
-        margin: 0 auto; /* Centre le carrousel */
-        position: relative;
+        max-width: 1000px;
+        margin: 20px auto;
+        border-radius: 10px;
     }
 
     .carousel-inner img {
-        width: 100%; /* Assure que les images occupent toute la largeur de leur conteneur */
-        height: auto; /* Conserve les proportions de l'image */
-        min-height: 400px; /* Hauteur minimale pour un affichage uniforme */
-        border-radius: 10px; /* Arrondir légèrement les bords des images */
-    }
-
-    /* Ajouter une ombre et un texte sur fond semi-transparent */
-    .carousel-item::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.3); /* Opacité pour le texte */
-        z-index: 1;
+        height: auto;
+        min-height: 400px;
+        border-radius: 10px;
     }
 
     .carousel-caption {
@@ -56,47 +27,139 @@ Page d'Accueil
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        z-index: 2;
         color: #fff;
+        z-index: 10;
+        text-align: center;
     }
 
-    /* Styles pour les boutons */
-    .btn-primary:hover {
-        background-color: #1d6f9e;
-    }
-
-    .btn-outline-primary:hover {
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
         background-color: #3498db;
-        color: #fff;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
     }
-    /* president-section */
+
+    /* Section des diplômes */
+    .language-diplomas {
+        padding: 50px;
+        background-color: #fff;
+        text-align: left;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .intro-section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .highlight {
+        color: #00bcd4;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .levels {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .levels li {
+        padding-left: 20px;
+        margin-bottom: 5px;
+        position: relative;
+    }
+
+    .levels li::before {
+        content: "▶";
+        color: #00bcd4;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    /* Cartes des diplômes */
+    .diploma-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-around;
+        margin-top: 30px;
+    }
+
+    .card {
+        background-color: #f1f1f1;
+        border-radius: 8px;
+        padding: 20px;
+        flex: 1;
+        max-width: 23%;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .badge {
+        background-color: #ffcc00;
+        color: #fff;
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+
+    h4 {
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    .info-btn {
+        background-color: #00bcd4;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .info-btn:hover {
+        background-color: #0097a7;
+    }
+
+    /* Section "Mot du Président" */
     .president-section {
-        background-color: #2c2c2c; /* Couleur de fond sombre et élégante */
-        color: #e0e0e0; /* Couleur de texte gris clair pour un meilleur contraste */
-        padding: 60px 30px; /* Espacement généreux pour un contenu aéré */
-        text-align: center; /* Centrer le texte */
-        border-top: 5px solid #00aaff; /* Bordure décorative en haut */
+        background-color: #2c2c2c;
+        color: #e0e0e0;
+        padding: 60px 30px;
+        text-align: center;
+        border-top: 5px solid #00aaff;
     }
 
     .president-section h2 {
         font-size: 2.5rem;
-        font-weight: 700; /* Texte en gras pour le titre */
+        font-weight: 700;
         margin-bottom: 20px;
-        color: #ffffff; /* Couleur de texte blanche pour le titre */
-    }
-
-    .president-section p {
-        font-size: 1rem;
-        line-height: 1.8; /* Augmenter l'espacement des lignes pour une meilleure lisibilité */
-        max-width: 800px;
-        margin: 0 auto; /* Centrer le texte avec une largeur maximale */
     }
 
     .divider {
         width: 60px;
         height: 5px;
-        background-color: #00aaff; /* Couleur de l'élément décoratif */
-        margin: 20px auto 40px; /* Espacement autour de l'élément */
+        background-color: #00aaff;
+        margin: 20px auto 40px;
+    }
+
+    .president-section p {
+        font-size: 1rem;
+        line-height: 1.8;
+        max-width: 800px;
+        margin: 0 auto;
     }
 </style>
 
@@ -144,6 +207,53 @@ Page d'Accueil
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    <section class="language-diplomas">
+  <div class="container">
+    <div class="intro-section">
+      <h1>Le diplôme de langue allemande (ÖSD)</h1>
+      <h3 class="highlight">Les Langues Changent La Vie</h3>
+      <p>
+        Un système d'examen à plusieurs niveaux pour l'allemand comme langue étrangère (moderne). Les diplômes ÖSD sont
+        reconnus par l'ALTE “Association of Language Testers in Europe”, ce qui lui confère une reconnaissance
+        internationale.
+      </p>
+      <p>Les diplômes sont offerts à différents niveaux :</p>
+      <ul class="levels">
+        <li>Zertifikat Deutsch A1 (niveau élémentaire 1)</li>
+        <li>Zertifikat Deutsch A2 (niveau élémentaire 2)</li>
+        <li>Zertifikat Deutsch B1 (niveau élémentaire 3)</li>
+        <li>Zertifikat Deutsch B2 (niveau moyen)</li>
+      </ul>
+    </div>
+    <div class="diploma-cards">
+      <div class="card">
+        <div class="badge">A1</div>
+        <h4>Zerifikat A1</h4>
+        <p>L'examen ÖSD ZERTIFIKAT A1 est semi-modulaire. Il se compose d'un module écrit (Lire + Écouter + Écrire) et d'un module oral.</p>
+        <a href="#" class="info-btn">Plus d'informations</a>
+      </div>
+      <div class="card">
+        <div class="badge">A2</div>
+        <h4>Zerifikat A2</h4>
+        <p>L'examen ÖSD ZERTIFIKAT A2 est semi-modulaire. Il se compose d'un module écrit (Lire + Écouter + Écrire) et d'un module oral.</p>
+        <a href="#" class="info-btn">Plus d'informations</a>
+      </div>
+      <div class="card">
+        <div class="badge">B1</div>
+        <h4>Zerifikat B1</h4>
+        <p>L'examen ZB1 est modulaire et se compose de quatre épreuves indépendantes l'une de l'autre. L'épreuve orale se passe en binôme.</p>
+        <a href="#" class="info-btn">Plus d'informations</a>
+      </div>
+      <div class="card">
+        <div class="badge">B2</div>
+        <h4>Zerifikat B2</h4>
+        <p>L'examen ÖSD ZERTIFIKAT B2 est semi-modulaire. Il se compose d'un module écrit (Lire + Écouter + Écrire) et d'un module oral.</p>
+        <a href="#" class="info-btn">Plus d'informations</a>
+      </div>
+    </div>
+  </div>
+</section>
+
     <!-- Section "Mot du Président" -->
 <div class="president-section">
     <h2>Mot Du Président</h2>
