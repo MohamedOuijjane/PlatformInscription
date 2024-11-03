@@ -24,6 +24,66 @@
             min-height: 80vh; /* S'assure que le contenu remplit au moins l'écran */
             padding-top: 20px;
         }
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  color: #ddd;
+}
+
+.footer {
+  background-color: #222;
+  color: #ddd;
+  padding: 40px 0;
+  text-align: left;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  min-width: 250px;
+}
+
+.footer-section h3 {
+  color: #00bcd4;
+  margin-bottom: 15px;
+}
+
+.footer-section p,
+.footer-section a {
+  color: #ddd;
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.footer-section a:hover {
+  color: #00bcd4;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 10px;
+  border-top: 1px solid #333;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
     </style>
 </head>
 <body>
@@ -65,11 +125,44 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-center py-3">
-        <div class="container">
-            <p class="mb-0">&copy; 2024 ÖSD. Tous droits réservés.</p>
-        </div>
-    </footer>
+    <footer class="footer">
+  <div class="container">
+    <div class="footer-section">
+      <h3>ösd</h3>
+      <p>
+        En 2001, Le Centre ÖSD est devenu un centre d'examen d'allemand agréé par le bureau central du
+        « Diplôme autrichien de langue allemande ». Il organise les examens et délivre les diplômes A1, A2,
+        B1, B2, C1 et C2. Le professeur Dr. Rachid Jai-Mansouri est le président de la commission des
+        examens ÖSD.
+      </p>
+    </div>
+    <div class="footer-section">
+      <h3>Adresse</h3>
+      <p>Avenue Ibn El Khatib, Route d’Imouzzer (en face de la Mosquée Benmoussa à Derb El Ouard)</p>
+      <p>30050 Fès / Maroc</p>
+      <p>Tél: 05 35 60 44 54 / 06 61 85 41 52</p>
+      <p>Email: <a href="mailto:contact@osd.ma">contact@osd.ma</a></p>
+    </div>
+    <div class="footer-section">
+      <h3>Liens Rapides</h3>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Salle & Table</a></li>
+        <li><a href="#">Inscription</a></li>
+        <li><a href="#">Préinscription</a></li>
+        <li><a href="#">Examen</a></li>
+        <li><a href="#">Calendrier</a></li>
+        <li><a href="#">Paiement</a></li>
+        <li><a href="#">Convocation</a></li>
+        <li><a href="#">Résultat</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>COPYRIGHT © 2023. ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
 
     <!-- Bootstrap 5.3.3 JS Bundle avec integrity et crossorigin -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
