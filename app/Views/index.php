@@ -69,6 +69,35 @@ Page d'Accueil
         background-color: #3498db;
         color: #fff;
     }
+    /* president-section */
+    .president-section {
+        background-color: #2c2c2c; /* Couleur de fond sombre et élégante */
+        color: #e0e0e0; /* Couleur de texte gris clair pour un meilleur contraste */
+        padding: 60px 30px; /* Espacement généreux pour un contenu aéré */
+        text-align: center; /* Centrer le texte */
+        border-top: 5px solid #00aaff; /* Bordure décorative en haut */
+    }
+
+    .president-section h2 {
+        font-size: 2.5rem;
+        font-weight: 700; /* Texte en gras pour le titre */
+        margin-bottom: 20px;
+        color: #ffffff; /* Couleur de texte blanche pour le titre */
+    }
+
+    .president-section p {
+        font-size: 1rem;
+        line-height: 1.8; /* Augmenter l'espacement des lignes pour une meilleure lisibilité */
+        max-width: 800px;
+        margin: 0 auto; /* Centrer le texte avec une largeur maximale */
+    }
+
+    .divider {
+        width: 60px;
+        height: 5px;
+        background-color: #00aaff; /* Couleur de l'élément décoratif */
+        margin: 20px auto 40px; /* Espacement autour de l'élément */
+    }
 </style>
 
 <div class="content-background">
@@ -115,5 +144,14 @@ Page d'Accueil
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    <!-- Section "Mot du Président" -->
+<div class="president-section">
+    <h2>Mot Du Président</h2>
+    <div class="divider"></div>
+    <p>
+        Vous vous êtes consacrés à l'apprentissage de l'allemand pour atteindre un certain but. Apprenez davantage en sachant que personne ne réussit sans effort et que ceux, qui réussissent dans leur vie, doivent leur succès à leur persévérance.
+        En 2001, Le Centre ÖSD est devenu un centre d’examen d'allemand agréé par le bureau central du « Diplôme autrichien de langue allemande ». Il organise les examens et délivre les diplômes A1, A2, B1, B2, C1 et C2. Le professeur Dr. Rachid Jai-Mansouri est le président de la commission des examens ÖSD au Maroc.
+    </p>
+</div>
 </div>
 <?= $this->endSection() ?>
