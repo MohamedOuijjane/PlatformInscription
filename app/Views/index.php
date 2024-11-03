@@ -13,15 +13,16 @@ Page d'Accueil
     </div>
     <div class="carousel-inner">
     <div class="carousel-item active">
-        <img src="images/image1.jpg" class="d-block w-100" alt="Image 1">
+        <img src="/images/image1.jpg" class="d-block w-100" alt="Image 1">
     </div>
     <div class="carousel-item">
-        <img src="images/image2.png" class="d-block w-100" alt="Image 2">
+        <img src="/images/image2.png" class="d-block w-100" alt="Image 2">
     </div>
     <div class="carousel-item">
-        <img src="images/image3.jpg" class="d-block w-100" alt="Image 3">
+        <img src="/images/image3.jpg" class="d-block w-100" alt="Image 3">
     </div>
 </div>
+
 
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
