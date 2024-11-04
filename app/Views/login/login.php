@@ -170,7 +170,7 @@ Login
   <div class="separator">
     <span>Or</span>
   </div>
-  <a href="<?=  base_url('register') ?>" class="btn btn-success sign-up_btn">Register</a>
+  <a href="<?=  base_url('/register') ?>" class="btn btn-success sign-up_btn">Register</a>
             
   <p class="note">Terms of Use Conditions</p>
 </form>
