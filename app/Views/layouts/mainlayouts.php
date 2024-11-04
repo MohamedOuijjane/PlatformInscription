@@ -90,10 +90,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto"> <!-- Alignement des éléments de navigation à droite -->
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                        <a class="nav-link active" aria-current="page" href="<?= base_url('/') ?>">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/calendrie">Calendrier</a>
+                        <a class="nav-link" href="<?= base_url('/calendrie') ?>">Calendrier</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Inscription</a>
