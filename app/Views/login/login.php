@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<?= $this->extend('mainLayoutForm/mainForm')?>
+<?= $this->section('title')?>
+Login
+<?= $this->endSection()?>
+
+<?= $this->section('content')?>
     <style>
             body {
             display: flex;
@@ -12,7 +11,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-image: url('/uploads/backgroundimage.png'); 
+            background-image: url('images/backgroundimage.png'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -143,8 +142,7 @@
             color: #8B8E98;
             }
     </style>
-</head>
-<body>
+
 <form class="form_container">
   <div class="logo_container">
     <h1 class="logo_title display-4 font-weight-bold">Login to your Account</h1>
@@ -172,11 +170,11 @@
   <div class="separator">
     <span>Or</span>
   </div>
-  <a href="<?php echo base_url('register'); ?>" class="btn btn-success sign-up_btn">
-    <span>Register</span>
-  </a>
+  <a href="<?=  base_url('register') ?>" class="btn btn-success sign-up_btn">Register</a>
+            
   <p class="note">Terms of Use Conditions</p>
 </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <?= $this->endSection()?>
+
+
+
