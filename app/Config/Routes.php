@@ -9,7 +9,8 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('/calendrie', 'Home::calendrie');
 $routes->get('/inscription', 'Home::inscription');
-
+$routes->get('/login', 'Login::index'); 
+$routes->get('/register','Register::index');
 
 
 

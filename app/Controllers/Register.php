@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 
-class Hello extends Controller
+class Register extends BaseController
 {
     public function index()
     {
-        return view('hello');
+        return view('register/register');
     }
 }
