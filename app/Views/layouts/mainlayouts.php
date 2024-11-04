@@ -96,7 +96,7 @@
                         <a class="nav-link" href="<?= base_url('/calendrie') ?>">Calendrier</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inscription</a>
+                        <a class="nav-link"  href="<?= base_url('/inscription') ?>">Inscription</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

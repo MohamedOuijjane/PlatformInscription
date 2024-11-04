@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/mainlayouts') ?>
 
 <?= $this->section('title') ?>
- Calendrie des Sessions
+Page d'Accueil
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -107,6 +107,25 @@
         color: #757575;
         margin-top: 15px;
     }
+
+    /* Bouton de pré-inscription */
+    .preinscription-btn {
+        background-color: #1e88e5;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-top: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-decoration: none;
+    }
+
+    .preinscription-btn:hover {
+        background-color: #1565c0;
+    }
 </style>
 
 <div class="container my-5">
@@ -137,7 +156,9 @@
                 <p>Début d'inscription : 1 septembre 2024</p>
                 <p>Date Limite : 22 octobre 2024</p>
             </div>
+            <a href="https://osd.ma/home/preinscription" class="preinscription-btn">Se pré-inscrire en ligne</a>
         </div>
+        <!-- Répétez les cartes pour les autres sessions -->
         <div class="session-card">
             <h3>Samedi 9 novembre 2024</h3>
             <span class="badge">B1</span>
@@ -148,6 +169,7 @@
                 <p>Début d'inscription : 1 septembre 2024</p>
                 <p>Date Limite : 29 octobre 2024</p>
             </div>
+            <a href="https://osd.ma/home/preinscription" class="preinscription-btn">Se pré-inscrire en ligne</a>
         </div>
         <div class="session-card">
             <h3>Dimanche 10 novembre 2024</h3>
@@ -159,106 +181,7 @@
                 <p>Début d'inscription : 1 septembre 2024</p>
                 <p>Date Limite : 29 octobre 2024</p>
             </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
+            <a href="https://osd.ma/home/preinscription" class="preinscription-btn">Se pré-inscrire en ligne</a>
         </div>
         <!-- Ajoutez plus de cartes de session si nécessaire -->
     </div>

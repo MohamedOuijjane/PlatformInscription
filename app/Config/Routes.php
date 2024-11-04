@@ -8,6 +8,8 @@ use CodeIgniter\Router\RouteCollection;
 // $routes->get('/', 'Hello::index'); 
 $routes->get('/', 'Home::index');
 $routes->get('/calendrie', 'Home::calendrie');
+$routes->get('/inscription', 'Home::inscription');
+
 
 
 

@@ -14,4 +14,7 @@ class Home extends BaseController
         // Charge la vue calendar.php située dans app/Views
         return view('calendrie');
     }
+    public function inscription(){
+        return view('inscription');
+    }
 }
