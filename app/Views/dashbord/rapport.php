@@ -12,6 +12,12 @@
             border-top: 3px solid #007bff; /* Ligne de couleur professionnelle */
             box-shadow: 0px 0px 20px gray;
     }
+    #paymentStatisticsChart {
+        max-width: 400px; /* Largeur maximale */
+        max-height: 300px; /* Hauteur maximale */
+        margin: 0 auto; /* Centrer le graphique */
+    }
+    
 </style>
 <h3 class="mb-4 text-primary">Rapport Complet des Examens et Paiements</h3>
 

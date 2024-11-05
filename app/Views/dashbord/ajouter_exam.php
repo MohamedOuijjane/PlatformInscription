@@ -1,11 +1,45 @@
 <?= $this->extend('dashbord/mainlayout') ?>
 
-
-
 <?= $this->section('content') ?>
 <style>
- 
+    /* Personnalisation de la page Ajouter un Examen */
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        background-color: #3498db; /* Couleur bleu professionnel */
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #333;
+    }
+
+    .form-control {
+        border-radius: 5px;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        transition: background-color 0.3s;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    /* Pour un alignement plus agréable */
+    .mb-3 {
+        margin-bottom: 20px;
+    }
 </style>
+
 <h3 class="mb-4">Ajouter un Examen</h3>
 <div class="card">
     <div class="card-header">Nouveau Examen</div>

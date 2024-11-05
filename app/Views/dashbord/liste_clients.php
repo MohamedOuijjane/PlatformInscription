@@ -1,6 +1,60 @@
 <?= $this->extend('dashbord/mainlayout') ?>
 
 <?= $this->section('content') ?>
+<style>
+    h3 {
+        font-weight: bold;
+        color: #007bff; /* Bleu élégant */
+    }
+
+    .card {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    }
+
+    .card-header {
+        background-color: #343a40; /* Fond sombre */
+        color: #ffffff;
+        font-weight: 500;
+    }
+
+    .badge {
+        font-size: 0.85rem;
+        padding: 0.4em 0.6em;
+        border-radius: 12px;
+    }
+
+    .badge.bg-success {
+        background-color: #28a745; /* Vert pour payé */
+        color: #fff;
+    }
+
+    .badge.bg-danger {
+        background-color: #dc3545; /* Rouge pour non payé */
+        color: #fff;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1; /* Arrière-plan gris clair au survol */
+        transition: background-color 0.3s;
+    }
+
+    .input-group {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Ombre pour la barre de recherche */
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Bleu foncé au survol */
+    }
+</style>
+
 <h3 class="mb-4 text-primary">Liste des Clients par Examen</h3>
 
 <!-- Barre de recherche -->

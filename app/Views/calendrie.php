@@ -24,7 +24,7 @@
 
     .calendar-header p {
         font-size: 1rem;
-        color: #1565c0;
+        color: #f90000;
         margin-top: 5px;
     }
 

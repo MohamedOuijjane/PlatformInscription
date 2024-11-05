@@ -14,28 +14,33 @@
 
         /* Sidebar */
         .sidebar {
-            width: 15%;
-            background-color: #1c1e21; /* Gris foncé élégant */
+            width: 17%;
+            background-color: #f5f5f5; /* Gris foncé élégant */
             color: #d1d1d1;
             min-height: 100vh;
             padding-top: 20px;
             position: fixed;
+          
         }
 
         .sidebar h3 {
             text-align: center;
             font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 20px;
+            color: #3498db;
+            margin-bottom: 40px;
+            
         }
 
         .sidebar a {
-            color: #d1d1d1;
-            padding: 10px 20px;
+            color: black;
+            padding: 20px 20px;
             text-decoration: none;
             display: block;
-            font-size: 0.95rem;
+            font-size: 0.7rem;
+            font-weight: bold;
             transition: background 0.3s, color 0.3s;
+            border-bottom: 2px solid black;
+           
         }
 
         .sidebar a:hover {

@@ -9,11 +9,11 @@ Page d'Accueil
     /* Styles pour l'en-tête */
     .calendar-header {
         text-align: center;
-        background-color: #f0f8ff;
+        background-color: #aeaeae;
         padding: 40px;
         border-radius: 12px;
-        margin-bottom: 30px;
-        color: #1e88e5;
+        margin-bottom: 44px;
+        color: #5997cd;
     }
 
     .calendar-header h1 {
@@ -24,7 +24,7 @@ Page d'Accueil
 
     .calendar-header p {
         font-size: 1rem;
-        color: #1565c0;
+        color: #f90000;
         margin-top: 5px;
     }
 
