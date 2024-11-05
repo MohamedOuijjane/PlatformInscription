@@ -9,7 +9,7 @@ Page d'Accueil
     /* Styles pour l'en-tête */
     .calendar-header {
         text-align: center;
-        background-color: #aeaeae;
+        background-color: #d1d1d1;
         padding: 40px;
         border-radius: 12px;
         margin-bottom: 44px;

@@ -188,24 +188,22 @@ Page d'Accueil
                 <div class="carousel-caption d-none d-md-block">
                     <h2>Diplôme De Langue Allemande (ÖSD)</h2>
                     <p>Examens et certificats d'allemand reconnus internationalement pour les enfants, les jeunes apprenants et les adultes.</p>
-                    <div class="text-center">
-                        <a href="#" class="btn btn-primary">Plus d'informations</a>
-                        <a href="#" class="btn btn-outline-primary">Les sessions disponibles</a>
-                    </div>
+                    
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="images/image2.png" class="d-block" alt="Image 2">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>Un Autre Titre</h2>
-                    <p>Texte descriptif pour cette image.</p>
+                <h2>Diplôme De Langue Allemande (ÖSD)</h2>
+                <p>Examens et certificats d'allemand reconnus internationalement pour les enfants, les jeunes apprenants et les adultes.</p>
+
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="images/image3.jpg" class="d-block" alt="Image 3">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>Autre Titre</h2>
-                    <p>Description de l'image ou autre texte pertinent.</p>
+                <h2>Diplôme De Langue Allemande (ÖSD)</h2>
+                <p>Examens et certificats d'allemand reconnus internationalement pour les enfants, les jeunes apprenants et les adultes.</p>
                 </div>
             </div>
         </div>
