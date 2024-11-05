@@ -109,6 +109,8 @@
             <a href="<?= base_url('/dashbord/confirmation_paiement') ?>">Confirmation Paiement</a>
             <a href="<?= base_url('/dashbord/liste_examen') ?>">Liste des Examens</a>
             <a href="<?= base_url('/dashbord/liste_clients') ?>">Liste des Clients</a>
+            <a href="<?= base_url('/dashbord/rapport') ?>">Charts</a>
+            <a href=#>Log out </a>
         </div>
         <div class="content">
              <?= $this->renderSection('content') ?>  

@@ -30,4 +30,9 @@ class DashboardController extends Controller
     {
         return view('/dashbord/liste_clients');
     }
+    public function rapport()
+    {
+        return view('/dashbord/rapport');
+    }
+    
 }
