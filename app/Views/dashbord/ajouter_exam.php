@@ -4,14 +4,7 @@
 
 <?= $this->section('content') ?>
 <style>
-    .content {
-    width: 90%;
-    margin-left: 250px;
-    padding: 40px;
-    background-color: #ffffff;
-    min-height: 100vh;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-}
+ 
 </style>
 <h3 class="mb-4">Ajouter un Examen</h3>
 <div class="card">

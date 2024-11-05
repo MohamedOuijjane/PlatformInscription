@@ -1,4 +1,3 @@
-<!-- dashboard/mainlayout.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,18 +5,18 @@
     <title>Tableau de Bord Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Couleurs de base */
+        /* Couleurs de base et polices */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ecf0f1;
-            color: #2c3e50;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
         }
 
         /* Sidebar */
         .sidebar {
-            width: 250px;
-            background-color: #2c3e50; /* Bleu Foncé */
-            color: #ecf0f1; /* Gris Clair */
+            width: 15%;
+            background-color: #1c1e21; /* Gris foncé élégant */
+            color: #d1d1d1;
             min-height: 100vh;
             padding-top: 20px;
             position: fixed;
@@ -25,79 +24,78 @@
 
         .sidebar h3 {
             text-align: center;
-            padding-bottom: 20px;
             font-weight: bold;
-            border-bottom: 1px solid #34495e;
+            color: #ffffff;
             margin-bottom: 20px;
         }
 
         .sidebar a {
-            color: #ecf0f1;
-            padding: 12px 20px;
+            color: #d1d1d1;
+            padding: 10px 20px;
             text-decoration: none;
             display: block;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: background 0.3s, color 0.3s;
         }
 
         .sidebar a:hover {
-            background-color: #34495e; /* Un peu plus clair que le bleu foncé */
+            background-color: #3a3b3d; /* Gris clair pour l'effet de survol */
             color: #ffffff;
         }
 
         /* Contenu principal */
         .content {
-            margin-left: 250px;
+            margin-top: 50px;
+            margin-left: 270px;
+            min-width: 70%;
             padding: 40px;
             background-color: #ffffff;
-            min-height: 100vh;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            min-height: auto;
+            border-top: 3px solid #007bff; /* Ligne de couleur professionnelle */
+            box-shadow: 0px 0px 20px gray;
         }
 
-        /* Boutons personnalisés */
+        /* Styles de boutons */
         .btn-custom {
-            background-color: #3498db; /* Bleu Clair */
-            color: white;
+            background-color: #007bff; /* Bleu professionnel */
+            color: #ffffff;
             border: none;
-            transition: background 0.3s;
+            transition: background-color 0.3s;
         }
 
         .btn-custom:hover {
-            background-color: #2980b9; /* Bleu Foncé */
+            background-color: #0056b3; /* Bleu foncé */
         }
 
         /* Messages et alertes */
         .alert-success {
-            background-color: #2ecc71; /* Vert Vif */
-            color: white;
-            border: none;
+            background-color: #28a745;
+            color: #ffffff;
         }
 
         .alert-warning {
-            background-color: #e67e22; /* Orange */
-            color: white;
-            border: none;
+            background-color: #ffc107;
+            color: #212529;
         }
 
         .alert-danger {
-            background-color: #e74c3c; /* Rouge */
-            color: white;
-            border: none;
+            background-color: #dc3545;
+            color: #ffffff;
         }
 
         /* Barre de navigation */
         .navbar-custom {
-            background-color: #34495e;
-            color: white;
+            background-color: #343a40;
+            color: #ffffff;
         }
 
         .navbar-custom a {
-            color: #ecf0f1;
+            color: #ffffff;
             transition: color 0.3s;
         }
 
         .navbar-custom a:hover {
-            color: #bdc3c7; /* Gris clair */
+            color: #adb5bd; /* Gris clair */
         }
     </style>
 </head>
@@ -110,10 +108,10 @@
             <a href="<?= base_url('/dashbord/liste_examen') ?>">Liste des Examens</a>
             <a href="<?= base_url('/dashbord/liste_clients') ?>">Liste des Clients</a>
             <a href="<?= base_url('/dashbord/rapport') ?>">Charts</a>
-            <a href=#>Log out </a>
+            <a href="#">Log Out</a>
         </div>
         <div class="content">
-             <?= $this->renderSection('content') ?>  
+             <?= $this->renderSection('content') ?>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
