@@ -105,10 +105,10 @@
     <div class="d-flex">
         <div class="sidebar">
             <h3 class="text-center">Admin</h3>
-            <a href="/dashboard/ajouter_exam">Ajouter Examen</a>
-            <a href="/dashboard/confirmation_paiement">Confirmation Paiement</a>
-            <a href="/dashboard/liste_examen">Liste des Examens</a>
-            <a href="/dashboard/liste_clients">Liste des Clients</a>
+            <a href="/dashbord/ajouter_exam">Ajouter Examen</a>
+            <a href="/dashbord/confirmation_paiement">Confirmation Paiement</a>
+            <a href="/dashbord/liste_examen">Liste des Examens</a>
+            <a href="/dashbord/liste_clients">Liste des Clients</a>
         </div>
         <div class="content">
             <?= $this->renderSection('content') ?> 

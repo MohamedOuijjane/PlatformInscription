@@ -1,4 +1,4 @@
-<?= $this->extend('mainlayout') ?>
+<?= $this->extend('dashbord/mainlayout') ?>
 
 <?= $this->section('content') ?>
 <h3 class="mb-4 text-primary">Liste des Clients par Examen</h3>
