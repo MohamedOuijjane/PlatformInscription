@@ -105,13 +105,13 @@
     <div class="d-flex">
         <div class="sidebar">
             <h3 class="text-center">Admin</h3>
-            <a href="/dashbord/ajouter_exam">Ajouter Examen</a>
-            <a href="/dashbord/confirmation_paiement">Confirmation Paiement</a>
-            <a href="/dashbord/liste_examen">Liste des Examens</a>
-            <a href="/dashbord/liste_clients">Liste des Clients</a>
+            <a href="<?= base_url('/dashbord/ajouter_exam') ?>">Ajouter Examen</a>
+            <a href="<?= base_url('//dashbord/confirmation_paiement') ?>">Confirmation Paiement</a>
+            <a href="<?= base_url('//dashbord/liste_examen') ?>">Liste des Examens</a>
+            <a href="<?= base_url('//dashbord/liste_clients') ?>">Liste des Clients</a>
         </div>
         <div class="content">
-            <?= $this->renderSection('content') ?> 
+             <?= $this->renderSection('content') ?>  
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
