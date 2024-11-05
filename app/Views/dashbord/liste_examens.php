@@ -1,6 +1,7 @@
 <?= $this->extend('dashbord/mainlayout') ?>
 
 <?= $this->section('content') ?>
+
 <h3 class="mb-4">Liste des Examens</h3>
 
 <div class="card">
@@ -48,25 +49,5 @@
     </div>
 </div>
 
-<script>
-    // Script JavaScript pour la recherche et le filtrage
-    document.getElementById('searchBar').addEventListener('input', function() {
-        const searchValue = this.value.toLowerCase();
-        const rows = document.querySelectorAll('#examTable tr');
-        rows.forEach(row => {
-            const examName = row.cells[1].textContent.toLowerCase();
-            row.style.display = examName.includes(searchValue) ? '' : 'none';
-        });
-    });
-
-    document.getElementById('filterType').addEventListener('change', function() {
-        const filterValue = this.value;
-        const rows = document.querySelectorAll('#examTable tr');
-        rows.forEach(row => {
-            const examType = row.cells[1].textContent;
-            row.style.display = filterValue === '' || examType.includes(filterValue) ? '' : 'none';
-        });
-    });
-</script>
 
 <?= $this->endSection() ?>

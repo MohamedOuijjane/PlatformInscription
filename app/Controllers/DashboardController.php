@@ -23,7 +23,7 @@ class DashboardController extends Controller
 
     public function listeExamen()
     {
-        return view('/dashbord/liste_examen');
+        return view('/dashbord/liste_examens');
     }
 
     public function listeClients()
