@@ -129,13 +129,29 @@ Pré-inscrire en ligne
         .overlay-text span {
             color: #007bff; /* Blue color for a specific part of the text */
         }
-
+        @keyframes colorChange {
+    0%   {
+         color: blue;
+        }
+        100% {
+        color: red;
+        }}
+    .clignote {
+    animation: colorChange 1s infinite alternate;
+    text-align: center; 
+    font-family: system-ui;
+    }
+    h4 {
+    font-size: 24px;
+    }
 </style>
 <div class="background-section">
         <div class="overlay-text">
             <span>S</span>e pré-inscrire en ligne
         </div>
 </div>
+<h4 class="clignote" >L'inscription peut être arrêtée avant la date limite dès qu'il n'y a plus de places disponibles.</h4>
+
     
 <div class="form-container">
     <form class="form_container"> 
