@@ -130,6 +130,7 @@ Page d'Accueil
 
 <div class="container my-5">
     <!-- En-tête du calendrier -->
+     
     <div class="calendar-header">
         <h1>Calendrier des Sessions</h1>
         <p>L'inscription peut être arrêtée avant la date limite dès qu'il n'y a plus de places disponibles.</p>
@@ -156,7 +157,7 @@ Page d'Accueil
                 <p>Début d'inscription : 1 septembre 2024</p>
                 <p>Date Limite : 22 octobre 2024</p>
             </div>
-            <a href="https://osd.ma/home/preinscription" class="preinscription-btn">Se pré-inscrire en ligne</a>
+            <a href="<?=  base_url('/inscriptionDetails') ?>" class="preinscription-btn">Se pré-inscrire en ligne</a>
         </div>
         <!-- Répétez les cartes pour les autres sessions -->
         <div class="session-card">
@@ -169,7 +170,7 @@ Page d'Accueil
                 <p>Début d'inscription : 1 septembre 2024</p>
                 <p>Date Limite : 29 octobre 2024</p>
             </div>
-            <a href="https://osd.ma/home/preinscription" class="preinscription-btn">Se pré-inscrire en ligne</a>
+            <a href="<?=  base_url('/inscriptionDetails') ?>" class="preinscription-btn">Se pré-inscrire en ligne</a>
         </div>
         <div class="session-card">
             <h3>Dimanche 10 novembre 2024</h3>
@@ -181,9 +182,8 @@ Page d'Accueil
                 <p>Début d'inscription : 1 septembre 2024</p>
                 <p>Date Limite : 29 octobre 2024</p>
             </div>
-            <a href="https://osd.ma/home/preinscription" class="preinscription-btn">Se pré-inscrire en ligne</a>
+            <a href="<?=  base_url('/inscriptionDetails') ?>" class="preinscription-btn">Se pré-inscrire en ligne</a>
         </div>
-        <!-- Ajoutez plus de cartes de session si nécessaire -->
     </div>
 </div>
 <?= $this->endSection() ?>

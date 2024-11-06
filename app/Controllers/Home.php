@@ -17,4 +17,7 @@ class Home extends BaseController
     public function inscription(){
         return view('inscription');
     }
+    public function inscriptionDetails(){
+        return view('inscriptionDetails/inscriptionDetails');
+    }
 }

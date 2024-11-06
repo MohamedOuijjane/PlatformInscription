@@ -142,7 +142,6 @@ Login
             color: #8B8E98;
             }
     </style>
-
 <form class="form_container">
   <div class="logo_container">
     <h1 class="logo_title display-4 font-weight-bold">Login to your Account</h1>
@@ -174,7 +173,7 @@ Login
             
   <p class="note">Terms of Use Conditions</p>
 </form>
-    <?= $this->endSection()?>
+<?= $this->endSection()?>
 
 
 
