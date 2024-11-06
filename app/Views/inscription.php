@@ -7,26 +7,37 @@ Page d'Accueil
 <?= $this->section('content') ?>
 <style>
     /* Styles pour l'en-tête */
-    .calendar-header {
-        text-align: center;
-        background-color: #f0f8ff;
-        padding: 40px;
-        border-radius: 12px;
-        margin-bottom: 30px;
-        color: #1e88e5;
-    }
+    .background-section {
+            background-image: url('images/admission1.jpg'); /* Replace with your own image */
+            background-size: cover; /* Makes the image cover the entire container */
+            background-position: center; /* Centers the background image */
+            width: 1580px;
+            margin-left: -125px;
+            height: 150px; /* Adjust height as needed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .calendar-header h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
+        /* Centered div with text */
+        .overlay-text {
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 14px 50px 16px 30px;
+            letter-spacing: 0.3px;
+            border-radius: 28px 0;
+            font-size: 1.2em;
+            color: #333; /* Text color */
+            font-weight: bold;
+            font-size: 30px;
+        }
+        *, ::after, ::before {
+         box-sizing: border-box;
+        }
 
-    .calendar-header p {
-        font-size: 1rem;
-        color: #1565c0;
-        margin-top: 5px;
-    }
+        /* Additional styling for the text */
+        .overlay-text span {
+            color: #007bff; /* Blue color for a specific part of the text */
+        }
 
     /* Conteneur des boutons de filtre */
     .filter-buttons {
@@ -126,15 +137,32 @@ Page d'Accueil
     .preinscription-btn:hover {
         background-color: #1565c0;
     }
+    @keyframes colorChange {
+    0%   {
+         color: blue;
+        }
+        100% {
+        color: red;
+        }}
+    .clignote {
+    animation: colorChange 1s infinite alternate;
+    text-align: center; 
+    font-family: system-ui;
+    }
+    h4 {
+    font-size: 24px;
+    }
 </style>
 
 <div class="container my-5">
     <!-- En-tête du calendrier -->
-     
-    <div class="calendar-header">
-        <h1>Calendrier des Sessions</h1>
-        <p>L'inscription peut être arrêtée avant la date limite dès qu'il n'y a plus de places disponibles.</p>
+    <div class="background-section">
+        <div class="overlay-text">
+            <span>V</span>euillez bien choisir un examen
+        </div>
     </div>
+        <h4 class="clignote" >L'inscription peut être arrêtée avant la date limite dès qu'il n'y a plus de places disponibles.</h4>
+    
 
     <!-- Boutons de filtre -->
     <div class="filter-buttons">
