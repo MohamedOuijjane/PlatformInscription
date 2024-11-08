@@ -4,121 +4,152 @@
     <meta charset="UTF-8">
     <title>Tableau de Bord Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         /* Couleurs de base et polices */
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f6f8;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa; /* Fond gris clair pour un look moderne */
             color: #333;
         }
 
         /* Sidebar */
         .sidebar {
-            width: 17%;
-            background-color: #f5f5f5; /* Gris foncé élégant */
-            color: #d1d1d1;
+            width: 250px;
+            background-color: #2c3e50; /* Gris foncé élégant */
+            color: #ecf0f1; /* Texte blanc cassé */
             min-height: 100vh;
             padding-top: 20px;
             position: fixed;
-          
+            transition: all 0.3s;
         }
 
         .sidebar h3 {
             text-align: center;
             font-weight: bold;
-            color: #3498db;
-            margin-bottom: 40px;
-            
+            color: #ecf0f1;
+            margin-bottom: 30px;
         }
 
         .sidebar a {
-            color: black;
-            padding: 20px 20px;
+            color: #bdc3c7; /* Texte gris clair */
+            padding: 15px;
             text-decoration: none;
             display: block;
-            font-size: 0.7rem;
-            font-weight: bold;
+            font-size: 0.9rem;
             transition: background 0.3s, color 0.3s;
-            border-bottom: 2px solid black;
-           
         }
 
         .sidebar a:hover {
-            background-color: #3a3b3d; /* Gris clair pour l'effet de survol */
+            background-color: #34495e; /* Fond gris légèrement plus clair au survol */
+            color: #ffffff; /* Texte blanc au survol */
+        }
+
+        /* Barre de navigation en haut */
+        .navbar-custom {
+            background-color: #2c3e50; /* Couleur assortie à la sidebar */
             color: #ffffff;
+            width: calc(100% - 250px);
+            position: fixed;
+            top: 0;
+            left: 250px;
+            padding: 10px 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-custom .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #34495e; /* Gris sombre assorti */
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+
+        .navbar-custom .search-bar input {
+            border: none;
+            outline: none;
+            background: transparent;
+            padding: 5px;
+            width: 200px;
+            color: #ecf0f1; /* Texte blanc cassé */
+        }
+
+        .navbar-custom .icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .navbar-custom .icons i {
+            font-size: 20px;
+            color: #bdc3c7; /* Icônes gris clair */
+            cursor: pointer;
+        }
+
+        .navbar-custom .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ecf0f1;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
         }
 
         /* Contenu principal */
         .content {
-            margin-top: 50px;
-            margin-left: 270px;
-            min-width: 70%;
-            padding: 40px;
-            background-color: #ffffff;
-            min-height: auto;
-            border-top: 3px solid #007bff; /* Ligne de couleur professionnelle */
-            box-shadow: 0px 0px 20px gray;
-        }
-
-        /* Styles de boutons */
-        .btn-custom {
-            background-color: #007bff; /* Bleu professionnel */
-            color: #ffffff;
-            border: none;
-            transition: background-color 0.3s;
-        }
-
-        .btn-custom:hover {
-            background-color: #0056b3; /* Bleu foncé */
-        }
-
-        /* Messages et alertes */
-        .alert-success {
-            background-color: #28a745;
-            color: #ffffff;
-        }
-
-        .alert-warning {
-            background-color: #ffc107;
-            color: #212529;
-        }
-
-        .alert-danger {
-            background-color: #dc3545;
-            color: #ffffff;
-        }
-
-        /* Barre de navigation */
-        .navbar-custom {
-            background-color: #343a40;
-            color: #ffffff;
-        }
-
-        .navbar-custom a {
-            color: #ffffff;
-            transition: color 0.3s;
-        }
-
-        .navbar-custom a:hover {
-            color: #adb5bd; /* Gris clair */
+            
+            margin-left: 250px;
+             /* Espace pour la barre de navigation */
+            padding: 20px;
+            background-color: #ffffff; /* Fond blanc pour le contenu */
+           
+            
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
         }
     </style>
 </head>
 <body>
-    <div class="d-flex">
-        <div class="sidebar">
-            <h3 class="text-center">Admin</h3>
-            <a href="<?= base_url('/dashbord/ajouter_exam') ?>">Ajouter Examen</a>
-            <a href="<?= base_url('/dashbord/confirmation_paiement') ?>">Confirmation Paiement</a>
-            <a href="<?= base_url('/dashbord/liste_examen') ?>">Liste des Examens</a>
-            <a href="<?= base_url('/dashbord/liste_clients') ?>">Liste des Clients</a>
-            <a href="<?= base_url('/dashbord/rapport') ?>">Charts</a>
-            <a href="#">Log Out</a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>Admin</h3>
+        <a href="<?= base_url('/dashbord/ajouter_exam') ?>">Ajouter Examen</a>
+        <a href="<?= base_url('/dashbord/confirmation_paiement') ?>">Confirmation Paiement</a>
+        <a href="<?= base_url('/dashbord/liste_examen') ?>">Liste des Examens</a>
+        <a href="<?= base_url('/dashbord/liste_clients') ?>">Liste des Clients</a>
+        <a href="<?= base_url('/dashbord/rapport') ?>">Charts</a>
+        <a href="#">Log Out</a>
+    </div>
+
+    <!-- Barre de navigation en haut -->
+    <div class="navbar-custom">
+        <div class="search-bar">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Search...">
         </div>
-        <div class="content">
-             <?= $this->renderSection('content') ?>
+        <div class="icons">
+            <i class="bi bi-envelope"></i>
+            <i class="bi bi-bell"></i>
+            <i class="bi bi-stack"></i>
+            <div class="profile">
+                <img src="../images/admin-foto.jpg" alt="Profile">
+                <span>Hi, Hizrian</span>
+            </div>
         </div>
     </div>
+
+    <!-- Contenu principal -->
+    <div class="content">
+        <?= $this->renderSection('content') ?>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

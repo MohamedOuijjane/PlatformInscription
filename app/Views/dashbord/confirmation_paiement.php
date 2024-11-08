@@ -24,6 +24,8 @@
     .table th {
         background-color: #e9ecef;
         font-weight: 600;
+
+        
         color: #495057;
     }
 
@@ -71,6 +73,26 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>101</td>
+                    <td>John Doe</td>
+                    <td>100€</td>
+                    <td>15 septembre 2024</td>
+                    <td>En Attente</td>
+                    <td>
+                        <button class="btn btn-success btn-sm">Confirmer</button>
+                        <button class="btn btn-warning btn-sm">Refuser</button>
+                    </td>
+                </tr> <tr>
+                    <td>101</td>
+                    <td>John Doe</td>
+                    <td>100€</td>
+                    <td>15 septembre 2024</td>
+                    <td>En Attente</td>
+                    <td>
+                        <button class="btn btn-success btn-sm">Confirmer</button>
+                        <button class="btn btn-warning btn-sm">Refuser</button>
+                    </td>
+                </tr> <tr>
                     <td>101</td>
                     <td>John Doe</td>
                     <td>100€</td>

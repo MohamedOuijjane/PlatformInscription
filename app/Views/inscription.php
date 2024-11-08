@@ -131,7 +131,7 @@ Page d'Accueil
 <div class="container my-5">
     <!-- En-tête du calendrier -->
     <div class="calendar-header">
-        <h1>Calendrier des Sessions</h1>
+        <h1>Préinscription</h1>
         <p>L'inscription peut être arrêtée avant la date limite dès qu'il n'y a plus de places disponibles.</p>
     </div>
 
