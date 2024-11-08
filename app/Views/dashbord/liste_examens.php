@@ -11,7 +11,7 @@
     }
 
     .card-header {
-        background-color: #3498db;
+        background-color: #CCCCCC;
         color: #ffffff;
         font-weight: bold;
         padding: 15px;
@@ -93,6 +93,35 @@
             </thead>
             <tbody id="examTable">
                 <tr>
+                    <td>1</td>
+                    <td>Prüfung A1</td>
+                    <td>10 novembre 2024</td>
+                    <td>Fès</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">Modifier</button>
+                        <button class="btn btn-danger btn-sm">Supprimer</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Prüfung A1</td>
+                    <td>10 novembre 2024</td>
+                    <td>Fès</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">Modifier</button>
+                        <button class="btn btn-danger btn-sm">Supprimer</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Prüfung A1</td>
+                    <td>10 novembre 2024</td>
+                    <td>Fès</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">Modifier</button>
+                        <button class="btn btn-danger btn-sm">Supprimer</button>
+                    </td>
+                </tr><tr>
                     <td>1</td>
                     <td>Prüfung A1</td>
                     <td>10 novembre 2024</td>

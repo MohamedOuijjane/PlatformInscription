@@ -16,7 +16,7 @@
         /* Sidebar */
         .sidebar {
             width: 250px;
-            background-color: #2c3e50; /* Gris foncé élégant */
+            background-color: #0190BB ; /* Gris foncé élégant */
             color: #ecf0f1; /* Texte blanc cassé */
             min-height: 100vh;
             padding-top: 20px;
@@ -32,8 +32,9 @@
         }
 
         .sidebar a {
-            color: #bdc3c7; /* Texte gris clair */
+            color: white; /* Texte gris clair */
             padding: 15px;
+            font-weight: bold;
             text-decoration: none;
             display: block;
             font-size: 0.9rem;
@@ -47,7 +48,7 @@
 
         /* Barre de navigation en haut */
         .navbar-custom {
-            background-color: #2c3e50; /* Couleur assortie à la sidebar */
+            background-color: #0190BB; /* Couleur assortie à la sidebar */
             color: #ffffff;
             width: calc(100% - 250px);
             position: fixed;
@@ -64,18 +65,22 @@
         .navbar-custom .search-bar {
             display: flex;
             align-items: center;
-            background-color: #34495e; /* Gris sombre assorti */
+            background-color: white ; /* Gris sombre assorti */
             border-radius: 5px;
             padding: 5px 10px;
         }
-
+        .navbar-custom .search-bar i{
+            color: #0190BB;
+            font-size: 1rem;
+            font-weight: 800;
+        }
         .navbar-custom .search-bar input {
             border: none;
             outline: none;
             background: transparent;
             padding: 5px;
             width: 200px;
-            color: #ecf0f1; /* Texte blanc cassé */
+            color: black; /* Texte blanc cassé */
         }
 
         .navbar-custom .icons {
@@ -86,7 +91,7 @@
 
         .navbar-custom .icons i {
             font-size: 20px;
-            color: #bdc3c7; /* Icônes gris clair */
+            color: white; /* Icônes gris clair */
             cursor: pointer;
         }
 
@@ -94,7 +99,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: #ecf0f1;
+            color: white;
+            font-weight: bold;
         }
 
         .profile img {

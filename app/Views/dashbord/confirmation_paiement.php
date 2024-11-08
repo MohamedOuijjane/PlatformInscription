@@ -11,7 +11,7 @@
 
     .card-header {
         background-color: #CCCCCC ; /* Couleur bleu professionnel */
-        color: black;
+        color: white;
         font-weight: bold;
         font-size: large;
         text-align: center;
@@ -40,7 +40,7 @@
         background-color: #21F695 ;
         border-color: #21F695 ;
         transition: background-color 0.3s;
-        font-weight: bold;
+        
     }
 
     .btn-success:hover {
@@ -50,7 +50,7 @@
     .btn-warning {
         background-color: #FE4C4C;
         border-color: #FE4C4C;
-        font-weight: bold;
+       
         color: white;
         transition: background-color 0.3s;
     }
@@ -59,6 +59,7 @@
         background-color: #E13700;
         color: #f8f9fa;
     }
+   
 </style>
 
 <h3 class="mb-4">Confirmation de Paiement</h3>
@@ -123,45 +124,7 @@
                     <td>
                         <button class="btn btn-success btn-sm">Confirmer</button>
                         <button class="btn btn-warning btn-sm">Refuser</button>
-                    </td><tr>
-                    <td>101</td>
-                    <td>John Doe</td>
-                    <td>100€</td>
-                    <td>15 septembre 2024</td>
-                    <td>En Attente</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">Confirmer</button>
-                        <button class="btn btn-warning btn-sm">Refuser</button>
-                    </td><tr>
-                    <td>101</td>
-                    <td>John Doe</td>
-                    <td>100€</td>
-                    <td>15 septembre 2024</td>
-                    <td>En Attente</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">Confirmer</button>
-                        <button class="btn btn-warning btn-sm">Refuser</button>
-                    </td><tr>
-                    <td>101</td>
-                    <td>John Doe</td>
-                    <td>100€</td>
-                    <td>15 septembre 2024</td>
-                    <td>En Attente</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">Confirmer</button>
-                        <button class="btn btn-warning btn-sm">Refuser</button>
-                    </td>
-                </tr> <tr>
-                    <td>101</td>
-                    <td>John Doe</td>
-                    <td>100€</td>
-                    <td>15 septembre 2024</td>
-                    <td>En Attente</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">Confirmer</button>
-                        <button class="btn btn-warning btn-sm">Refuser</button>
-                    </td>
-                </tr>
+                    
                 <!-- Ajoutez d'autres lignes ici -->
             </tbody>
         </table>
