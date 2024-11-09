@@ -5,20 +5,33 @@
     /* Styles pour les titres */
     h3 {
         font-weight: bold;
-        color: #0056b3; /* Bleu foncé cohérent */
+        color: #333;
     }
 
     /* Styles pour la carte */
     .card {
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre douce */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .card-header {
-        background-color: #aeaeaf; /* Bleu foncé professionnel */
-        color: #ffffff;
-        font-weight: 500;
+        background-color: #aeaeaf;
+        color: #fff;
+        font-weight: bold;
+        font-size: large;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+    }
+
+    /* Styles pour la sélection de niveau */
+    .select-niveau {
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid #ddd;
+        font-size: 0.9rem;
     }
 
     /* Styles pour les badges de paiement */
@@ -29,54 +42,53 @@
     }
 
     .badge.bg-success {
-        background-color: #28a745; /* Vert pour Payé */
+        background-color: #28a745;
         color: #fff;
     }
 
     .badge.bg-danger {
-        background-color: #dc3545; /* Rouge pour Non payé */
+        background-color: #dc3545;
         color: #fff;
     }
 
     /* Effet de survol pour les lignes du tableau */
     .table-hover tbody tr:hover {
-        background-color: #f1f1f1; /* Arrière-plan gris clair au survol */
+        background-color: #f8f9fa;
         transition: background-color 0.3s;
     }
 
-    /* Ombre pour la barre de recherche */
-    .input-group {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Styles pour les cellules du tableau */
+    .table th {
+        background-color: #f0f0f0;
+        color: #333;
+        font-weight: 600;
     }
 
-    /* Styles pour les boutons */
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-        transition: background-color 0.3s;
-    }
-
-    .btn-primary:hover {
-        background-color: #0056b3; /* Bleu foncé au survol */
+    .table td {
+        vertical-align: middle;
     }
 </style>
 
-<h3 class="mb-4 text-primary">Liste des Clients par Examen</h3>
-
-<!-- Barre de recherche -->
-<div class="mb-4 d-flex justify-content-between">
-    <div class="input-group" style="max-width: 400px;">
-        <input type="text" class="form-control" id="searchInput" placeholder="Rechercher par nom ou type d'examen">
-        <button class="btn btn-primary" onclick="searchTable()">Rechercher</button>
-    </div>
-</div>
+<h3 class="mb-4">Liste des Clients</h3>
 
 <!-- Carte pour afficher les clients inscrits -->
 <div class="card shadow-sm">
-    <div class="card-header text-white">Clients Inscrits</div>
+    <div class="card-header">
+        <span>Clients Inscrits</span>
+        <!-- Déplacement de la sélection de niveau vers la gauche -->
+        <select class="select-niveau" id="niveauSelect" onchange="filterByNiveau()">
+            <option value="">Tous les niveaux</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
+        </select>
+    </div>
     <div class="card-body">
         <table class="table table-hover table-bordered" id="clientsTable">
-            <thead class="table">
+            <thead>
                 <tr>
                     <th>Nom de l'Examen</th>
                     <th>Nom de l'Étudiant</th>
@@ -100,29 +112,28 @@
                     <td>+0987654321</td>
                     <td><span class="badge bg-danger">Non payé</span></td>
                 </tr>
+                <!-- Ajoutez d'autres lignes ici -->
             </tbody>
         </table>
     </div>
 </div>
 
-<!-- Script JavaScript pour la recherche -->
+<!-- Script JavaScript pour la recherche et le filtrage -->
 <script>
-    function searchTable() {
-        var input = document.getElementById("searchInput").value.toLowerCase();
+    function filterByNiveau() {
+        var niveau = document.getElementById("niveauSelect").value.toLowerCase();
         var table = document.getElementById("clientsTable");
         var rows = table.getElementsByTagName("tr");
 
         for (var i = 1; i < rows.length; i++) {
-            var cells = rows[i].getElementsByTagName("td");
-            var match = false;
+            var niveauCell = rows[i].getElementsByTagName("td")[0];
+            var niveauValue = niveauCell.innerText.toLowerCase();
 
-            for (var j = 0; j < cells.length - 1; j++) {
-                if (cells[j].innerText.toLowerCase().includes(input)) {
-                    match = true;
-                    break;
-                }
+            if (niveau === "" || niveauValue.includes(niveau)) {
+                rows[i].style.display = "";
+            } else {
+                rows[i].style.display = "none";
             }
-            rows[i].style.display = match ? "" : "none";
         }
     }
 </script>
