@@ -12,6 +12,8 @@ $routes->get('/inscription', 'Home::inscription');
 $routes->get('/inscriptionDetails','Home::inscriptionDetails');
 $routes->get('/login', 'Login::index'); 
 $routes->get('/register','Register::index');
+$routes->get('/dashboardClient','DashboardClient::dashboardClient');
+
 
 
 
