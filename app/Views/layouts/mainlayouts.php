@@ -30,7 +30,11 @@
         /* Conteneur de page principal */
         .page-content {
             min-height: 80vh;
-            padding-top: 20px;
+            padding-top: 10px;
+            background-color: #f7f7f7;
+            display: flex;
+            width: 100%;
+            
         }
 
         /* Footer */
@@ -39,6 +43,7 @@
             color: #ddd;
             padding: 40px 0;
             text-align: left;
+            height: 30%;
         }
 
         .footer .container {
@@ -70,12 +75,14 @@
         }
 
         .footer-bottom {
-            text-align: center;
-            padding-top: 10px;
-            border-top: 1px solid #333;
-            font-size: 14px;
-            margin-top: 20px;
+         text-align: center;
+         padding-top: 10px;
+         border-top: 2px solid #ddd;
+         font-size: 25px;
+         margin-top: 20px;
+         color: #f5f5f5;
         }
+       
 
     </style>
 </head>
@@ -113,7 +120,7 @@
     </nav>
 
     <!-- Contenu principal -->
-    <div class="container page-content">
+    <div class="container-fluid page-content">
         <?= $this->renderSection('content') ?>
     </div>
 
@@ -152,7 +159,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>COPYRIGHT © 2023. ALL RIGHTS RESERVED.</p>
+    <p style="color:#00bcd4">COPYRIGHT © 2023. ALL RIGHTS RESERVED.</p>
   </div>
 </footer>
 

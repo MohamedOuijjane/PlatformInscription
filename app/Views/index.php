@@ -10,16 +10,21 @@ Page d'Accueil
 
     /* Carrousel */
     .carousel {
-        max-width: 1000px;
+        max-width: 96%;
         margin: 20px auto;
         border-radius: 10px;
+        background-color: #0097a7;
+
     }
 
     .carousel-inner img {
         width: 100%;
-        height: auto;
-        min-height: 400px;
+        
+        /* min-height: 400px; */
         border-radius: 10px;
+        height: 400px; /* Ajustez cette valeur selon la hauteur souhaitée */
+    object-fit: cover; /* Cette propriété assure que l'image remplit l'espace tout en conservant son aspect */
+    width: 100%; /* Pour que l'image prenne toute la largeur */
     }
 
     .carousel-caption {
@@ -34,19 +39,19 @@ Page d'Accueil
 
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-        background-color: #3498db;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        background-color: #6c757d;
+        width: 50px;
+        height: 92px;
     }
 
     /* Section des diplômes */
     .language-diplomas {
         padding: 50px;
-        background-color: #fff;
+        background-color: #e0e0e0;
         text-align: left;
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
     }
 
     .intro-section h1 {
@@ -135,12 +140,17 @@ Page d'Accueil
 
     /* Section "Mot du Président" */
     .president-section {
-        background-color: #2c2c2c;
-        color: #e0e0e0;
-        padding: 60px 30px;
-        text-align: center;
-        border-top: 5px solid #00aaff;
-    }
+    width: 100%;
+    background-color: #0000001f;
+    /* opacity: 1; */
+    color: #212529db;
+    padding: 60px 30px;
+    text-align: center;
+    border-radius: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    opacity: 1.5;
+}
 
     .president-section h2 {
         font-size: 2.5rem;
@@ -149,21 +159,23 @@ Page d'Accueil
     }
 
     .divider {
-        width: 60px;
+        width: 100px;
         height: 5px;
-        background-color: #00aaff;
+        background-color: #00bcd4;
         margin: 20px auto 40px;
     }
 
     .president-section p {
-        font-size: 1rem;
-        line-height: 1.8;
-        max-width: 800px;
-        margin: 0 auto;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    max-width: 950px;
+    margin: 0 auto;
+    color: #000;
+        
     }
 </style>
 
-<div class="content-background">
+<div class="container-fluid">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -176,24 +188,22 @@ Page d'Accueil
                 <div class="carousel-caption d-none d-md-block">
                     <h2>Diplôme De Langue Allemande (ÖSD)</h2>
                     <p>Examens et certificats d'allemand reconnus internationalement pour les enfants, les jeunes apprenants et les adultes.</p>
-                    <div class="text-center">
-                        <a href="#" class="btn btn-primary">Plus d'informations</a>
-                        <a href="#" class="btn btn-outline-primary">Les sessions disponibles</a>
-                    </div>
+                    
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="images/image2.png" class="d-block" alt="Image 2">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>Un Autre Titre</h2>
-                    <p>Texte descriptif pour cette image.</p>
+                <h2>Diplôme De Langue Allemande (ÖSD)</h2>
+                <p>Examens et certificats d'allemand reconnus internationalement pour les enfants, les jeunes apprenants et les adultes.</p>
+
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="images/image3.jpg" class="d-block" alt="Image 3">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>Autre Titre</h2>
-                    <p>Description de l'image ou autre texte pertinent.</p>
+                <h2>Diplôme De Langue Allemande (ÖSD)</h2>
+                <p>Examens et certificats d'allemand reconnus internationalement pour les enfants, les jeunes apprenants et les adultes.</p>
                 </div>
             </div>
         </div>
