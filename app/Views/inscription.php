@@ -38,26 +38,6 @@ Page d'Accueil
         .overlay-text span {
             color: #007bff; /* Blue color for a specific part of the text */
         }
-    .calendar-header {
-        text-align: center;
-        background-color: #d1d1d1;
-        padding: 40px;
-        border-radius: 12px;
-        margin-bottom: 44px;
-        color: #5997cd;
-    }
-
-    .calendar-header h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
-
-    .calendar-header p {
-        font-size: 1rem;
-        color: #f90000;
-        margin-top: 5px;
-    }
 
     /* Conteneur des boutons de filtre */
     .filter-buttons {
@@ -180,9 +160,6 @@ Page d'Accueil
         <div class="overlay-text">
             <span>V</span>euillez bien choisir un examen
         </div>
-    <div class="calendar-header">
-        <h1>Préinscription</h1>
-        <p>L'inscription peut être arrêtée avant la date limite dès qu'il n'y a plus de places disponibles.</p>
     </div>
         <h4 class="clignote" >L'inscription peut être arrêtée avant la date limite dès qu'il n'y a plus de places disponibles.</h4>
     

@@ -7,26 +7,6 @@
 <?= $this->section('content') ?>
 <style>
     /* Styles pour l'en-tête */
-    .calendar-header {
-        text-align: center;
-        background-color: #f0f8ff;
-        padding: 40px;
-        border-radius: 12px;
-        margin-bottom: 30px;
-        color: #1e88e5;
-    }
-
-    .calendar-header h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
-
-    .calendar-header p {
-        font-size: 1rem;
-        color: #f90000;
-        margin-top: 5px;
-    }
 
     /* Conteneur des boutons de filtre */
     .filter-buttons {
