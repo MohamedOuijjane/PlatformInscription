@@ -131,7 +131,7 @@
         <a href="<?= base_url('/dashbord/liste_examen') ?>">Liste des Examens</a>
         <a href="<?= base_url('/dashbord/liste_clients') ?>">Liste des Clients</a>
         <a href="<?= base_url('/dashbord/rapport') ?>">Charts</a>
-        <a href="#">Log Out</a>
+        <a href="#">Log Outk</a>
     </div>
 
     <!-- Barre de navigation en haut -->
