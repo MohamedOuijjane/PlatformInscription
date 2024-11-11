@@ -84,7 +84,7 @@
 
 <div class="container">
     <div class="card">
-        <div class="card-header">Paiement</div>
+        <div class="card-header">Bonjour chèr(e) Client, $ClientName!</div>
     </div>
 </div>
 <?= $this->endSection() ?>

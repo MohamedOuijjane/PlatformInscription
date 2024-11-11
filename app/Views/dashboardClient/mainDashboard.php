@@ -129,8 +129,8 @@
         <a href="<?= base_url('/dashboardClient/profile') ?>">Profil</a>
         <a href="<?= base_url('/dashboardClient/paiement') ?>">Paiement</a>
         <a href="<?= base_url('/dashboardClient/convocation') ?>">Convocation</a>
-        <a href="<?= base_url('/dashboardClient/liste_clients') ?>">Liste des Clients</a>
-        <a href="<?= base_url('/dashboardClient/rapport') ?>">Charts</a>
+        <a href="<?= base_url('/dashboardClient') ?>">Add something</a>
+        <a href="<?= base_url('/dashboardClient') ?>">Add something</a>
         <a href="<?= base_url('/logout')?>">Log Out</a>
     </div>
 
