@@ -104,7 +104,7 @@
                         <i class="bi bi-telephone"></i> 06 56 70 62 70 / +212 656-706270
                     </span>
                     <span class="mx-3 text-white">|</span>
-                    <a href="#" class="text-white">
+                    <a href="<?= base_url('/login') ?> " class="text-white">
                         <i class="bi bi-person"></i> Login
                     </a>
                 </div>
@@ -112,35 +112,37 @@
         </nav>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">ÖSD</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto"> <!-- Alignement des éléments de navigation à droite -->
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?= base_url('/') ?>">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/calendrie') ?>">Calendrier</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"  href="<?= base_url('/inscription') ?>">Inscription</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Examen
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Examen 1</a></li>
-                            <li><a class="dropdown-item" href="#">Examen 2</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="<?= base_url('/')?> ">
+            <img src="<?= base_url('images/logo.png') ?>" alt="Passerelle des langues" style="height: 70px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<?= base_url('/') ?>">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('/calendrie') ?>">Calendrier</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('/inscription') ?>">Inscription</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Examen
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Examen 1</a></li>
+                        <li><a class="dropdown-item" href="#">Examen 2</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Contenu principal -->
     <div class="container page-content">
