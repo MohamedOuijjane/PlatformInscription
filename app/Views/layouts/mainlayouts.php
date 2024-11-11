@@ -117,7 +117,7 @@
 
             /* Hover Effects */
             .navbar .navbar-nav .nav-link:hover {
-                color: #007bff;
+                color: #2596be;
             }
 
             /* Underline Animation */
@@ -128,7 +128,7 @@
                 left: 50%;
                 width: 0;
                 height: 2px;
-                background-color: #007bff;
+                background-color: #2596be;
                 transition: width 0.3s ease, left 0.3s ease;
             }
 
@@ -290,10 +290,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
-
-
-
-
     <!-- Bootstrap 5.3.3 JS Bundle avec integrity et crossorigin -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
