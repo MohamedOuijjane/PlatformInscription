@@ -87,6 +87,16 @@
             font-size: 14px;
             margin-top: 20px;
         }
+        /* Navbar hidden and visible classes */
+            .navbar-hidden {
+                transform: translateY(-100%);
+                transition: transform 0.4s ease-in-out;
+            }
+
+            .navbar-visible {
+                transform: translateY(0);
+            }
+
 
     </style>
 </head>
@@ -111,7 +121,7 @@
             </div>
         </nav>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-hidden">
     <div class="container-fluid">
         <a class="navbar-brand" href="<?= base_url('/')?> ">
             <img src="<?= base_url('images/logo.png') ?>" alt="Passerelle des langues" style="height: 70px;">
@@ -143,7 +153,39 @@
         </div>
     </div>
 </nav>
-
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="<?= base_url('/')?> ">
+            <img src="<?= base_url('images/logo.png') ?>" alt="Passerelle des langues" style="height: 70px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<?= base_url('/') ?>">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('/calendrie') ?>">Calendrier</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('/inscription') ?>">Inscription</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Examen
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Examen 1</a></li>
+                        <li><a class="dropdown-item" href="#">Examen 2</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
     <!-- Contenu principal -->
     <div class="container page-content">
         <?= $this->renderSection('content') ?>
@@ -187,6 +229,29 @@
     <p>COPYRIGHT © 2023. ALL RIGHTS RESERVED.</p>
   </div>
 </footer>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navbar = document.querySelector('.navbar');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > lastScrollTop && scrollTop > 50) {
+                    // Show navbar when scrolling down and when not at the top
+                    navbar.classList.add('navbar-visible');
+                    navbar.classList.remove('navbar-hidden');
+                } else if (scrollTop < lastScrollTop || scrollTop <= 50) {
+                    // Hide navbar when scrolling up or at the top of the page
+                    navbar.classList.remove('navbar-visible');
+                    navbar.classList.add('navbar-hidden');
+                }
+
+                lastScrollTop = scrollTop;
+            });
+        });
+        </script>
+
 
 
     <!-- Bootstrap 5.3.3 JS Bundle avec integrity et crossorigin -->

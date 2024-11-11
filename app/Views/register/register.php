@@ -38,10 +38,10 @@ Sign up
             gap: 15px;
             padding: 50px 40px 20px 40px;
             background-color: #ffffff;
-            box-shadow: 0px 106px 42px rgba(0, 0, 0, 0.01),
-                        0px 59px 36px rgba(0, 0, 0, 0.05), 
-                        0px 26px 26px rgba(0, 0, 0, 0.09),
-                        0px 7px 15px rgba(0, 0, 0, 0.1), 
+            box-shadow: 0px 50px 20px rgba(0, 0, 0, 0.01),
+                        0px 30px 15px rgba(0, 0, 0, 0.03),
+                        0px 15px 10px rgba(0, 0, 0, 0.06),
+                        0px 5px 8px rgba(0, 0, 0, 0.08),
                         0px 0px 0px rgba(0, 0, 0, 0.1);
             border-radius: 11px;
             font-family: "Inter", sans-serif;
@@ -141,9 +141,15 @@ Sign up
             font-size: 0.75rem;
             color: #8B8E98;
             }
+            .navbar-brand{
+              margin-top: -10%;
+            }
     </style>
 
 <form class="form_container">
+        <a class="navbar-brand"  href="<?= base_url('/')?> ">
+            <img src="<?= base_url('images/logo.png') ?>" alt="Passerelle des langues" style="height: 110px;">
+        </a>
   <div class="logo_container">
     <h1 class="logo_title display-4 font-weight-bold">Sign Up for an Account</h1>
   </div>

@@ -39,11 +39,11 @@ Login
             padding: 110px 40px 20px 40px;
             background-color: #ffffff;
             box-shadow: 
-            0px 50px 20px rgba(0, 0, 0, 0.01),
-            0px 30px 15px rgba(0, 0, 0, 0.03),
-            0px 15px 10px rgba(0, 0, 0, 0.06),
-            0px 5px 8px rgba(0, 0, 0, 0.08),
-            0px 0px 0px rgba(0, 0, 0, 0.1);
+                    0px 50px 20px rgba(0, 0, 0, 0.01),
+                    0px 30px 15px rgba(0, 0, 0, 0.03),
+                    0px 15px 10px rgba(0, 0, 0, 0.06),
+                    0px 5px 8px rgba(0, 0, 0, 0.08),
+                    0px 0px 0px rgba(0, 0, 0, 0.1);
             border-radius: 11px;
             font-family: "Inter", sans-serif;
             }
