@@ -27,7 +27,7 @@
     .form-group .input-icon {
         position: absolute;
         left: 10px;
-        top: 50%;
+        top: 70%;
         transform: translateY(-50%);
         color: #666;
     }
