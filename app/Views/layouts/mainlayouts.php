@@ -90,13 +90,52 @@
         /* Navbar hidden and visible classes */
             .navbar-hidden {
                 transform: translateY(-100%);
-                transition: transform 0.4s ease-in-out;
+                transition: transform 0.5s ease-in-out;
             }
 
             .navbar-visible {
                 transform: translateY(0);
             }
+            /* Center Navbar Links */
+            .navbar .navbar-nav {
+                margin: 0 auto; /* Center the links in the navbar */
+            }
 
+            .navbar .navbar-nav .nav-item {
+                position: relative;
+                padding: 0 15px;
+            }
+
+            .navbar .navbar-nav .nav-link {
+                font-size: 1.1em;
+                font-weight: 500;
+                color: #333;
+                padding: 10px 15px;
+                text-transform: uppercase;
+                transition: color 0.3s ease;
+            }
+
+            /* Hover Effects */
+            .navbar .navbar-nav .nav-link:hover {
+                color: #007bff;
+            }
+
+            /* Underline Animation */
+            .navbar .navbar-nav .nav-item::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 0;
+                height: 2px;
+                background-color: #007bff;
+                transition: width 0.3s ease, left 0.3s ease;
+            }
+
+            .navbar .navbar-nav .nav-item:hover::after {
+                width: 100%;
+                left: 0;
+            }
 
     </style>
 </head>
@@ -230,27 +269,28 @@
   </div>
 </footer>
         <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const navbar = document.querySelector('.navbar');
-            let lastScrollTop = 0;
+document.addEventListener("DOMContentLoaded", function() {
+    const navbar = document.querySelector('.navbar-hidden');
+    let lastScrollTop = 0;
 
-            window.addEventListener('scroll', function() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-                if (scrollTop > lastScrollTop && scrollTop > 50) {
-                    // Show navbar when scrolling down and when not at the top
-                    navbar.classList.add('navbar-visible');
-                    navbar.classList.remove('navbar-hidden');
-                } else if (scrollTop < lastScrollTop || scrollTop <= 50) {
-                    // Hide navbar when scrolling up or at the top of the page
-                    navbar.classList.remove('navbar-visible');
-                    navbar.classList.add('navbar-hidden');
-                }
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            // Show navbar when scrolling down and away from the top
+            navbar.classList.add('navbar-visible');
+            navbar.classList.remove('navbar-hidden');
+        } else if (scrollTop <= lastScrollTop || scrollTop <= 50) {
+            // Hide navbar when scrolling up or near the top
+            navbar.classList.remove('navbar-visible');
+            navbar.classList.add('navbar-hidden');
+        }
 
-                lastScrollTop = scrollTop;
-            });
-        });
-        </script>
+        lastScrollTop = scrollTop;
+    });
+});
+</script>
+
 
 
 
