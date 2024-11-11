@@ -34,5 +34,7 @@ class DashboardController extends Controller
     {
         return view('/dashbord/rapport');
     }
-    
+    public function modifierProfil(){
+        return view('dashbord/modifier_profil');
+    }
 }
