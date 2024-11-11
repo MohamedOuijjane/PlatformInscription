@@ -186,7 +186,7 @@ Home - Passerelle des langues
             <div class="carousel-item active">
                 <img src="images/image1.jpg" class="d-block" alt="Image 1">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>Diplôme De Langue Allemande (ÖSD)</h2>
+                    <h2>Diplôme De Langue Allemande (Passerelle des langues)</h2>
                     <p>Examens et certificats d'allemand reconnus internationalement pour les enfants, les jeunes apprenants et les adultes.</p>
                     
                 </div>
@@ -194,7 +194,7 @@ Home - Passerelle des langues
             <div class="carousel-item">
                 <img src="images/image2.png" class="d-block" alt="Image 2">
                 <div class="carousel-caption d-none d-md-block">
-                <h2>Diplôme De Langue Allemande (ÖSD)</h2>
+                <h2>Diplôme De Langue Allemande (Passerelle des langues)</h2>
                 <p>Examens et certificats d'allemand reconnus internationalement pour les enfants, les jeunes apprenants et les adultes.</p>
 
                 </div>
@@ -202,7 +202,7 @@ Home - Passerelle des langues
             <div class="carousel-item">
                 <img src="images/image3.jpg" class="d-block" alt="Image 3">
                 <div class="carousel-caption d-none d-md-block">
-                <h2>Diplôme De Langue Allemande (ÖSD)</h2>
+                <h2>Diplôme De Langue Allemande (Passerelle des langues)</h2>
                 <p>Examens et certificats d'allemand reconnus internationalement pour les enfants, les jeunes apprenants et les adultes.</p>
                 </div>
             </div>
@@ -220,10 +220,10 @@ Home - Passerelle des langues
     <section class="language-diplomas">
   <div class="container">
     <div class="intro-section">
-      <h1>Le diplôme de langue allemande (ÖSD)</h1>
+      <h1>Le diplôme de langue allemande (Passerelle des langues)</h1>
       <h3 class="highlight">Les Langues Changent La Vie</h3>
       <p>
-        Un système d'examen à plusieurs niveaux pour l'allemand comme langue étrangère (moderne). Les diplômes ÖSD sont
+        Un système d'examen à plusieurs niveaux pour l'allemand comme langue étrangère (moderne). Les diplômes (Passerelle des langues) sont
         reconnus par l'ALTE “Association of Language Testers in Europe”, ce qui lui confère une reconnaissance
         internationale.
       </p>
@@ -239,13 +239,13 @@ Home - Passerelle des langues
       <div class="card">
         <div class="badge">A1</div>
         <h4>Zerifikat A1</h4>
-        <p>L'examen ÖSD ZERTIFIKAT A1 est semi-modulaire. Il se compose d'un module écrit (Lire + Écouter + Écrire) et d'un module oral.</p>
+        <p>L'examen  ZERTIFIKAT A1 est semi-modulaire. Il se compose d'un module écrit (Lire + Écouter + Écrire) et d'un module oral.</p>
         <a href="#" class="info-btn">Plus d'informations</a>
       </div>
       <div class="card">
         <div class="badge">A2</div>
         <h4>Zerifikat A2</h4>
-        <p>L'examen ÖSD ZERTIFIKAT A2 est semi-modulaire. Il se compose d'un module écrit (Lire + Écouter + Écrire) et d'un module oral.</p>
+        <p>L'examen  ZERTIFIKAT A2 est semi-modulaire. Il se compose d'un module écrit (Lire + Écouter + Écrire) et d'un module oral.</p>
         <a href="#" class="info-btn">Plus d'informations</a>
       </div>
       <div class="card">
@@ -257,7 +257,7 @@ Home - Passerelle des langues
       <div class="card">
         <div class="badge">B2</div>
         <h4>Zerifikat B2</h4>
-        <p>L'examen ÖSD ZERTIFIKAT B2 est semi-modulaire. Il se compose d'un module écrit (Lire + Écouter + Écrire) et d'un module oral.</p>
+        <p>L'examen  ZERTIFIKAT B2 est semi-modulaire. Il se compose d'un module écrit (Lire + Écouter + Écrire) et d'un module oral.</p>
         <a href="#" class="info-btn">Plus d'informations</a>
       </div>
     </div>
@@ -270,7 +270,7 @@ Home - Passerelle des langues
     <div class="divider"></div>
     <p>
         Vous vous êtes consacrés à l'apprentissage de l'allemand pour atteindre un certain but. Apprenez davantage en sachant que personne ne réussit sans effort et que ceux, qui réussissent dans leur vie, doivent leur succès à leur persévérance.
-        En 2001, Le Centre ÖSD est devenu un centre d’examen d'allemand agréé par le bureau central du « Diplôme autrichien de langue allemande ». Il organise les examens et délivre les diplômes A1, A2, B1, B2, C1 et C2. Le professeur Dr. Rachid Jai-Mansouri est le président de la commission des examens ÖSD au Maroc.
+        En 2001, Le Centre est devenu un centre d’examen d'allemand agréé par le bureau central du « Diplôme autrichien de langue allemande ». Il organise les examens et délivre les diplômes A1, A2, B1, B2, C1 et C2. Le professeur Dr. Rachid Jai-Mansouri est le président de la commission des examens au Maroc.
     </p>
 </div>
 </div>

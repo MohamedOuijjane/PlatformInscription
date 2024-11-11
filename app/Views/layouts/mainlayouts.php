@@ -97,7 +97,7 @@
                 <span>Lundi au Jeudi entre 10h et 16h</span>
                 <div class="contact-info">
                     <a href="mailto:contact@osd.ma" class="text-white">
-                        <i class="bi bi-envelope"></i> contact@osd.ma
+                        <i class="bi bi-envelope"></i> contact@pdl.ma
                     </a>
                     <span class="mx-3 text-white">|</span>
                     <span class="text-white">
@@ -153,20 +153,20 @@
     <footer class="footer">
   <div class="container">
     <div class="footer-section">
-      <h3>ösd</h3>
+      <h3>PDL</h3>
       <p>
         En 2001, Le Centre ÖSD est devenu un centre d'examen d'allemand agréé par le bureau central du
         « Diplôme autrichien de langue allemande ». Il organise les examens et délivre les diplômes A1, A2,
         B1, B2, C1 et C2. Le professeur Dr. Rachid Jai-Mansouri est le président de la commission des
-        examens ÖSD.
+        examens PDL.
       </p>
     </div>
     <div class="footer-section">
       <h3>Adresse</h3>
-      <p>Avenue Ibn El Khatib, Route d’Imouzzer (en face de la Mosquée Benmoussa à Derb El Ouard)</p>
-      <p>30050 Fès / Maroc</p>
-      <p>Tél: 05 35 60 44 54 / 06 61 85 41 52</p>
-      <p>Email: <a href="mailto:contact@osd.ma">contact@osd.ma</a></p>
+      <p>Avenue Tilila, Route De Mohammed5 (en face de la Mosquée Elmassi à Derb El faqir)</p>
+      <p>30050 AGADIR / Maroc</p>
+      <p>Tél: 06 56 70 62 70 / +212 656-706270</p>
+      <p>Email: <a href="mailto:contact@PDL.ma">contact@PDL.ma</a></p>
     </div>
     <div class="footer-section">
       <h3>Liens Rapides</h3>
