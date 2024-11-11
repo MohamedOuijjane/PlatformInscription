@@ -16,7 +16,7 @@
         /* Sidebar */
         .sidebar {
             width: 250px;
-            background-color: #0190BB ; /* Gris foncé élégant */
+            background-color: #0190BB; /* Gris foncé élégant */
             color: #ecf0f1; /* Texte blanc cassé */
             min-height: 100vh;
             padding-top: 20px;
@@ -36,7 +36,8 @@
             padding: 15px;
             font-weight: bold;
             text-decoration: none;
-            display: block;
+            display: flex;
+            align-items: center;
             font-size: 0.9rem;
             transition: background 0.3s, color 0.3s;
         }
@@ -44,6 +45,10 @@
         .sidebar a:hover {
             background-color: #34495e; /* Fond gris légèrement plus clair au survol */
             color: #ffffff; /* Texte blanc au survol */
+        }
+
+        .sidebar a i {
+            margin-right: 10px; /* Espace entre l'icône et le texte */
         }
 
         /* Barre de navigation en haut */
@@ -65,15 +70,17 @@
         .navbar-custom .search-bar {
             display: flex;
             align-items: center;
-            background-color: white ; /* Gris sombre assorti */
+            background-color: white; /* Gris sombre assorti */
             border-radius: 5px;
             padding: 5px 10px;
         }
-        .navbar-custom .search-bar i{
+
+        .navbar-custom .search-bar i {
             color: #0190BB;
             font-size: 1rem;
             font-weight: 800;
         }
+
         .navbar-custom .search-bar input {
             border: none;
             outline: none;
@@ -111,13 +118,9 @@
 
         /* Contenu principal */
         .content {
-            
             margin-left: 250px;
-             /* Espace pour la barre de navigation */
             padding: 20px;
             background-color: #ffffff; /* Fond blanc pour le contenu */
-           
-            
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
         }
     </style>
@@ -126,12 +129,12 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <h3>Admin</h3>
-        <a href="<?= base_url('/dashbord/ajouter_exam') ?>">Ajouter Examen</a>
-        <a href="<?= base_url('/dashbord/confirmation_paiement') ?>">Confirmation Paiement</a>
-        <a href="<?= base_url('/dashbord/liste_examen') ?>">Liste des Examens</a>
-        <a href="<?= base_url('/dashbord/liste_clients') ?>">Liste des Clients</a>
-        <a href="<?= base_url('/dashbord/rapport') ?>">Charts</a>
-        <a href="<?= base_url('/logout')?>">Log Out</a>
+        <a href="<?= base_url('/dashbord/ajouter_exam') ?>"><i class="bi bi-plus-circle"></i> Ajouter Examen</a>
+        <a href="<?= base_url('/dashbord/confirmation_paiement') ?>"><i class="bi bi-check-circle"></i> Confirmation Paiement</a>
+        <a href="<?= base_url('/dashbord/liste_examen') ?>"><i class="bi bi-list"></i> Liste des Examens</a>
+        <a href="<?= base_url('/dashbord/liste_clients') ?>"><i class="bi bi-people"></i> Liste des Clients</a>
+        <a href="<?= base_url('/dashbord/rapport') ?>"><i class="bi bi-bar-chart"></i> Charts</a>
+        <a href="<?= base_url('/logout') ?>"><i class="bi bi-box-arrow-right"></i> Log Out</a>
     </div>
 
     <!-- Barre de navigation en haut -->
