@@ -107,7 +107,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header"><h1>Bonjour chèr(e) Client, $ClientName!</h1></div>
-        <div class="clignote">Votre pré-inscription en ligne est envoyée!</div>
+        <div class="clignote">Votre préinscription en ligne a bien été envoyée!</div>
         <div class="form-container">
             <form class="form_container"> 
                 <div class="titleContainer">

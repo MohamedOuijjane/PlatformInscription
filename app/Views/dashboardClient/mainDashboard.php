@@ -9,15 +9,15 @@
         /* Couleurs de base et polices */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa; /* Fond gris clair pour un look moderne */
+            background-color: #f8f9fa;
             color: #333;
         }
 
         /* Sidebar */
         .sidebar {
             width: 250px;
-            background-color: #0190BB ; /* Gris foncé élégant */
-            color: #ecf0f1; /* Texte blanc cassé */
+            background-color: #0190BB;
+            color: #ecf0f1;
             min-height: 100vh;
             padding-top: 20px;
             position: fixed;
@@ -32,23 +32,29 @@
         }
 
         .sidebar a {
-            color: white; /* Texte gris clair */
+            color: white;
             padding: 15px;
             font-weight: bold;
             text-decoration: none;
-            display: block;
+            display: flex;
+            align-items: center;
             font-size: 0.9rem;
             transition: background 0.3s, color 0.3s;
         }
 
+        .sidebar a i {
+            margin-right: 10px; /* Space between icon and text */
+            font-size: 1.2rem;
+        }
+
         .sidebar a:hover {
-            background-color: #34495e; /* Fond gris légèrement plus clair au survol */
-            color: #ffffff; /* Texte blanc au survol */
+            background-color: #34495e;
+            color: #ffffff;
         }
 
         /* Barre de navigation en haut */
         .navbar-custom {
-            background-color: #0190BB; /* Couleur assortie à la sidebar */
+            background-color: #0190BB;
             color: #ffffff;
             width: calc(100% - 250px);
             position: fixed;
@@ -65,11 +71,11 @@
         .navbar-custom .search-bar {
             display: flex;
             align-items: center;
-            background-color: white ; /* Gris sombre assorti */
+            background-color: white;
             border-radius: 5px;
             padding: 5px 10px;
         }
-        .navbar-custom .search-bar i{
+        .navbar-custom .search-bar i {
             color: #0190BB;
             font-size: 1rem;
             font-weight: 800;
@@ -80,7 +86,7 @@
             background: transparent;
             padding: 5px;
             width: 200px;
-            color: black; /* Texte blanc cassé */
+            color: black;
         }
 
         .navbar-custom .icons {
@@ -91,7 +97,7 @@
 
         .navbar-custom .icons i {
             font-size: 20px;
-            color: white; /* Icônes gris clair */
+            color: white;
             cursor: pointer;
         }
 
@@ -111,14 +117,10 @@
 
         /* Contenu principal */
         .content {
-            
             margin-left: 250px;
-             /* Espace pour la barre de navigation */
             padding: 20px;
-            background-color: #ffffff; /* Fond blanc pour le contenu */
-           
-            
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+            background-color: #ffffff;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -126,12 +128,12 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <h3>Client</h3>
-        <a href="<?= base_url('/dashboardClient/profile') ?>">Profil</a>
-        <a href="<?= base_url('/dashboardClient/paiement') ?>">Paiement</a>
-        <a href="<?= base_url('/dashboardClient/convocation') ?>">Convocation</a>
-        <a href="<?= base_url('/dashboardClient') ?>">Add something</a>
-        <a href="<?= base_url('/dashboardClient') ?>">Add something</a>
-        <a href="<?= base_url('/logout')?>">Log Out</a>
+        <a href="<?= base_url('/dashboardClient/profile') ?>"><i class="bi bi-person-circle"></i> Profil</a>
+        <a href="<?= base_url('/dashboardClient/paiement') ?>"><i class="bi bi-wallet2"></i> Paiement</a>
+        <a href="<?= base_url('/dashboardClient/convocation') ?>"><i class="bi bi-file-earmark-text"></i> Convocation</a>
+        <a href="<?= base_url('/dashboardClient') ?>"><i class="bi bi-plus-circle"></i> Add something</a>
+        <a href="<?= base_url('/dashboardClient') ?>"><i class="bi bi-plus-circle"></i> Add something</a>
+        <a href="<?= base_url('/logout') ?>"><i class="bi bi-box-arrow-right"></i> Log Out</a>
     </div>
 
     <!-- Barre de navigation en haut -->
