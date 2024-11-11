@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $this->renderSection('title') ?></title>
     <!-- Bootstrap 5.3.3 CSS avec integrity et crossorigin -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
     /* Styles de base pour l'ensemble de la page */
@@ -32,7 +33,17 @@
             min-height: 80vh;
             padding-top: 20px;
         }
-
+        /* top nav bar */
+        .top-navbar {
+            background-color: #0099cc;
+            color: white;
+            padding: 5px 0;
+        }
+        .top-navbar .contact-info a, .top-navbar .contact-info span {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
         /* Footer */
         .footer {
             background-color: #222;
@@ -80,6 +91,25 @@
     </style>
 </head>
 <body>
+    <!-- Top Navbar -->
+        <nav class="top-navbar">
+            <div class="container-fluid d-flex justify-content-between">
+                <span>Lundi au Jeudi entre 10h et 16h</span>
+                <div class="contact-info">
+                    <a href="mailto:contact@osd.ma" class="text-white">
+                        <i class="bi bi-envelope"></i> contact@osd.ma
+                    </a>
+                    <span class="mx-3 text-white">|</span>
+                    <span class="text-white">
+                        <i class="bi bi-telephone"></i> 06 56 70 62 70 / +212 656-706270
+                    </span>
+                    <span class="mx-3 text-white">|</span>
+                    <a href="#" class="text-white">
+                        <i class="bi bi-person"></i> Login
+                    </a>
+                </div>
+            </div>
+        </nav>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">

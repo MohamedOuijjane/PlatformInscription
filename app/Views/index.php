@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/mainlayouts') ?>
 
 <?= $this->section('title') ?>
-Page d'Accueil
+Home - Passerelle des langues
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
