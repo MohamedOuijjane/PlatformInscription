@@ -125,12 +125,12 @@
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <h3>Admin</h3>
-        <a href="<?= base_url('/dashbord/ajouter_exam') ?>">Ajouter Examen</a>
-        <a href="<?= base_url('/dashbord/confirmation_paiement') ?>">Confirmation Paiement</a>
-        <a href="<?= base_url('/dashbord/liste_examen') ?>">Liste des Examens</a>
-        <a href="<?= base_url('/dashbord/liste_clients') ?>">Liste des Clients</a>
-        <a href="<?= base_url('/dashbord/rapport') ?>">Charts</a>
+        <h3>Client</h3>
+        <a href="<?= base_url('/dashboardClient/profile') ?>">Profil</a>
+        <a href="<?= base_url('/dashboardClient/paiement') ?>">Paiement</a>
+        <a href="<?= base_url('/dashboardClient/convocation') ?>">Convocation</a>
+        <a href="<?= base_url('/dashboardClient/liste_clients') ?>">Liste des Clients</a>
+        <a href="<?= base_url('/dashboardClient/rapport') ?>">Charts</a>
         <a href="<?= base_url('/logout')?>">Log Out</a>
     </div>
 
@@ -146,7 +146,7 @@
             <i class="bi bi-stack"></i>
             <div class="profile">
                 <img src="../images/admin-foto.jpg" alt="Profile">
-                <span>Hi, Hizrian</span>
+                <span>Bonjour, Mohamed</span>
             </div>
         </div>
     </div>

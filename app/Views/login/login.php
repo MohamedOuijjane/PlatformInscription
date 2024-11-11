@@ -167,7 +167,7 @@ Login
     <span>Sign In</span>
   </button>
   <div class="separator">
-    <span>Or</span>
+    <span>Don't have an account?</span>
   </div>
   <a href="<?=  base_url('/register') ?>" class="btn btn-success sign-up_btn">Register</a>
             
