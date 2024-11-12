@@ -3,6 +3,7 @@
 <?= $this->section('content') ?>
 <style>
     /* Styles pour la page de modification du profil */
+   
     .container-profile {
         max-width: 600px;
         margin: 70px auto;

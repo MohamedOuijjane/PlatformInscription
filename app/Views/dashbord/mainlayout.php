@@ -127,7 +127,14 @@
             padding: 20px;
             background-color: #ffffff;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        
         }
+        .content{
+        background-image: url('../images/b.jpg'); /* Chemin de l'image */
+    background-size: cover; /* Adapte l'image pour couvrir toute la section */
+    background-position: center; /* Centre l'image */
+    
+    }
     </style>
 </head>
 <body>
@@ -139,7 +146,7 @@
         <a href="<?= base_url('/dashbord/liste_examen') ?>"><i class="bi bi-list"></i> Liste des Examens</a>
         <a href="<?= base_url('/dashbord/liste_clients') ?>"><i class="bi bi-people"></i> Liste des Clients</a>
         <a href="<?= base_url('/dashbord/rapport') ?>"><i class="bi bi-bar-chart"></i> Charts</a>
-        <button onclick="window.location.href='<?= base_url('/dashbord/modifier_profil') ?>'"><i class="bi bi-person"></i> Modifier Profil</button>
+        <a href="<?= base_url('/dashbord/modifier_profil') ?>"><i class="bi bi-person"></i> Modifier Profil</a>
         <a href="#"><i class="bi bi-box-arrow-right"></i> Log Out</a>
     </div>
 
