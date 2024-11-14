@@ -7,15 +7,22 @@
         font-family: 'Roboto', sans-serif;
         background: linear-gradient(135deg, #f4f6f8, #d9e4ec);
     }
-
-    .container {
-        max-width: 95%;
-       margin-top: 70px;
-      
-    }
+    
+    .container-ajouter {
+    max-width: 700px;
+    margin: 70px auto;
+    height: auto;
+    
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+   
+}
 
     .card {
-        border-radius: 30px;
+        margin-top: 10px;
+        width: 700px;
+        height: 550px;
+        border-radius: 10px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         border: none;
         background: #ffffff;
@@ -28,7 +35,7 @@
         color: #007bff;
         font-weight: bold;
         text-align: center;
-        padding-bottom: 5px;
+        padding-bottom: 40px;
         font-size: 1.5rem;
     }
 
@@ -82,7 +89,7 @@
     }
 </style>
 
-<div class="container">
+<div class="container-ajouter">
     <div class="card">
         <div class="card-header">Ajouter un Examen</div>
         <div class="card-body">

@@ -3,6 +3,7 @@
 <?= $this->section('content') ?>
 <style>
     /* Styles pour la carte */
+   
     .card {
        
         border-radius: 10px;

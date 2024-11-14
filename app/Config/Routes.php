@@ -30,5 +30,4 @@ $routes->get('/dashbord/confirmation_paiement', 'DashboardController::confirmati
 $routes->get('/dashbord/liste_examen', 'DashboardController::listeExamen');
 $routes->get('/dashbord/liste_clients', 'DashboardController::listeClients');
 $routes->get('/dashbord/rapport', 'DashboardController::rapport');
-
-
+$routes->get('/dashbord/modifier_profil', 'DashboardController::modifierProfil');

@@ -9,15 +9,20 @@
         /* Couleurs de base et polices */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa; /* Fond gris clair pour un look moderne */
+            background-color: #f8f9fa;
             color: #333;
         }
 
         /* Sidebar */
         .sidebar {
             width: 250px;
+<<<<<<< HEAD
             background-color: #0190BB; /* Gris foncé élégant */
             color: #ecf0f1; /* Texte blanc cassé */
+=======
+            background-color: #0190BB;
+            color: #ecf0f1;
+>>>>>>> devyassine3
             min-height: 100vh;
             padding-top: 20px;
             position: fixed;
@@ -31,20 +36,29 @@
             margin-bottom: 30px;
         }
 
-        .sidebar a {
-            color: white; /* Texte gris clair */
+        .sidebar a, .sidebar button {
+            color: white;
             padding: 15px;
             font-weight: bold;
             text-decoration: none;
             display: flex;
             align-items: center;
             font-size: 0.9rem;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
             transition: background 0.3s, color 0.3s;
+            cursor: pointer;
         }
 
-        .sidebar a:hover {
-            background-color: #34495e; /* Fond gris légèrement plus clair au survol */
-            color: #ffffff; /* Texte blanc au survol */
+        .sidebar a i, .sidebar button i {
+            margin-right: 10px;
+        }
+
+        .sidebar a:hover, .sidebar button:hover {
+            background-color: #34495e;
+            color: #ffffff;
         }
 
         .sidebar a i {
@@ -53,7 +67,7 @@
 
         /* Barre de navigation en haut */
         .navbar-custom {
-            background-color: #0190BB; /* Couleur assortie à la sidebar */
+            background-color: #0190BB;
             color: #ffffff;
             width: calc(100% - 250px);
             position: fixed;
@@ -70,7 +84,11 @@
         .navbar-custom .search-bar {
             display: flex;
             align-items: center;
+<<<<<<< HEAD
             background-color: white; /* Gris sombre assorti */
+=======
+            background-color: white;
+>>>>>>> devyassine3
             border-radius: 5px;
             padding: 5px 10px;
         }
@@ -87,7 +105,7 @@
             background: transparent;
             padding: 5px;
             width: 200px;
-            color: black; /* Texte blanc cassé */
+            color: black;
         }
 
         .navbar-custom .icons {
@@ -98,7 +116,7 @@
 
         .navbar-custom .icons i {
             font-size: 20px;
-            color: white; /* Icônes gris clair */
+            color: white;
             cursor: pointer;
         }
 
@@ -120,21 +138,43 @@
         .content {
             margin-left: 250px;
             padding: 20px;
+<<<<<<< HEAD
             background-color: #ffffff; /* Fond blanc pour le contenu */
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+=======
+            background-color: #ffffff;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        
+>>>>>>> devyassine3
         }
+        .content{
+        background-image: url('../images/b.jpg'); /* Chemin de l'image */
+    background-size: cover; /* Adapte l'image pour couvrir toute la section */
+    background-position: center; /* Centre l'image */
+    
+    }
     </style>
 </head>
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
         <h3>Admin</h3>
+<<<<<<< HEAD
         <a href="<?= base_url('/dashbord/ajouter_exam') ?>"><i class="bi bi-plus-circle"></i> Ajouter Examen</a>
         <a href="<?= base_url('/dashbord/confirmation_paiement') ?>"><i class="bi bi-check-circle"></i> Confirmation Paiement</a>
         <a href="<?= base_url('/dashbord/liste_examen') ?>"><i class="bi bi-list"></i> Liste des Examens</a>
         <a href="<?= base_url('/dashbord/liste_clients') ?>"><i class="bi bi-people"></i> Liste des Clients</a>
         <a href="<?= base_url('/dashbord/rapport') ?>"><i class="bi bi-bar-chart"></i> Charts</a>
         <a href="<?= base_url('/logout') ?>"><i class="bi bi-box-arrow-right"></i> Log Out</a>
+=======
+        <a href="<?= base_url('/dashbord/ajouter_exam') ?>"><i class="bi bi-plus-square"></i> Ajouter Examen</a>
+        <a href="<?= base_url('/dashbord/confirmation_paiement') ?>"><i class="bi bi-credit-card"></i> Confirmation Paiement</a>
+        <a href="<?= base_url('/dashbord/liste_examen') ?>"><i class="bi bi-list"></i> Liste des Examens</a>
+        <a href="<?= base_url('/dashbord/liste_clients') ?>"><i class="bi bi-people"></i> Liste des Clients</a>
+        <a href="<?= base_url('/dashbord/rapport') ?>"><i class="bi bi-bar-chart"></i> Charts</a>
+        <a href="<?= base_url('/dashbord/modifier_profil') ?>"><i class="bi bi-person"></i> Modifier Profil</a>
+        <a href="#"><i class="bi bi-box-arrow-right"></i> Log Out</a>
+>>>>>>> devyassine3
     </div>
 
     <!-- Barre de navigation en haut -->
