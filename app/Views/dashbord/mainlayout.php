@@ -16,13 +16,8 @@
         /* Sidebar */
         .sidebar {
             width: 250px;
-<<<<<<< HEAD
             background-color: #0190BB; /* Gris foncé élégant */
             color: #ecf0f1; /* Texte blanc cassé */
-=======
-            background-color: #0190BB;
-            color: #ecf0f1;
->>>>>>> devyassine3
             min-height: 100vh;
             padding-top: 20px;
             position: fixed;
@@ -84,11 +79,7 @@
         .navbar-custom .search-bar {
             display: flex;
             align-items: center;
-<<<<<<< HEAD
-            background-color: white; /* Gris sombre assorti */
-=======
             background-color: white;
->>>>>>> devyassine3
             border-radius: 5px;
             padding: 5px 10px;
         }
@@ -138,14 +129,9 @@
         .content {
             margin-left: 250px;
             padding: 20px;
-<<<<<<< HEAD
-            background-color: #ffffff; /* Fond blanc pour le contenu */
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
-=======
             background-color: #ffffff;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
         
->>>>>>> devyassine3
         }
         .content{
         background-image: url('../images/b.jpg'); /* Chemin de l'image */
@@ -159,14 +145,6 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <h3>Admin</h3>
-<<<<<<< HEAD
-        <a href="<?= base_url('/dashbord/ajouter_exam') ?>"><i class="bi bi-plus-circle"></i> Ajouter Examen</a>
-        <a href="<?= base_url('/dashbord/confirmation_paiement') ?>"><i class="bi bi-check-circle"></i> Confirmation Paiement</a>
-        <a href="<?= base_url('/dashbord/liste_examen') ?>"><i class="bi bi-list"></i> Liste des Examens</a>
-        <a href="<?= base_url('/dashbord/liste_clients') ?>"><i class="bi bi-people"></i> Liste des Clients</a>
-        <a href="<?= base_url('/dashbord/rapport') ?>"><i class="bi bi-bar-chart"></i> Charts</a>
-        <a href="<?= base_url('/logout') ?>"><i class="bi bi-box-arrow-right"></i> Log Out</a>
-=======
         <a href="<?= base_url('/dashbord/ajouter_exam') ?>"><i class="bi bi-plus-square"></i> Ajouter Examen</a>
         <a href="<?= base_url('/dashbord/confirmation_paiement') ?>"><i class="bi bi-credit-card"></i> Confirmation Paiement</a>
         <a href="<?= base_url('/dashbord/liste_examen') ?>"><i class="bi bi-list"></i> Liste des Examens</a>
@@ -174,7 +152,6 @@
         <a href="<?= base_url('/dashbord/rapport') ?>"><i class="bi bi-bar-chart"></i> Charts</a>
         <a href="<?= base_url('/dashbord/modifier_profil') ?>"><i class="bi bi-person"></i> Modifier Profil</a>
         <a href="#"><i class="bi bi-box-arrow-right"></i> Log Out</a>
->>>>>>> devyassine3
     </div>
 
     <!-- Barre de navigation en haut -->
