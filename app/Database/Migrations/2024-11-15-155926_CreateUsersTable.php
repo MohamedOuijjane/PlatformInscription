@@ -41,11 +41,13 @@ class CreateUsersTable extends Migration
             ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
-                'default' => 'CURRENT_TIMESTAMP'
+                'null' => true,
+                'default' => null
             ],
             'updated_at' => [
                 'type' => 'TIMESTAMP',
-                'default' => 'CURRENT_TIMESTAMP',
+                'null' => true,
+                'default' => null,
                 'on update' => 'CURRENT_TIMESTAMP'
             ]
         ]);
