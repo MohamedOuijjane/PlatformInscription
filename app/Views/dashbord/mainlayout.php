@@ -16,8 +16,8 @@
         /* Sidebar */
         .sidebar {
             width: 250px;
-            background-color: #0190BB; /* Gris foncé élégant */
-            color: #ecf0f1; /* Texte blanc cassé */
+            background-color: #0190BB; /* Couleur bleu foncé */
+            color: #ecf0f1; /* Texte blanc */
             min-height: 100vh;
             padding-top: 20px;
             position: fixed;
@@ -54,10 +54,6 @@
         .sidebar a:hover, .sidebar button:hover {
             background-color: #34495e;
             color: #ffffff;
-        }
-
-        .sidebar a i {
-            margin-right: 10px; /* Espace entre l'icône et le texte */
         }
 
         /* Barre de navigation en haut */
@@ -131,14 +127,10 @@
             padding: 20px;
             background-color: #ffffff;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-        
+            background-image: url('<?= base_url('images/b.jpg') ?>'); /* Chemin de l'image de fond */
+            background-size: cover;
+            background-position: center;
         }
-        .content{
-        background-image: url('../images/b.jpg'); /* Chemin de l'image */
-    background-size: cover; /* Adapte l'image pour couvrir toute la section */
-    background-position: center; /* Centre l'image */
-    
-    }
     </style>
 </head>
 <body>
@@ -165,7 +157,7 @@
             <i class="bi bi-bell"></i>
             <i class="bi bi-stack"></i>
             <div class="profile">
-                <img src="../images/admin-foto.jpg" alt="Profile">
+                <img src="<?= base_url('images/admin-foto.jpg') ?>" alt="Profile"> <!-- Chemin de l'image de profil -->
                 <span>Hi, Hizrian</span>
             </div>
         </div>
