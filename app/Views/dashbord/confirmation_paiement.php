@@ -3,15 +3,13 @@
 <?= $this->section('content') ?>
 <style>
     /* Styles pour la carte */
-   
     .card {
-       
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .card-header {
-        background-color: #CCCCCC ; /* Couleur bleu professionnel */
+        background-color: #CCCCCC; /* Couleur gris clair */
         color: white;
         font-weight: bold;
         font-size: large;
@@ -27,8 +25,6 @@
     .table th {
         background-color: #e9ecef;
         font-weight: 600;
-
-        
         color: black;
     }
 
@@ -38,10 +34,9 @@
 
     /* Styles pour les boutons */
     .btn-success {
-        background-color: #21F695 ;
-        border-color: #21F695 ;
+        background-color: #21F695;
+        border-color: #21F695;
         transition: background-color 0.3s;
-        
     }
 
     .btn-success:hover {
@@ -51,7 +46,6 @@
     .btn-warning {
         background-color: #FE4C4C;
         border-color: #FE4C4C;
-       
         color: white;
         transition: background-color 0.3s;
     }
@@ -60,13 +54,21 @@
         background-color: #E13700;
         color: #f8f9fa;
     }
-   
 </style>
 
 <h3 class="mb-4">Confirmation de Paiement</h3>
 <div class="card">
     <div class="card-header">Paiements en Attente</div>
     <div class="card-body">
+        <!-- Affichage des messages de succès ou d'erreur -->
+        <?php if (session()->has('success')): ?>
+            <div class="alert alert-success"><?= session('success') ?></div>
+        <?php endif; ?>
+
+        <?php if (session()->has('error')): ?>
+            <div class="alert alert-danger"><?= session('error') ?></div>
+        <?php endif; ?>
+
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -79,54 +81,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>101</td>
-                    <td>John Doe</td>
-                    <td>100€</td>
-                    <td>15 septembre 2024</td>
-                    <td>En Attente</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">Confirmer</button>
-                        <button class="btn btn-warning btn-sm">Refuser</button>
-                    </td>
-                </tr> <tr>
-                    <td>101</td>
-                    <td>John Doe</td>
-                    <td>100€</td>
-                    <td>15 septembre 2024</td>
-                    <td>En Attente</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">Confirmer</button>
-                        <button class="btn btn-warning btn-sm">Refuser</button>
-                    </td><tr>
-                    <td>101</td>
-                    <td>John Doe</td>
-                    <td>100€</td>
-                    <td>15 septembre 2024</td>
-                    <td>En Attente</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">Confirmer</button>
-                        <button class="btn btn-warning btn-sm">Refuser</button>
-                    </td><tr>
-                    <td>101</td>
-                    <td>John Doe</td>
-                    <td>100€</td>
-                    <td>15 septembre 2024</td>
-                    <td>En Attente</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">Confirmer</button>
-                        <button class="btn btn-warning btn-sm">Refuser</button>
-                    </td><tr>
-                    <td>101</td>
-                    <td>John Doe</td>
-                    <td>100€</td>
-                    <td>15 septembre 2024</td>
-                    <td>En Attente</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">Confirmer</button>
-                        <button class="btn btn-warning btn-sm">Refuser</button>
-                    
-                <!-- Ajoutez d'autres lignes ici -->
+                <?php foreach ($payments as $payment): ?>
+                    <tr>
+                        <td><?= $payment['id'] ?></td>
+                        <td><?= $payment['registration_id'] ?></td> <!-- Assurez-vous que le champ 'username' existe dans la base de données -->
+                        <td><?= $payment['amount'] ?>€</td>
+                        <td><?= $payment['payment_date'] ?></td>
+                        <td><?= $payment['status'] ?></td>
+                        <td>
+                            <a href="<?= base_url('PaymentsController/confirm/' . $payment['id']) ?>" class="btn btn-success btn-sm">Confirmer</a>
+                            <a href="<?= base_url('PaymentsController/refuse/' . $payment['id']) ?>" class="btn btn-warning btn-sm">Refuser</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>

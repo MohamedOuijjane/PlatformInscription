@@ -16,10 +16,10 @@ class DashboardController extends Controller
         return view('dashbord/ajouter_exam');
     }
 
-    public function confirmationPaiement()
-    {
-        return view('/dashbord/confirmation_paiement');
-    }
+    // public function confirmationPaiement()
+    // {
+    //     return view('/dashbord/confirmation_paiement');
+    // }
 
     public function listeExamen()
     {

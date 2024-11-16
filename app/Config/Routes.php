@@ -26,7 +26,7 @@ $routes->get('/dashboardClient/convocation',to: 'DashboardClient::convocation');
 //dashboard admin routes
 $routes->get('/dashbord', 'DashboardController::rapport');
 
-$routes->get('/dashbord/confirmation_paiement', 'DashboardController::confirmationPaiement');
+// $routes->get('/dashbord/confirmation_paiement', 'DashboardController::confirmationPaiement');
 $routes->get('/dashbord/liste_examen', 'DashboardController::listeExamen');
 $routes->get('/dashbord/liste_clients', 'DashboardController::listeClients');
 $routes->get('/dashbord/rapport', 'DashboardController::rapport');
@@ -38,10 +38,14 @@ $routes->post('/ExamsController/addExam', 'ExamsController::addExam');
 // Dans app/Config/Routes.php
 $routes->get('dashbord/liste_examens', 'ExamsController::index');
 
-
+// Route qui concere Exam CRUD
 $routes->get('/ExamsController/fetchExams', 'ExamsController::fetchExams');
 $routes->delete('/ExamsController/deleteExam/(:num)', 'ExamsController::deleteExam/$1');
 $routes->get('/ExamsController/editExam/(:num)', 'ExamsController::editExam/$1');
 $routes->post('/ExamsController/updateExam/(:num)', 'ExamsController::updateExam/$1');
 
+// CRUD de confirmations de paiment
+$routes->get('/dashbord/confirmation_paiement', 'PaymentsController::index');
+$routes->get('/PaymentsController/confirm/(:num)', 'PaymentsController::confirm/$1');
+$routes->get('/PaymentsController/refuse/(:num)', 'PaymentsController::refuse/$1');
 
