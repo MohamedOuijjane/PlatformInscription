@@ -1,7 +1,6 @@
 <?= $this->extend('dashbord/mainlayout') ?>
 
 <?= $this->section('content') ?>
-
 <h3 class="mb-4">Liste des Examens</h3>
 <style>
     /* Styles de base pour la carte */
@@ -92,7 +91,7 @@
                 </tr>
             </thead>
             <tbody id="examTable">
-                <!-- Contenu généré dynamiquement par AJAX -->
+                <!-- Contenu rempli via AJAX -->
             </tbody>
         </table>
     </div>
@@ -101,50 +100,56 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-        // Fonction de recherche et de filtrage
         function fetchExams() {
-            let city = $('#searchBar').val();
-            let level = $('#filterType').val();
+            const searchQuery = $('#searchBar').val();
+            const filterType = $('#filterType').val();
 
             $.ajax({
-                url: '<?= base_url("/exams/searchByCity") ?>',
+                url: `<?= base_url('ExamsController/fetchExams') ?>`,
                 method: 'GET',
-                data: { city: city, level: level },
+                data: {
+                    search: searchQuery,
+                    type: filterType
+                },
                 success: function(response) {
-                    let examTable = $('#examTable');
-                    examTable.empty();
-
-                    if (response.length > 0) {
-                        response.forEach(exam => {
-                            examTable.append(`
-                                <tr>
-                                    <td>${exam.id}</td>
-                                    <td>${exam.name}</td>
-                                    <td>${exam.exam_date}</td>
-                                    <td>${exam.location}</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm">Modifier</button>
-                                        <button class="btn btn-danger btn-sm">Supprimer</button>
-                                    </td>
-                                </tr>
-                            `);
-                        });
-                    } else {
-                        examTable.append('<tr><td colspan="5" class="text-center">Aucun examen trouvé</td></tr>');
-                    }
+                    $('#examTable').html(response);
                 },
                 error: function() {
-                    alert('Erreur lors de la récupération des examens');
+                    alert('Erreur lors de la récupération des examens.');
                 }
             });
         }
 
-        // Événements pour déclencher la recherche
-        $('#searchBar, #filterType').on('input change', fetchExams);
-
-        // Charger les examens au démarrage
+        // Appel initial pour charger les examens
         fetchExams();
+
+        // Mettre à jour la liste des examens lors de la recherche ou du filtrage
+        $('#searchBar').on('input', fetchExams);
+        $('#filterType').on('change', fetchExams);
+
+        // Supprimer l'examen
+        $(document).on('click', '.delete-btn', function() {
+            const id = $(this).data('id');
+            if (confirm('Êtes-vous sûr de vouloir supprimer cet examen ?')) {
+                $.ajax({
+                    url: `<?= base_url('ExamsController/deleteExam') ?>/${id}`,
+                    method: 'DELETE',
+                    success: function(response) {
+                        alert(response.message);
+                        fetchExams(); // Recharger les examens
+                    },
+                    error: function() {
+                        alert('Erreur lors de la suppression de l\'examen.');
+                    }
+                });
+            }
+        });
+
+        // Modifier l'examen
+        $(document).on('click', '.edit-btn', function() {
+            const id = $(this).data('id');
+            window.location.href = `<?= base_url('ExamsController/editExam') ?>/${id}`;
+        });
     });
 </script>
-
 <?= $this->endSection() ?>

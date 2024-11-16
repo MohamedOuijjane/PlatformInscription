@@ -35,6 +35,13 @@ $routes->get('/dashbord/modifier_profil', 'DashboardController::modifierProfil')
 $routes->get('/dashbord/ajouter_exam', 'ExamsController::index');
 $routes->post('/ExamsController/addExam', 'ExamsController::addExam');
 
-$routes->get('/exams/searchByCity', 'ExamsController::searchByCity');
+// Dans app/Config/Routes.php
+$routes->get('dashbord/liste_examens', 'ExamsController::index');
+
+
+$routes->get('/ExamsController/fetchExams', 'ExamsController::fetchExams');
+$routes->delete('/ExamsController/deleteExam/(:num)', 'ExamsController::deleteExam/$1');
+$routes->get('/ExamsController/editExam/(:num)', 'ExamsController::editExam/$1');
+$routes->post('/ExamsController/updateExam/(:num)', 'ExamsController::updateExam/$1');
 
 

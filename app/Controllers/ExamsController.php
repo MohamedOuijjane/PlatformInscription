@@ -37,25 +37,91 @@ class ExamsController extends Controller
             return redirect()->to('/dashbord/ajouter_exam')->with('error', 'Échec de l\'ajout de l\'examen.');
         }
     }
-    public function searchByCity()
-    {
-        // Charger le modèle de l'examen
-        $examModel = new ExamModel();
-
-        // Récupérer la ville passée par AJAX
-        $city = $this->request->getVar('city');
-        $level = $this->request->getVar('level');
-
-        // Rechercher les examens en fonction de la ville et du niveau
-        $query = $examModel->where('location', $city);
-
-        if ($level) {
-            $query = $query->where('level', $level);
-        }
-
-        $exams = $query->findAll();
-
-        // Retourner les résultats en JSON
-        return $this->response->setJSON($exams);
-    }
+     // Récupérer les examens avec recherche et filtrage (AJAX)
+     public function fetchExams()
+     {
+         $examModel = new ExamModel();
+         $search = $this->request->getGet('search');
+         $type = $this->request->getGet('type');
+ 
+         // Construire la requête de recherche
+         $query = $examModel->select('*');
+ 
+         if ($search) {
+             $query->like('location', $search);
+         }
+ 
+         if ($type) {
+             $query->where('level', $type);
+         }
+ 
+         $exams = $query->findAll();
+ 
+         // Générer la sortie HTML pour les examens
+         $output = '';
+         foreach ($exams as $exam) {
+             $output .= '
+                 <tr>
+                     <td>' . $exam['id'] . '</td>
+                     <td>' . $exam['name'] . '</td>
+                     <td>' . $exam['exam_date'] . '</td>
+                     <td>' . $exam['location'] . '</td>
+                     <td>
+                         <button class="btn btn-primary btn-sm edit-btn" data-id="' . $exam['id'] . '">Modifier</button>
+                         <button class="btn btn-danger btn-sm delete-btn" data-id="' . $exam['id'] . '">Supprimer</button>
+                     </td>
+                 </tr>
+             ';
+         }
+ 
+         return $this->response->setBody($output);
+     }
+ 
+     // Supprimer un examen
+     public function deleteExam($id)
+     {
+         $examModel = new ExamModel();
+ 
+         if ($examModel->delete($id)) {
+             return $this->response->setJSON(['message' => 'Examen supprimé avec succès.']);
+         } else {
+             return $this->response->setJSON(['message' => 'Échec de la suppression de l\'examen.'], 500);
+         }
+     }
+ 
+     // Afficher la page de modification d'un examen
+     public function editExam($id)
+     {
+         $examModel = new ExamModel();
+         $exam = $examModel->find($id);
+ 
+         if ($exam) {
+             return view('dashbord/modifier_exam', ['exam' => $exam]);
+         } else {
+             return redirect()->to('/dashbord/liste_examens')->with('error', 'Examen non trouvé.');
+         }
+     }
+ 
+     // Mettre à jour un examen
+     public function updateExam($id)
+     {
+         $examModel = new ExamModel();
+ 
+         // Récupérer les données du formulaire
+         $data = [
+             'name' => $this->request->getPost('nomExam'),
+             'level' => $this->request->getPost('niveauExam'),
+             'location' => $this->request->getPost('lieuExam'),
+             'exam_date' => $this->request->getPost('dateExam'),
+             'start_date' => $this->request->getPost('dateDebut'),
+             'end_date' => $this->request->getPost('dateLimite'),
+         ];
+ 
+         // Mettre à jour les données et vérifier le succès
+         if ($examModel->update($id, $data)) {
+             return redirect()->to('/dashbord/liste_examens')->with('success', 'Examen mis à jour avec succès.');
+         } else {
+             return redirect()->to('/dashbord/liste_examens')->with('error', 'Échec de la mise à jour de l\'examen.');
+         }
+     }
 }
