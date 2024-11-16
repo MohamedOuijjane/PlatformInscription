@@ -66,7 +66,7 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
         <div>
-            <input type="text" class="form-control" placeholder="Rechercher un examen..." id="searchBar" style="width: 300px;">
+            <input type="text" class="form-control" placeholder="Rechercher par ville..." id="searchBar" style="width: 300px;">
         </div>
         <div>
             <select class="form-select" id="filterType" style="width: 200px;">
@@ -92,50 +92,59 @@
                 </tr>
             </thead>
             <tbody id="examTable">
-                <tr>
-                    <td>1</td>
-                    <td>Prüfung A1</td>
-                    <td>10 novembre 2024</td>
-                    <td>Fès</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">Modifier</button>
-                        <button class="btn btn-danger btn-sm">Supprimer</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Prüfung A1</td>
-                    <td>10 novembre 2024</td>
-                    <td>Fès</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">Modifier</button>
-                        <button class="btn btn-danger btn-sm">Supprimer</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Prüfung A1</td>
-                    <td>10 novembre 2024</td>
-                    <td>Fès</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">Modifier</button>
-                        <button class="btn btn-danger btn-sm">Supprimer</button>
-                    </td>
-                </tr><tr>
-                    <td>1</td>
-                    <td>Prüfung A1</td>
-                    <td>10 novembre 2024</td>
-                    <td>Fès</td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">Modifier</button>
-                        <button class="btn btn-danger btn-sm">Supprimer</button>
-                    </td>
-                </tr>
-                <!-- Ajoutez d'autres lignes ici -->
+                <!-- Contenu généré dynamiquement par AJAX -->
             </tbody>
         </table>
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Fonction de recherche et de filtrage
+        function fetchExams() {
+            let city = $('#searchBar').val();
+            let level = $('#filterType').val();
+
+            $.ajax({
+                url: '<?= base_url("/exams/searchByCity") ?>',
+                method: 'GET',
+                data: { city: city, level: level },
+                success: function(response) {
+                    let examTable = $('#examTable');
+                    examTable.empty();
+
+                    if (response.length > 0) {
+                        response.forEach(exam => {
+                            examTable.append(`
+                                <tr>
+                                    <td>${exam.id}</td>
+                                    <td>${exam.name}</td>
+                                    <td>${exam.exam_date}</td>
+                                    <td>${exam.location}</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm">Modifier</button>
+                                        <button class="btn btn-danger btn-sm">Supprimer</button>
+                                    </td>
+                                </tr>
+                            `);
+                        });
+                    } else {
+                        examTable.append('<tr><td colspan="5" class="text-center">Aucun examen trouvé</td></tr>');
+                    }
+                },
+                error: function() {
+                    alert('Erreur lors de la récupération des examens');
+                }
+            });
+        }
+
+        // Événements pour déclencher la recherche
+        $('#searchBar, #filterType').on('input change', fetchExams);
+
+        // Charger les examens au démarrage
+        fetchExams();
+    });
+</script>
 
 <?= $this->endSection() ?>

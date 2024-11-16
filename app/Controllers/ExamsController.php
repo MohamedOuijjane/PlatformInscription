@@ -37,4 +37,25 @@ class ExamsController extends Controller
             return redirect()->to('/dashbord/ajouter_exam')->with('error', 'Échec de l\'ajout de l\'examen.');
         }
     }
+    public function searchByCity()
+    {
+        // Charger le modèle de l'examen
+        $examModel = new ExamModel();
+
+        // Récupérer la ville passée par AJAX
+        $city = $this->request->getVar('city');
+        $level = $this->request->getVar('level');
+
+        // Rechercher les examens en fonction de la ville et du niveau
+        $query = $examModel->where('location', $city);
+
+        if ($level) {
+            $query = $query->where('level', $level);
+        }
+
+        $exams = $query->findAll();
+
+        // Retourner les résultats en JSON
+        return $this->response->setJSON($exams);
+    }
 }

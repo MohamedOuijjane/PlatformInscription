@@ -35,3 +35,6 @@ $routes->get('/dashbord/modifier_profil', 'DashboardController::modifierProfil')
 $routes->get('/dashbord/ajouter_exam', 'ExamsController::index');
 $routes->post('/ExamsController/addExam', 'ExamsController::addExam');
 
+$routes->get('/exams/searchByCity', 'ExamsController::searchByCity');
+
+
