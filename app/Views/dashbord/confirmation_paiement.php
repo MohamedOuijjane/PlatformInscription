@@ -73,7 +73,7 @@
             <thead>
                 <tr>
                     <th>ID Paiement</th>
-                    <th>Nom de l'Étudiant</th>
+                    <th>ID Registration </th>
                     <th>Montant</th>
                     <th>Date de Paiement</th>
                     <th>Statut</th>
