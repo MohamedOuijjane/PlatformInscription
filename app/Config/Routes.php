@@ -28,7 +28,7 @@ $routes->get('/dashbord', 'DashboardController::rapport');
 
 // $routes->get('/dashbord/confirmation_paiement', 'DashboardController::confirmationPaiement');
 $routes->get('/dashbord/liste_examen', 'DashboardController::listeExamen');
-$routes->get('/dashbord/liste_clients', 'DashboardController::listeClients');
+// $routes->get('/dashbord/liste_clients', 'DashboardController::listeClients');
 $routes->get('/dashbord/rapport', 'DashboardController::rapport');
 $routes->get('/dashbord/modifier_profil', 'DashboardController::modifierProfil');
 
@@ -48,4 +48,8 @@ $routes->post('/ExamsController/updateExam/(:num)', 'ExamsController::updateExam
 $routes->get('/dashbord/confirmation_paiement', 'PaymentsController::index');
 $routes->get('/PaymentsController/confirm/(:num)', 'PaymentsController::confirm/$1');
 $routes->get('/PaymentsController/refuse/(:num)', 'PaymentsController::refuse/$1');
+
+
+// la liste de clients avec leur stituation de paiment
+$routes->get('/dashbord/liste_clients', 'ClientsController::index');
 
