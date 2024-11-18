@@ -62,7 +62,7 @@
     
 </style>
 
-<h3 class="mb-4 text-primary">Statistiques d'Inscriptions et Examens</h3>
+
 
 <div class="row">
     <!-- Cartes avec des statistiques clés -->
