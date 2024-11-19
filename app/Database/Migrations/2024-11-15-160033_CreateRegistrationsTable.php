@@ -36,6 +36,11 @@ class CreateRegistrationsTable extends Migration
                 'constraint' => ['paid', 'pending', 'unpaid'],
                 'default' => 'pending'
             ],
+            'amount' => [
+                'type' => 'FLOAT',
+                'null' => true, // Vous pouvez définir null à false si vous souhaitez rendre ce champ obligatoire
+                'after' => 'payment_date' // Place la colonne 'amount' après 'payment_date'
+            ],
             'payment_date' => [
                 'type' => 'DATE',
                 'null' => true
