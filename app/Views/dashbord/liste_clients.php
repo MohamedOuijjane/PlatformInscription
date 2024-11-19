@@ -98,21 +98,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Prüfung A1</td>
-                    <td>Jane Smith</td>
-                    <td>jane.smith@example.com</td>
-                    <td>+1234567890</td>
-                    <td><span class="badge bg-success">Payé</span></td>
-                </tr>
-                <tr>
-                    <td>Prüfung B2</td>
-                    <td>John Doe</td>
-                    <td>john.doe@example.com</td>
-                    <td>+0987654321</td>
-                    <td><span class="badge bg-danger">Non payé</span></td>
-                </tr>
-                <!-- Ajoutez d'autres lignes ici -->
+                <?php foreach ($clients as $client): ?>
+                    <tr>
+                        <td><?= esc($client['exam_name']) ?></td>
+                        <td><?= esc($client['student_name']) ?></td>
+                        <td><?= esc($client['email']) ?></td>
+                        <td><?= esc($client['phone_number']) ?></td>
+                        <td>
+                            <span class="badge <?= $client['payment_status'] === 'paid' ? 'bg-success' : 'bg-danger' ?>">
+                                <?= esc(ucfirst($client['payment_status'])) ?>
+                            </span>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
