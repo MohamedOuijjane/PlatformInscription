@@ -135,6 +135,7 @@
         }
 </style>
 
+
 <div class="container my-5">
     <!-- En-tête du calendrier -->
     <div class="background-section">
@@ -142,153 +143,49 @@
             <span>C</span>alendrier des sessions
         </div>
     </div>
-        <h4 class="clignote" >L'inscription peut être arrêtée avant la date limite dès qu'il n'y a plus de places disponibles.</h4>
+    <h4 class="clignote">L'inscription peut être arrêtée avant la date limite dès qu'il n'y a plus de places disponibles.</h4>
 
     <!-- Boutons de filtre -->
     <div class="filter-buttons">
-        <button>Toutes</button>
-        <button>Prüfung A1</button>
-        <button>Prüfung A2</button>
-        <button>Prüfung B1</button>
-        <button>Prüfung B2</button>
+        <button onclick="filterSessions('')">Toutes</button>
+        <button onclick="filterSessions('A1')">Exams A1</button>
+        <button onclick="filterSessions('A2')">Exams A2</button>
+        <button onclick="filterSessions('B1')">Exams B1</button>
+        <button onclick="filterSessions('B2')">Exams B2</button>
     </div>
 
     <!-- Conteneur des sessions -->
-    <div class="session-container">
-        <div class="session-card">
-            <h3>Dimanche 3 novembre 2024</h3>
-            <span class="badge">B1</span>
-            <p>Prüfung B1</p>
-            <p>TANGER à 9:00</p>
-            <p>DMG-Marokko, 11, Rue de Belgique</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 22 octobre 2024</p>
-            </div>
-        </div>
-        <div class="session-card">
-            <h3>Samedi 9 novembre 2024</h3>
-            <span class="badge">B1</span>
-            <p>Prüfung B1</p>
-            <p>OUJDA à 10:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div>
-        <div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div><div class="session-card">
-            <h3>Dimanche 10 novembre 2024</h3>
-            <span class="badge">A1</span>
-            <p>Prüfung A1</p>
-            <p>OUJDA à 9:00</p>
-            <p>SIRIUS CENTER, Boulevard Med 6</p>
-            <div class="date-info">
-                <p>Début d'inscription : 1 septembre 2024</p>
-                <p>Date Limite : 29 octobre 2024</p>
-            </div>
-        </div>
-        <!-- Ajoutez plus de cartes de session si nécessaire -->
+    <div class="session-container" id="sessionContainer">
+        <?php if (!empty($sessions)): ?>
+            <?php foreach ($sessions as $session): ?>
+                <div class="session-card" data-level="<?= $session['level'] ?>">
+                    <h3><?= date('l d F Y', strtotime($session['exam_date'])) ?></h3>
+                    <span class="badge"><?= $session['level'] ?></span>
+                    <p><?= $session['name'] ?></p>
+                    <p><?= $session['location'] ."à 10:00" ?></p>
+                    <p><?= "SIRIUS CENTER, Boulevard Med 6" ?></p>
+                    <div class="date-info">
+                        <p>Début d'inscription : <?= date('d F Y', strtotime($session['start_date'])) ?></p>
+                        <p>Date Limite : <?= date('d F Y', strtotime($session['end_date'])) ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Aucune session trouvée.</p>
+        <?php endif; ?>
     </div>
 </div>
+
+<script>
+    function filterSessions(level) {
+        const sessionCards = document.querySelectorAll('.session-card');
+        sessionCards.forEach(card => {
+            if (level === '' || card.dataset.level === level) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
 <?= $this->endSection() ?>

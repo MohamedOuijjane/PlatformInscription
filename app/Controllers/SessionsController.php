@@ -13,6 +13,6 @@ class SessionsController extends BaseController
         $sessions = $examModel->findAll();
 
         // Passer les données des sessions à la vue
-        return view('calendar/sessions_calendar', ['sessions' => $sessions]);
+        return view('calendrie', ['sessions' => $sessions]);
     }
 }
