@@ -75,7 +75,8 @@
                     <th>ID Paiement</th>
                     <th>ID Registration </th>
                     <th>Montant</th>
-                    <th>Date de Paiement</th>
+                    <th>Reference</th>
+                    <th>Date de Payement</th>
                     <th>Statut</th>
                     <th>Actions</th>
                 </tr>
@@ -86,6 +87,7 @@
                         <td><?= $payment['id'] ?></td>
                         <td><?= $payment['registration_id'] ?></td> <!-- Assurez-vous que le champ 'username' existe dans la base de données -->
                         <td><?= $payment['amount'] ?>€</td>
+                        <td><?= $payment['reference'] ?></td>
                         <td><?= $payment['payment_date'] ?></td>
                         <td><?= $payment['status'] ?></td>
                         <td>
