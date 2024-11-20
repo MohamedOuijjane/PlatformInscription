@@ -162,7 +162,7 @@
                     <h3><?= date('l d F Y', strtotime($session['exam_date'])) ?></h3>
                     <span class="badge"><?= $session['level'] ?></span>
                     <p><?= $session['name'] ?></p>
-                    <p><?= $session['location'] ."à 10:00" ?></p>
+                    <p><?= $session['location'] ."  à 10:00" ?></p>
                     <p><?= "SIRIUS CENTER, Boulevard Med 6" ?></p>
                     <div class="date-info">
                         <p>Début d'inscription : <?= date('d F Y', strtotime($session['start_date'])) ?></p>
