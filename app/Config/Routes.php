@@ -8,7 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 //main page route
 $routes->get('/', 'Home::index');
 //calendrier et inscription view routes
-$routes->get('/calendrie', 'Home::calendrie');
+$routes->get('/calendrie', 'SessionsController::calendar');
 $routes->get('/inscription', 'Home::inscription');
 $routes->get('/inscriptionDetails','Home::inscriptionDetails');
 
