@@ -30,7 +30,7 @@ $routes->get('/dashbord', 'DashboardController::rapport');
 $routes->get('/dashbord/liste_examen', 'DashboardController::listeExamen');
 // $routes->get('/dashbord/liste_clients', 'DashboardController::listeClients');
 $routes->get('/dashbord/rapport', 'DashboardController::rapport');
-$routes->get('/dashbord/modifier_profil', 'DashboardController::modifierProfil');
+// $routes->get('/dashbord/modifier_profil', 'DashboardController::modifierProfil');
 
 $routes->get('/dashbord/ajouter_exam', 'ExamsController::index');
 $routes->post('/ExamsController/addExam', 'ExamsController::addExam');
@@ -55,4 +55,7 @@ $routes->get('/dashbord/liste_clients', 'ClientsController::index');
 // la collection des donne des Graphe 
 $routes->get('/exams/getChartData', 'ExamsController::getChartData');
 
+// la modification de mot de pass de Admin
+$routes->get('/profile', 'ProfileController::index');
+$routes->post('/profile/updatePassword', 'ProfileController::updatePassword');
 

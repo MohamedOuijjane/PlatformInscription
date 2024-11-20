@@ -2,8 +2,6 @@
 
 <?= $this->section('content') ?>
 <style>
-    /* Styles pour la page de modification du profil */
-   
     .container-profile {
         max-width: 600px;
         margin: 70px auto;
@@ -54,39 +52,52 @@
     .form-control {
         padding-left: 35px;
     }
+
+    .readonly-field {
+        background-color: #e9ecef !important;
+        pointer-events: none;
+    }
 </style>
 
 <div class="container-profile">
     <h3>Modifier le Profil</h3>
-    <form>
-        <div class="mb-3 form-group-icon">
-            <i class="bi bi-person"></i>
-            <label for="prenom" class="form-label">Prénom</label>
-            <input type="text" class="form-control" id="prenom" placeholder="Entrer votre prénom">
-        </div>
+    <?php if (session()->has('success')): ?>
+            <div class="alert alert-success"><?= session('success') ?></div>
+        <?php endif; ?>
 
+        <?php if (session()->has('error')): ?>
+            <div class="alert alert-danger"><?= session('error') ?></div>
+        <?php endif; ?>
+
+    <form method="post" action="<?= base_url('profile/updatePassword') ?>">
         <div class="mb-3 form-group-icon">
             <i class="bi bi-person"></i>
-            <label for="nom" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="nom" placeholder="Entrer votre nom">
+            <label for="prenom" class="form-label">Nom</label> 
+            <input type="text" class="form-control readonly-field" id="prenom" value="<?= $user['username'] ?>" readonly>
         </div>
 
         <div class="mb-3 form-group-icon">
             <i class="bi bi-envelope"></i>
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Entrer votre email">
+            <label for="nom" class="form-label">Email</label>
+            <input type="email" class="form-control readonly-field" id="nom" value="<?= $user['email'] ?>" readonly>
+        </div>
+
+        <div class="mb-3 form-group-icon">
+            <i class="bi bi-person-badge"></i>
+            <label for="role" class="form-label">Rôle</label>
+            <input type="text" class="form-control readonly-field" id="role" value="Admin" readonly>
         </div>
 
         <div class="mb-3 form-group-icon">
             <i class="bi bi-lock"></i>
-            <label for="motDePasse" class="form-label">Mot de Passe</label>
-            <input type="password" class="form-control" id="motDePasse" placeholder="Entrer votre mot de passe">
+            <label for="motDePasse" class="form-label">Nouveau Mot de Passe</label>
+            <input type="password" class="form-control" id="motDePasse" name="new_password" placeholder="Entrer votre nouveau mot de passe">
         </div>
 
         <div class="mb-3 form-group-icon">
             <i class="bi bi-lock"></i>
             <label for="confirmerMotDePasse" class="form-label">Confirmer le Mot de Passe</label>
-            <input type="password" class="form-control" id="confirmerMotDePasse" placeholder="Confirmer votre mot de passe">
+            <input type="password" class="form-control" id="confirmerMotDePasse" name="confirm_password" placeholder="Confirmer votre nouveau mot de passe">
         </div>
 
         <button type="submit" class="btn btn-primary w-100">Sauvegarder les Modifications</button>
