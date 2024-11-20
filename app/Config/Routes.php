@@ -52,4 +52,7 @@ $routes->get('/PaymentsController/refuse/(:num)', 'PaymentsController::refuse/$1
 
 // la liste de clients avec leur stituation de paiment
 $routes->get('/dashbord/liste_clients', 'ClientsController::index');
+// la collection des donne des Graphe 
+$routes->get('/exams/getChartData', 'ExamsController::getChartData');
+
 
