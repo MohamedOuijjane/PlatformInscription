@@ -6,7 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 //main page route
-$routes->get('/', 'Home::index');
+ $routes->get('/', 'Home::index');
 //calendrier et inscription view routes
 $routes->get('/calendrie', 'SessionsController::calendar');
 $routes->get('/inscription', 'Home::inscription');
@@ -58,4 +58,3 @@ $routes->get('/exams/getChartData', 'ExamsController::getChartData');
 // la modification de mot de pass de Admin
 $routes->get('/profile', 'ProfileController::index');
 $routes->post('/profile/updatePassword', 'ProfileController::updatePassword');
-

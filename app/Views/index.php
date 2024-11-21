@@ -22,7 +22,7 @@ Home - Passerelle des langues
         
         /* min-height: 400px; */
         border-radius: 10px;
-        height: 400px; /* trello Ajustez cette valeur selon la hauteur souhaitée */
+        height:500px; /* trello Ajustez cette valeur selon la hauteur souhaitée */
     object-fit: cover; /* Cette propriété assure que l'image remplit l'espace tout en conservant son aspect */
     width: 100%; /* Pour que l'image prenne toute la largeur */
     }
@@ -172,6 +172,9 @@ Home - Passerelle des langues
     margin: 0 auto;
     color: #000;
         
+    }
+    .container-page-content{
+       width: auto;
     }
 </style>
 

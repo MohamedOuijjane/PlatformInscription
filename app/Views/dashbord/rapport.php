@@ -4,7 +4,7 @@
 <style>
     /* Styles pour rendre les cartes et le contenu attrayant */
     .row {
-        margin-top: 20px;
+        margin-top: 88px;
     }
     .card {
         border-radius: 10px;
