@@ -160,7 +160,7 @@
                     labels: data.studentDistribution.labels,
                     datasets: [{
                         data: data.studentDistribution.values,
-                        backgroundColor: ['#007bff', '#e74c3c', '#f1c40f','black']
+                        backgroundColor: ['#007bff', '#F39A18 ', '#B8B8B8','#18C7F7']
                     }]
                 }
             });
