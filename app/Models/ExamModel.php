@@ -9,6 +9,6 @@ class ExamModel extends Model
     protected $table = 'Exams';
     protected $primaryKey = 'id';
     protected $allowedFields = [
-        'name', 'level', 'location', 'exam_date', 'start_date', 'end_date'
+        'level', 'adresse', 'ville', 'exam_date', 'heure', 'start_date', 'end_date'
     ];
 }

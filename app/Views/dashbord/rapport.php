@@ -48,6 +48,7 @@
     canvas {
         max-width: 100%;
     }
+    
 </style>
 
 <div class="row">

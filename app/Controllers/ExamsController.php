@@ -10,35 +10,54 @@ use CodeIgniter\Controller;
 class ExamsController extends Controller
 {
     public function index()
-    {
-        // Charger la vue du formulaire
-        return view('dashbord/ajouter_exam');
-    }
+{
+    // Charger des données supplémentaires pour la vue si nécessaire
+    $levels = ['A1', 'A2', 'B1', 'B2']; // Exemple de niveaux disponibles
+    $cities = ['Paris', 'Lyon', 'Marseille', 'Nice', 'Toulouse']; // Exemple de villes disponibles
+
+    // Passer les données à la vue
+    return view('dashbord/ajouter_exam', [
+        'levels' => $levels,
+        'cities' => $cities,
+    ]);
+}
 
     public function addExam()
-    {
-        // Charger le modèle de l'examen
-        $examModel = new ExamModel();
+{
+    $rules = [
+        'niveauExam' => 'required',
+        'adresse' => 'required|max_length[255]',
+        'ville' => 'required|max_length[100]',
+        'dateExam' => 'required|valid_date',
+        'heureExam' => 'required',
+        'dateDebut' => 'required|valid_date',
+        'dateLimite' => 'required|valid_date'
+    ];
 
-        // Récupérer les données du formulaire
-        $data = [
-            'name' => $this->request->getPost('nomExam'),
-            'level' => $this->request->getPost('niveauExam'),
-            'location' => $this->request->getPost('lieuExam'),
-            'exam_date' => $this->request->getPost('dateExam'),
-            'start_date' => $this->request->getPost('dateDebut'),
-            'end_date' => $this->request->getPost('dateLimite'),
-        ];
-
-        // Valider et insérer les données
-        if ($examModel->insert($data)) {
-            // Rediriger avec un message de succès
-            return redirect()->to('/dashbord/ajouter_exam')->with('success', 'Examen ajouté avec succès.');
-        } else {
-            // Rediriger avec un message d'erreur
-            return redirect()->to('/dashbord/ajouter_exam')->with('error', 'Échec de l\'ajout de l\'examen.');
-        }
+    if (!$this->validate($rules)) {
+        return redirect()->back()->withInput()->with('error', $this->validator->getErrors());
     }
+    
+
+    $data = [
+        'level' => $this->request->getPost('niveauExam'),
+        'adresse' => $this->request->getPost('adresse'),
+        'ville' => $this->request->getPost('ville'),
+        'exam_date' => $this->request->getPost('dateExam'),
+        'heure' => $this->request->getPost('heureExam'),
+        'start_date' => $this->request->getPost('dateDebut'),
+        'end_date' => $this->request->getPost('dateLimite')
+    ];
+
+    $examModel = new ExamModel();
+
+    if ($examModel->insert($data)) {
+        return redirect()->to('/dashbord/ajouter_exam')->with('success', 'Examen ajouté avec succès.');
+    }
+
+    return redirect()->to('/dashbord/ajouter_exam')->with('error', 'Échec de l\'ajout de l\'examen.');
+}
+
      // Récupérer les examens avec recherche et filtrage (AJAX)
      public function fetchExams()
      {

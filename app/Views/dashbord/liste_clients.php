@@ -90,7 +90,7 @@
         <table class="table table-hover table-bordered" id="clientsTable">
             <thead>
                 <tr>
-                    <th>Nom de l'Examen</th>
+                    <th>Niveau</th>
                     <th>Nom de l'Étudiant</th>
                     <th>Email</th>
                     <th>Téléphone</th>
@@ -100,7 +100,7 @@
             <tbody>
                 <?php foreach ($clients as $client): ?>
                     <tr>
-                        <td><?= esc($client['exam_name']) ?></td>
+                        <td><?= esc($client['level']) ?></td>
                         <td><?= esc($client['student_name']) ?></td>
                         <td><?= esc($client['email']) ?></td>
                         <td><?= esc($client['phone_number']) ?></td>

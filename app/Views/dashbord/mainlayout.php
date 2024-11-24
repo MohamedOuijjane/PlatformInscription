@@ -16,19 +16,23 @@
         /* Sidebar */
         .sidebar {
             width: 250px;
-            background-color: #0190BB; /* Couleur bleu foncé */
-            color: #ecf0f1; /* Texte blanc */
+            background-color: #0190BB;
+            color: #ecf0f1;
             min-height: 100vh;
             padding-top: 20px;
             position: fixed;
             transition: all 0.3s;
         }
 
-        .sidebar h3 {
+        .sidebar .logo-container {
             text-align: center;
-            font-weight: bold;
-            color: #ecf0f1;
-            margin-bottom: 30px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .logo-container img {
+            width: 200px;
+            height: 200px;
         }
 
         .sidebar a, .sidebar button {
@@ -38,7 +42,7 @@
             text-decoration: none;
             display: flex;
             align-items: center;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             border: none;
             background: none;
             width: 100%;
@@ -49,6 +53,7 @@
 
         .sidebar a i, .sidebar button i {
             margin-right: 10px;
+           
         }
 
         .sidebar a:hover, .sidebar button:hover {
@@ -136,7 +141,9 @@
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <h3>Admin</h3>
+        <div class="logo-container">
+            <img src="<?= base_url('images/logo.png') ?>" alt="Logo">
+        </div>
         <a href="<?= base_url('/dashbord/ajouter_exam') ?>"><i class="bi bi-plus-square"></i> Ajouter Examen</a>
         <a href="<?= base_url('/dashbord/confirmation_paiement') ?>"><i class="bi bi-credit-card"></i> Confirmation Paiement</a>
         <a href="<?= base_url('/dashbord/liste_examen') ?>"><i class="bi bi-list"></i> Liste des Examens</a>

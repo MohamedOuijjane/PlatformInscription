@@ -20,7 +20,7 @@ class ClientsController extends Controller
 
         // Extraire les données des clients avec jointures pour récupérer toutes les informations
         $clients = $registrationsModel
-            ->select('exams.name as exam_name, users.username as student_name, users.email, users.phone_number, payments.status as payment_status')
+            ->select('exams.level as level, users.username as student_name, users.email, users.phone_number, payments.status as payment_status')
             ->join('users', 'registrations.user_id = users.id')
             ->join('exams', 'registrations.exam_id = exams.id')
             ->join('payments', 'registrations.id = payments.registration_id')
