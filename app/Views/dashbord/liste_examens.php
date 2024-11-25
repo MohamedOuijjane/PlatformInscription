@@ -1,6 +1,10 @@
 <?= $this->extend('dashbord/mainlayout') ?>
 
 <?= $this->section('content') ?>
+<?php if (session()->has('success')): ?>
+                <div class="alert alert-success"><?= esc(session('success')) ?></div>
+            <?php endif; ?>
+
 <h3 class="mb-4">Liste des Examens</h3>
 <style>
     /* Styles de base pour la carte */
@@ -139,7 +143,7 @@
                         fetchExams(); // Recharger les examens
                     },
                     error: function() {
-                        alert('Erreur lors de la suppression de l\'examen.');
+                        alert('Exam tu peux pas suprimme.');
                     }
                 });
             }
