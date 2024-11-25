@@ -141,7 +141,7 @@
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <div class="logo-container">
+        <div class="logo-container ">
             <img src="<?= base_url('images/logo.png') ?>" alt="Logo">
         </div>
         <a href="<?= base_url('/dashbord/ajouter_exam') ?>"><i class="bi bi-plus-square"></i> Ajouter Examen</a>

@@ -10,21 +10,19 @@ Home - Passerelle des langues
 
     /* Carrousel */
     .carousel {
-        max-width: 96%;
-        margin: 20px auto;
+        max-width: 100%;
+        margin: 10px auto;
         border-radius: 10px;
         background-color: #0097a7;
+        height: 100%;
 
     }
 
     .carousel-inner img {
-        width: 100%;
-        
-        
+        width: 100%; 
         border-radius: 10px;
         height:500px; 
-    object-fit: cover; 
-    width: 100%; 
+        object-fit: cover; 
     }
 
     .carousel-caption {
@@ -174,9 +172,7 @@ Home - Passerelle des langues
     color: #000;
         
     }
-    .container-page-content{
-       width: auto;
-    }
+   
 </style>
 
 <div class="container-fluid">
@@ -188,26 +184,22 @@ Home - Passerelle des langues
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/image1.jpg" class="d-block" alt="Image 1">
+                <img src="images/c2.jpg" class="d-block" alt="Image 1">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2>Diplôme De Langue Allemande (Passerelle des langues)</h2>
-                    <p>Examens et certificats d'allemand reconnus internationalement pour les enfants, les jeunes apprenants et les adultes.</p>
+                    
                     
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="images/image2.png" class="d-block" alt="Image 2">
+                <img src="images/c1.jpg" class="d-block" alt="Image 2">
                 <div class="carousel-caption d-none d-md-block">
-                <h2>Diplôme De Langue Allemande (Passerelle des langues)</h2>
-                <p>Examens et certificats d'allemand reconnus internationalement pour les enfants, les jeunes apprenants et les adultes.</p>
-
+                
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="images/image3.jpg" class="d-block" alt="Image 3">
+                <img src="images/c3.jpg" class="d-block" alt="Image 3">
                 <div class="carousel-caption d-none d-md-block">
-                <h2>Diplôme De Langue Allemande (Passerelle des langues)</h2>
-                <p>Examens et certificats d'allemand reconnus internationalement pour les enfants, les jeunes apprenants et les adultes.</p>
+               
                 </div>
             </div>
         </div>
@@ -244,25 +236,25 @@ Home - Passerelle des langues
         <div class="badge">A1</div>
         <h4>Zerifikat A1</h4>
         <p>L'examen  ZERTIFIKAT A1 est semi-modulaire. Il se compose d'un module écrit (Lire + Écouter + Écrire) et d'un module oral.</p>
-        <a href="#" class="info-btn">Plus d'informations</a>
+        
       </div>
       <div class="card">
         <div class="badge">A2</div>
         <h4>Zerifikat A2</h4>
         <p>L'examen  ZERTIFIKAT A2 est semi-modulaire. Il se compose d'un module écrit (Lire + Écouter + Écrire) et d'un module oral.</p>
-        <a href="#" class="info-btn">Plus d'informations</a>
+        
       </div>
       <div class="card">
         <div class="badge">B1</div>
         <h4>Zerifikat B1</h4>
         <p>L'examen ZB1 est modulaire et se compose de quatre épreuves indépendantes l'une de l'autre. L'épreuve orale se passe en binôme.</p>
-        <a href="#" class="info-btn">Plus d'informations</a>
+        
       </div>
       <div class="card">
         <div class="badge">B2</div>
         <h4>Zerifikat B2</h4>
         <p>L'examen  ZERTIFIKAT B2 est semi-modulaire. Il se compose d'un module écrit (Lire + Écouter + Écrire) et d'un module oral.</p>
-        <a href="#" class="info-btn">Plus d'informations</a>
+        
       </div>
     </div>
   </div>

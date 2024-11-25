@@ -26,13 +26,19 @@
         /* Navigation */
         .navbar {
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            
         }
 
         /* Conteneur de page principal */
         .page-content {
+           
             min-height: 80vh;
             padding-top: 20px;
         }
+        .navbar-brand {
+    margin-right: 800px; 
+    margin-left: 50px;
+}
         /* top nav bar */
         .top-navbar {
             background-color: #0099cc;
@@ -50,8 +56,16 @@
             color: #ddd;
             padding: 40px 0;
             text-align: left;
+            position: relative; /* Nécessaire pour positionner le logo en bas à droite */
+            padding-bottom: 60px; /* Espace pour éviter que le logo chevauche le texte */
         }
-
+        .footer-logo {
+            position: absolute;
+    bottom: 20%;
+    right: 0;
+    height: 163px;
+    margin: 12px;
+}
         .footer .container {
             display: flex;
             justify-content: space-between;
@@ -67,6 +81,8 @@
         .footer-section h3 {
             color: #00bcd4;
             margin-bottom: 15px;
+            font-size: 2rem;
+             font-weight: bold; 
         }
 
         .footer-section p,
@@ -80,7 +96,7 @@
             color: #00bcd4;
         }
 
-        .footer-bottom {
+        .footer-bottom p{
             text-align: center;
             padding-top: 10px;
             border-top: 1px solid #333;
@@ -136,6 +152,16 @@
                 width: 100%;
                 left: 0;
             }
+            .navbar-fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Garder la navbar au-dessus des autres éléments */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optionnel pour une ombre subtile */
+    background-color: white; /* Conserver la couleur de fond même si elle était transparente */
+    transition: top 0.3s ease-in-out; /* Animation lors de l'apparition/disparition */
+}
+
 
     </style>
 </head>
@@ -146,7 +172,7 @@
                 <span>Lundi au Jeudi entre 10h et 16h</span>
                 <div class="contact-info">
                     <a href="mailto:contact@osd.ma" class="text-white">
-                        <i class="bi bi-envelope"></i> contact@pdl.ma
+                        <i class="bi bi-envelope"></i> contact@cerifyease.ma
                     </a>
                     <span class="mx-3 text-white">|</span>
                     <span class="text-white">
@@ -159,50 +185,21 @@
                 </div>
             </div>
         </nav>
-    <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbar-hidden">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="<?= base_url('/')?> ">
-            <img src="<?= base_url('images/logo.png') ?>" alt="Passerelle des langues" style="height: 70px; witdh:90px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?= base_url('/') ?>">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/calendrie') ?>">Calendrier</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/inscription') ?>">Inscription</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Examen
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Examen 1</a></li>
-                        <li><a class="dropdown-item" href="#">Examen 2</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!-- Navbar -->
+    
+<!-- Navbar 2 -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<?= base_url('/')?> ">
+        <!-- Logo aligné à gauche -->
+        <a class="navbar-brand" href="<?= base_url('/') ?>">
             <img src="<?= base_url('images/logo.png') ?>" alt="Passerelle des langues" style="height: 70px;">
         </a>
+        <!-- Bouton pour le menu responsive -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+        <!-- Menu aligné à droite -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?= base_url('/') ?>">Accueil</a>
                 </li>
@@ -212,34 +209,29 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('/inscription') ?>">Inscription</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Examen
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Examen 1</a></li>
-                        <li><a class="dropdown-item" href="#">Examen 2</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="#footer">About</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
     <!-- Contenu principal -->
     <div class="container-page-content">
         <?= $this->renderSection('content') ?>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="footer" style="position: relative;">
   <div class="container">
     <div class="footer-section">
-      <h3>PDL</h3>
+      <div class="footer-logo-text" style="font-size: 2.5rem; font-weight: bold;">
+        <span style="color: red;">CERTIFY</span>
+        <span style="color: #00bcd4;">EASE</span>
+      </div>
       <p>
-        En 2001, Le Centre ÖSD est devenu un centre d'examen d'allemand agréé par le bureau central du
-        « Diplôme autrichien de langue allemande ». Il organise les examens et délivre les diplômes A1, A2,
-        B1, B2, C1 et C2. Le professeur Dr. Rachid Jai-Mansouri est le président de la commission des
-        examens PDL.
+        En 2024, le Centre CERTIFYEASE a obtenu l'agrément en tant que centre officiel d'examen de langue française, délivré par un organisme central reconnu. Depuis, il organise des examens et attribue des certifications correspondant aux niveaux A1, A2, B1, B2, C1 et C2 du Cadre Européen Commun de Référence pour les Langues (CECRL). Sous la présidence du professeur Dr. Rachid Jai-Mansouri, président de la commission des examens CERTIFYEASE, le centre garantit des évaluations de haute qualité, répondant aux standards internationaux en matière d'apprentissage et de certification linguistique.
       </p>
     </div>
     <div class="footer-section">
@@ -247,48 +239,41 @@
       <p>Avenue Tilila, Route De Mohammed5 (en face de la Mosquée Elmassi à Derb El faqir)</p>
       <p>30050 AGADIR / Maroc</p>
       <p>Tél: 06 56 70 62 70 / +212 656-706270</p>
-      <p>Email: <a href="mailto:contact@PDL.ma">contact@PDL.ma</a></p>
+      <p>Email: <a href="mailto:contact@cerifyease.ma">contact@cerifyease.ma</a></p>
     </div>
     <div class="footer-section">
       <h3>Liens Rapides</h3>
       <ul>
         <li><a href="#">Accueil</a></li>
-        <li><a href="#">Salle & Table</a></li>
-        <li><a href="#">Inscription</a></li>
         <li><a href="#">Préinscription</a></li>
         <li><a href="#">Examen</a></li>
         <li><a href="#">Calendrier</a></li>
         <li><a href="#">Paiement</a></li>
         <li><a href="#">Convocation</a></li>
-        <li><a href="#">Résultat</a></li>
       </ul>
     </div>
   </div>
+  <!-- Ajout du logo en bas à droite -->
+  <img src="<?= base_url('images/logo.png') ?>" alt="Logo" class="footer-logo">
   <div class="footer-bottom">
     <p>COPYRIGHT © 2023. ALL RIGHTS RESERVED.</p>
   </div>
 </footer>
-        <script>
+
+<script>
 document.addEventListener("DOMContentLoaded", function() {
-    const navbar = document.querySelector('.navbar-hidden');
-    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+    const offsetTrigger = 50; // Seuil en pixels pour activer la classe
 
     window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > lastScrollTop && scrollTop > 50) {
-            // Show navbar when scrolling down and away from the top
-            navbar.classList.add('navbar-visible');
-            navbar.classList.remove('navbar-hidden');
-        } else if (scrollTop <= lastScrollTop || scrollTop <= 50) {
-            // Hide navbar when scrolling up or near the top
-            navbar.classList.remove('navbar-visible');
-            navbar.classList.add('navbar-hidden');
+        if (window.scrollY > offsetTrigger) {
+            navbar.classList.add('navbar-fixed-top');
+        } else {
+            navbar.classList.remove('navbar-fixed-top');
         }
-
-        lastScrollTop = scrollTop;
     });
 });
+
 </script>
     <!-- Bootstrap 5.3.3 JS Bundle avec integrity et crossorigin -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
