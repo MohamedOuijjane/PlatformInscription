@@ -20,11 +20,11 @@ Home - Passerelle des langues
     .carousel-inner img {
         width: 100%;
         
-        /* min-height: 400px; */
+        
         border-radius: 10px;
-        height:500px; /* trello Ajustez cette valeur selon la hauteur souhaitée */
-    object-fit: cover; /* Cette propriété assure que l'image remplit l'espace tout en conservant son aspect */
-    width: 100%; /* Pour que l'image prenne toute la largeur */
+        height:500px; 
+    object-fit: cover; 
+    width: 100%; 
     }
 
     .carousel-caption {
@@ -35,6 +35,7 @@ Home - Passerelle des langues
         color: #fff;
         z-index: 10;
         text-align: center;
+       
     }
 
     .carousel-control-prev-icon,

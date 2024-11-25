@@ -9,7 +9,7 @@ use CodeIgniter\Router\RouteCollection;
  $routes->get('/', 'Home::index');
 //calendrier et inscription view routes
 $routes->get('/calendrie', 'SessionsController::calendar');
-$routes->get('/inscription', 'Home::inscription');
+$routes->get('/inscription', 'SessionsController::Inscription');
 $routes->get('/inscriptionDetails','Home::inscriptionDetails');
 
 //login et register routes
