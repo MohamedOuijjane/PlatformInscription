@@ -167,7 +167,7 @@ Pré-inscrire en ligne
 
     
 <div class="form-container" >
-    <form class="form_container" action="<?= base_url('saveCin') ?>" method="POST">
+    <form class="form_container" action="<?= base_url('/saveCin') ?>" method="POST">
         <div class="titleContainer">
             <p class="title">Veuillez saisir votre CIN</p>
         </div>

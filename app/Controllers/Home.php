@@ -3,53 +3,48 @@
 namespace App\Controllers;
 
 class Home extends BaseController
+
 {
-    public function index()
-    {
-        // Load the index view
-        return view('index');
+    public function index(){
+        return('index');
     }
-
-    public function calendrie()
-    {
-        // Load the calendar view
-        return view('calendrie');
-    }
-
-        public function inscriptionbutton()
-    {
-        $session = session();
-        $examId = $this->request->getGet('exam_id'); 
-        
-        // Save exam_id in session
-        $session->set([
-            'exam_id' => $examId,
-        ]);
-
-        return redirect()->to('/inscriptionDetails'); // Redirect to CIN input page
-    }
-
 
     public function inscriptionDetails()
     {
-    
+        // Load the index view
         return view('inscriptionDetails/inscriptionDetails');
     }
-        public function saveCin()
+
+    public function inscriptionbutton()
+    {
+        $session = session();
+        $examId = $this->request->getGet('exam_id'); // Get exam ID from query parameters
+
+        if (!$examId) {
+            return redirect()->to('/loadexam')->with('error', 'Please select an exam.');
+        }
+
+        // Save exam ID in the session
+        $session->set('exam_id', $examId);
+        return view('inscriptionDetails/inscriptionDetails');
+    }
+
+    public function saveCin()
     {
         $session = session();
 
         if ($this->request->getMethod() === 'post') {
-            $cin = $this->request->getPost('cin');
+            $cin = $this->request->getPost('cin'); // Retrieve CIN from the form
 
-            // Save the CIN to the session
-            $session->set(['cin' => $cin]);
+            if (empty($cin)) {
+                return redirect()->back()->with('error', 'CIN is required.');
+            }
 
-            // Redirect to the registration form
+            // Save CIN to session
+            $session->set('cin', $cin);
             return redirect()->to('/register');
         }
-
-        return redirect()->to('/inscriptionDetails'); // Redirect back if no POST data
+        return redirect()->to('/register');
     }
 
 }

@@ -6,6 +6,10 @@ use App\Models\RegistrationsModel;
 
 class Register extends BaseController
 {  
+    public function register(){
+        return view('register/register');
+    }
+    
     public function store()
     {
         $session = session();

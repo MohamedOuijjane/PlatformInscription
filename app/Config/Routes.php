@@ -22,7 +22,7 @@ $routes->get('/login', 'Login::index'); // Login page
 $routes->post('/login/authenticate', 'Login::authenticate'); // Handle login
 $routes->get('/logout', 'Login::logout'); // Logout user
 
-$routes->get('/register', 'Register::index'); // Registration form page
+$routes->get('/register', 'Register::register'); // Registration form page
 $routes->post('/register/store', 'Register::store'); // Save user registration and exam details
 
 // Dashboard Client Routes
