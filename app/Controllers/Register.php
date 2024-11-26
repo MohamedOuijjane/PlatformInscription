@@ -5,7 +5,7 @@ use App\Models\UserModel;
 use App\Models\RegistrationsModel;
 
 class Register extends BaseController
-{
+{  
     public function store()
     {
         $session = session();
