@@ -5,78 +5,58 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-//main page route
- $routes->get('/', 'Home::index');
-//calendrier et inscription view routes
-$routes->get('/calendrie', 'SessionsController::calendar');
-$routes->get('/inscription', 'SessionsController::Inscription');
-$routes->get('/inscriptionDetails','Home::inscriptionDetails');
 
+// Main Page Route
+$routes->get('/', 'Home::index');
 
-//login et register routes
-$routes->get('/login', 'Login::index'); 
-//$routes->get('/logout', 'Login::index'); 
-$routes->get('/register','Register::index');
-//$routes->post('/login/validateLogin', 'Login::validateLogin');
-//route for registration
-$routes->post('/register/store', 'Register::store');
+// Calendar and Inscription Routes
+$routes->get('/calendrie', 'SessionsController::calendar'); // View calendar
+$routes->get('/loadexam', 'SessionsController::Inscription'); 
 
+$routes->get('/inscriptionDetails', 'Home::inscriptionDetails'); // CIN entry page
+$routes->get('/inscriptionbutton', 'Home::inscriptionbutton'); // Save exam ID and redirect to CIN page
+$routes->post('/saveCin', 'Home::saveCin'); // Save CIN and redirect to registration form
 
-//new routes login
-$routes->post('/login/authenticate', 'Login::authenticate');
-$routes->get('/logout', 'Login::logout');
+// Login and Register Routes
+$routes->get('/login', 'Login::index'); // Login page
+$routes->post('/login/authenticate', 'Login::authenticate'); // Handle login
+$routes->get('/logout', 'Login::logout'); // Logout user
 
+$routes->get('/register', 'Register::index'); // Registration form page
+$routes->post('/register/store', 'Register::store'); // Save user registration and exam details
 
-//new route login for yassine Admin
-$routes->get('/dashboardYassine', 'Dashboard::index');
-//new route login for Mohamed Client
-$routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard', ['filter' => 'authClient']);
+// Dashboard Client Routes
+$routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard', ['filter' => 'authClient']); // Client dashboard
+$routes->get('/dashboardClient/profile', 'DashboardClient::profile'); // Profile page
+$routes->get('/dashboardClient/paiement', 'DashboardClient::paiement'); // Payment page
+$routes->get('/dashboardClient/convocation', 'DashboardClient::convocation'); // Convocation page
 
+// Dashboard Admin Routes
+$routes->get('/dashboardYassine', 'Dashboard::index'); // Admin dashboard (Yassine-specific)
+$routes->get('/dashbord', 'DashboardController::rapport'); // Admin dashboard main
+$routes->get('/dashbord/liste_examen', 'DashboardController::listeExamen'); // Exam list
+$routes->get('/dashbord/rapport', 'DashboardController::rapport'); // Report view
+$routes->get('/dashbord/modifier_profil', 'DashboardController::modifierProfil'); // Edit admin profile
 
-// routes from inscription details to dashboard welcome
-$routes->post('/inscriptionDetails', 'Home::inscriptionDetails');
+// Exam CRUD Routes
+$routes->get('/dashbord/ajouter_exam', 'ExamsController::index'); // Add exam form
+$routes->post('/ExamsController/addExam', 'ExamsController::addExam'); // Save new exam
+$routes->get('/ExamsController/fetchExams', 'ExamsController::fetchExams'); // Fetch exams data (AJAX)
+$routes->delete('/ExamsController/deleteExam/(:num)', 'ExamsController::deleteExam/$1'); // Delete specific exam
+$routes->get('/ExamsController/editExam/(:num)', 'ExamsController::editExam/$1'); // Edit specific exam
+$routes->post('/ExamsController/updateExam/(:num)', 'ExamsController::updateExam/$1'); // Update exam details
 
+// Payment Confirmation Routes
+$routes->get('/dashbord/confirmation_paiement', 'PaymentsController::index'); // Payment confirmations
+$routes->get('/PaymentsController/confirm/(:num)', 'PaymentsController::confirm/$1'); // Confirm payment
+$routes->get('/PaymentsController/refuse/(:num)', 'PaymentsController::refuse/$1'); // Refuse payment
 
+// Clients Management Routes
+$routes->get('/dashbord/liste_clients', 'ClientsController::index'); // Clients list view
 
+// Charts Data Route
+$routes->get('/exams/getChartData', 'ExamsController::getChartData'); // Fetch data for charts (e.g., exam stats)
 
-//dashboard client routes
-//$routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard');
-$routes->get('/dashboardClient/profile',to: 'DashboardClient::profile');
-$routes->get('/dashboardClient/paiement',to: 'DashboardClient::paiement');
-$routes->get('/dashboardClient/convocation',to: 'DashboardClient::convocation');
-
-//dashboard admin routes
-$routes->get('/dashbord', 'DashboardController::rapport');
-
-// $routes->get('/dashbord/confirmation_paiement', 'DashboardController::confirmationPaiement');
-$routes->get('/dashbord/liste_examen', 'DashboardController::listeExamen');
-// $routes->get('/dashbord/liste_clients', 'DashboardController::listeClients');
-$routes->get('/dashbord/rapport', 'DashboardController::rapport');
-$routes->get('/dashbord/modifier_profil', 'DashboardController::modifierProfil');
-
-$routes->get('/dashbord/ajouter_exam', 'ExamsController::index');
-$routes->post('/ExamsController/addExam', 'ExamsController::addExam');
-
-// Dans app/Config/Routes.php
-$routes->get('dashbord/liste_examens', 'ExamsController::index');
-
-// Route qui concere Exam CRUD
-$routes->get('/ExamsController/fetchExams', 'ExamsController::fetchExams');
-$routes->delete('/ExamsController/deleteExam/(:num)', 'ExamsController::deleteExam/$1');
-$routes->get('/ExamsController/editExam/(:num)', 'ExamsController::editExam/$1');
-$routes->post('/ExamsController/updateExam/(:num)', 'ExamsController::updateExam/$1');
-
-// CRUD de confirmations de paiment
-$routes->get('/dashbord/confirmation_paiement', 'PaymentsController::index');
-$routes->get('/PaymentsController/confirm/(:num)', 'PaymentsController::confirm/$1');
-$routes->get('/PaymentsController/refuse/(:num)', 'PaymentsController::refuse/$1');
-
-
-// la liste de clients avec leur stituation de paiment
-$routes->get('/dashbord/liste_clients', 'ClientsController::index');
-// la collection des donne des Graphe 
-$routes->get('/exams/getChartData', 'ExamsController::getChartData');
-
-// la modification de mot de pass de Admin
-$routes->get('/profile', 'ProfileController::index');
-$routes->post('/profile/updatePassword', 'ProfileController::updatePassword');
+// Admin Profile Management
+$routes->get('/profile', 'ProfileController::index'); // Profile page
+$routes->post('/profile/updatePassword', 'ProfileController::updatePassword'); // Change admin password

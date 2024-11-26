@@ -16,15 +16,40 @@ class Home extends BaseController
         return view('calendrie');
     }
 
-    public function inscription()
+        public function inscriptionbutton()
     {
-        // Load the inscription view
-        return view('inscription');
+        $session = session();
+        $examId = $this->request->getGet('exam_id'); 
+        
+        // Save exam_id in session
+        $session->set([
+            'exam_id' => $examId,
+        ]);
+
+        return redirect()->to('/inscriptionDetails'); // Redirect to CIN input page
     }
+
 
     public function inscriptionDetails()
     {
-        // Load the inscriptionDetails view for GET requests
+    
         return view('inscriptionDetails/inscriptionDetails');
     }
+        public function saveCin()
+    {
+        $session = session();
+
+        if ($this->request->getMethod() === 'post') {
+            $cin = $this->request->getPost('cin');
+
+            // Save the CIN to the session
+            $session->set(['cin' => $cin]);
+
+            // Redirect to the registration form
+            return redirect()->to('/register');
+        }
+
+        return redirect()->to('/inscriptionDetails'); // Redirect back if no POST data
+    }
+
 }

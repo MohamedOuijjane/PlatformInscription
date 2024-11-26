@@ -207,7 +207,7 @@
                     <a class="nav-link" href="<?= base_url('/calendrie') ?>">Calendrier</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/inscription') ?>">Inscription</a>
+                    <a class="nav-link" href="<?= base_url('/loadexam') ?>">Inscription</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#footer">About</a>
