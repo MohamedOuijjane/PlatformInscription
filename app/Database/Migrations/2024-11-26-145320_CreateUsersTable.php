@@ -16,7 +16,6 @@ class CreateUsersTable extends Migration
             'username' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
-                'unique' => true,
                 'null' => false
             ],
             'firstname' => [
@@ -32,7 +31,6 @@ class CreateUsersTable extends Migration
             'email' => [
                 'type' => 'VARCHAR',
                 'constraint' => '100',
-                'unique' => true,
                 'null' => false
             ],
             'password' => [
@@ -76,20 +74,13 @@ class CreateUsersTable extends Migration
             ],
         ]);
 
-        // Définir la clé primaire
         $this->forge->addKey('id', true);
-
-        // Ajouter une contrainte unique sur les colonnes username et email
         $this->forge->addUniqueKey('username');
-        $this->forge->addUniqueKey('email');
-
-        // Créer la table
         $this->forge->createTable('Users');
     }
 
     public function down()
     {
-        // Supprimer la table
         $this->forge->dropTable('Users');
     }
 }

@@ -20,10 +20,9 @@ class CreatePaymentsTable extends Migration
         $this->forge->addForeignKey('registration_id', 'Registrations', 'id');
         $this->forge->createTable('Payments');
     }
-    
 
     public function down()
     {
-        //
+        $this->forge->dropTable('Payments');
     }
 }

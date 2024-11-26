@@ -24,7 +24,6 @@ class CreateRegistrationsTable extends Migration
             'registration_date' => [
                 'type' => 'DATE',
                 'null' => false
-                // Nous ne définissons pas de valeur par défaut ici.
             ],
             'payment_reference' => [
                 'type' => 'VARCHAR',
@@ -38,8 +37,7 @@ class CreateRegistrationsTable extends Migration
             ],
             'amount' => [
                 'type' => 'FLOAT',
-                'null' => true, // Vous pouvez définir null à false si vous souhaitez rendre ce champ obligatoire
-                'after' => 'payment_date' // Place la colonne 'amount' après 'payment_date'
+                'null' => true
             ],
             'payment_date' => [
                 'type' => 'DATE',
