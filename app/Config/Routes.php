@@ -12,13 +12,35 @@ $routes->get('/calendrie', 'SessionsController::calendar');
 $routes->get('/inscription', 'SessionsController::Inscription');
 $routes->get('/inscriptionDetails','Home::inscriptionDetails');
 
+
 //login et register routes
 $routes->get('/login', 'Login::index'); 
-$routes->get('/logout', 'Login::index'); 
+//$routes->get('/logout', 'Login::index'); 
 $routes->get('/register','Register::index');
+//$routes->post('/login/validateLogin', 'Login::validateLogin');
+//route for registration
+$routes->post('/register/store', 'Register::store');
+
+
+//new routes login
+$routes->post('/login/authenticate', 'Login::authenticate');
+$routes->get('/logout', 'Login::logout');
+
+
+//new route login for yassine Admin
+$routes->get('/dashboardYassine', 'Dashboard::index');
+//new route login for Mohamed Client
+$routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard', ['filter' => 'authClient']);
+
+
+// routes from inscription details to dashboard welcome
+$routes->post('/inscriptionDetails', 'Home::inscriptionDetails');
+
+
+
 
 //dashboard client routes
-$routes->get('/dashboardClient',to: 'DashboardClient::welcomeDashboard');
+//$routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard');
 $routes->get('/dashboardClient/profile',to: 'DashboardClient::profile');
 $routes->get('/dashboardClient/paiement',to: 'DashboardClient::paiement');
 $routes->get('/dashboardClient/convocation',to: 'DashboardClient::convocation');

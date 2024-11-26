@@ -146,19 +146,28 @@ Sign up
             }
     </style>
 
-<form class="form_container">
+<form class="form_container" action="<?= base_url('/register/store') ?>" method="POST">
         <a class="navbar-brand"  href="<?= base_url('/')?> ">
             <img src="<?= base_url('images/logo.png') ?>" alt="Passerelle des langues" style="height: 110px;">
         </a>
   <div class="logo_container">
     <h1 class="logo_title display-4 font-weight-bold">Sign Up for an Account</h1>
   </div>
+  <?php if (session()->get('errors')): ?>
+        <div class="alert alert-danger">
+            <ul>
+                <?php foreach (session()->get('errors') as $error): ?>
+                    <li><?= $error ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
   <div class="input_container">
     <label class="input_label" for="username_field">Username</label>
     <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="icon">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="#141B34" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z"></path>
     </svg>
-    <input placeholder="Username" title="Username" name="username" type="text" class="input_field" id="username_field" required>
+    <input placeholder="Username" title="Username" name="username" type="text" class="input_field" id="username_field" value="<?= old('username') ?>" required>
   </div>
   <div class="input_container">
     <label class="input_label" for="email_field">Email</label>
@@ -166,7 +175,7 @@ Sign up
       <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34" d="M7 8.5L9.94202 10.2394C11.6572 11.2535 12.3428 11.2535 14.058 10.2394L17 8.5"></path>
       <path stroke-linejoin="round" stroke-width="1.5" stroke="#141B34" d="M2.01577 13.4756C2.08114 16.5412 2.11383 18.0739 3.24496 19.2094C4.37608 20.3448 5.95033 20.3843 9.09883 20.4634C11.0393 20.5122 12.9607 20.5122 14.9012 20.4634C18.0497 20.3843 19.6239 20.3448 20.7551 19.2094C21.8862 18.0739 21.9189 16.5412 21.9842 13.4756C22.0053 12.4899 22.0053 11.5101 21.9842 10.5244C21.9189 7.45886 21.8862 5.92609 20.7551 4.79066C19.6239 3.65523 18.0497 3.61568 14.9012 3.53657C12.9607 3.48781 11.0393 3.48781 9.09882 3.53656C5.95033 3.61566 4.37608 3.65521 3.24495 4.79065C2.11382 5.92608 2.08114 7.45885 2.01576 10.5244C1.99474 11.5101 1.99475 12.4899 2.01577 13.4756Z"></path>
     </svg>
-    <input placeholder="example@gmail.com" title="email" name="email" type="text" class="input_field" id="email_field" required>
+    <input placeholder="example@gmail.com" title="email" name="email" type="text" class="input_field" id="email_field" value="<?= old('email') ?>" required>
   </div>
   <div class="input_container">
     <label class="input_label" for="password_field">Password</label>
@@ -188,12 +197,7 @@ Sign up
   </div>
   <button title="Sign In" type="submit" class="btn btn-success sign-up_btn" >
     <span>Register</span>
-  </button>
-  <div class="separator">
-    <span>Already have an account?</span>
-  </div>
-  <a href="<?=  base_url('/login') ?>" class="btn btn-primary sign-in_btn">Sign in</a>
-            
+  </button>            
   <p class="note">Terms of Use Conditions</p>
 </form>
 <?= $this->endSection()?>
