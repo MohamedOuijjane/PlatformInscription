@@ -98,7 +98,7 @@ Pré-inscrire en ligne
     }
     
     .background-section {
-            background-image: url('images/admission1.jpg'); /* Replace with your own image */
+            background-image: url('<?= base_url('images/admission1.jpg') ?>'); /* Replace with your own image */
             background-size: cover; /* Makes the image cover the entire container */
             background-position: center; /* Centers the background image */
             width: 1580px;
@@ -144,6 +144,19 @@ Pré-inscrire en ligne
     h4 {
     font-size: 24px;
     }
+    @media (max-width: 768px) {
+        form {
+            width: 100%;
+            margin: 10px auto;
+        }
+        .background-section {
+            height: 100px; /* Reduce height on smaller screens */
+        }
+        h4 {
+            font-size: 18px; /* Adjust font size for smaller screens */
+        }
+    }
+
 </style>
 <div class="background-section">
         <div class="overlay-text">
@@ -153,8 +166,8 @@ Pré-inscrire en ligne
 <h4 class="clignote" >L'inscription peut être arrêtée avant la date limite dès qu'il n'y a plus de places disponibles.</h4>
 
     
-<div class="form-container">
-    <form class="form_container"> 
+<div class="form-container" >
+    <form class="form_container"  action="<?= base_url('inscriptionDetails') ?>" method="POST" > 
         <div class="titleContainer">
             <p class="title">Veuillez saisir votre CIN</p>
         </div>
@@ -164,7 +177,8 @@ Pré-inscrire en ligne
         </div>
         <div class="button_container">
                     <button type="submit" class="submit_btn"><i class="fas fa-forward"> </i> Suivant</button>
-        </div>
+        </div> 
+         
     </form>
 </div>
 <?= $this->endSection() ?>

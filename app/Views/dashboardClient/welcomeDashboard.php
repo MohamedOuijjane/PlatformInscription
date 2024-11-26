@@ -29,6 +29,11 @@
         border: 1px solid;
         border-color:#cccccc;
     }
+    form {
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
     form h2 {
         margin-bottom: 20px;
         color: #333333;
@@ -91,6 +96,14 @@
     .spanDateExamen2{
         color: #A3A3A3;
     }
+    .spanCIN{
+        font-weight: bold; 
+        color: #666666;
+        margin-left: -357px;
+    }
+    .spanCIN2{
+        color: #A3A3A3;
+    }
     .spanRef1{
         color: #666666;
         font-weight: bold;
@@ -102,11 +115,21 @@
         margin-left: -30%;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
+    .card-header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-bottom: 1px solid #e9ecef;
+    }
+    .card-header h1 {
+        font-size: 24px;
+        color: #343a40;
+    }
+
 </style>
 
 <div class="container">
     <div class="card">
-        <div class="card-header"><h1>Bonjour chèr(e) Client, $ClientName!</h1></div>
+    <div class="card-header"><h1>Bonjour chèr(e) Client, $username!</h1></div>
         <div class="clignote">Votre préinscription en ligne a bien été envoyée!</div>
         <div class="form-container">
             <form class="form_container"> 
@@ -121,6 +144,10 @@
                 <h5 class="dateE" >
                     <span class="spanDateExamen">Date d'examen:</span>
                     <span class="spanDateExamen2">$date</span>
+                </h5>
+                <h5 class="CIN" >
+                    <span class="spanCIN">CIN:</span>
+                    <span class="spanRef2">$CIN</span>
                 </h5>
 
                 </div>

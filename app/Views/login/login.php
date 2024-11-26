@@ -177,12 +177,7 @@ Login
   </button>
   <?php if (session()->get('error')): ?>
             <div class="alert alert-danger"><?= session()->get('error') ?></div>
-          <?php endif; ?>
-  <div class="separator">
-    <span>Don't have an account?</span>
-  </div>
-  <a href="<?=  base_url('/register') ?>" class="btn btn-success sign-up_btn">Register</a>
-            
+          <?php endif; ?>         
   <p class="note">Terms of Use Conditions</p>
 </form>
 

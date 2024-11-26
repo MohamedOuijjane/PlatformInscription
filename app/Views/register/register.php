@@ -197,12 +197,7 @@ Sign up
   </div>
   <button title="Sign In" type="submit" class="btn btn-success sign-up_btn" >
     <span>Register</span>
-  </button>
-  <div class="separator">
-    <span>Already have an account?</span>
-  </div>
-  <a href="<?=  base_url('/login') ?>" class="btn btn-primary sign-in_btn">Sign in</a>
-            
+  </button>            
   <p class="note">Terms of Use Conditions</p>
 </form>
 <?= $this->endSection()?>

@@ -34,10 +34,10 @@ class Login extends BaseController
                 ]);
 
                 // Redirect based on the user's role
-                if ($user['role'] === 'admin') {
-                    return redirect()->to('/dashboard'); // Admin dashboard
-                } elseif ($user['role'] === 'client') {
-                    return redirect()->to('/dashboardClient'); // Client dashboard
+                if ($user['role'] === 'client') {
+                    return redirect()->to('/dashboardClient');
+                } elseif ($user['role'] === 'admin') {
+                    return redirect()->to('/dashboard');
                 }
             } else {
                 // Incorrect password

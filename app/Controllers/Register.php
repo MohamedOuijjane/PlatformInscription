@@ -57,7 +57,7 @@ class Register extends BaseController
 
         // Save user to database
         if ($userModel->insert($userData)) {
-            return redirect()->to('/login')->with('success', 'Votre compte a été créé avec succès.');
+            return redirect()->to('/dashboardClient');
         } else {
             return redirect()->back()->with('error', 'Une erreur est survenue lors de l\'enregistrement.');
         }

@@ -12,6 +12,7 @@ $routes->get('/calendrie', 'Home::calendrie');
 $routes->get('/inscription', 'Home::inscription');
 $routes->get('/inscriptionDetails','Home::inscriptionDetails');
 
+
 //login et register routes
 $routes->get('/login', 'Login::index'); 
 //$routes->get('/logout', 'Login::index'); 
@@ -30,6 +31,13 @@ $routes->get('/logout', 'Login::logout');
 $routes->get('/dashboardYassine', 'Dashboard::index');
 //new route login for Mohamed Client
 $routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard', ['filter' => 'authClient']);
+
+
+// routes from inscription details to dashboard welcome
+$routes->post('/inscriptionDetails', 'Home::inscriptionDetails');
+
+
+
 
 //dashboard client routes
 //$routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard');
