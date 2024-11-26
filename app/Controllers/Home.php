@@ -6,7 +6,7 @@ class Home extends BaseController
 
 {
     public function index(){
-        return('index');
+        return view('index');
     }
 
     public function inscriptionDetails()
