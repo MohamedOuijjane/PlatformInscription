@@ -36,7 +36,7 @@
 
     .form-label {
         font-weight: 600;
-        color: #333;
+        color: #000000;
     }
 
     .form-control {
@@ -67,7 +67,7 @@
 
     /* Bouton */
     .btn-primary {
-        background: linear-gradient(135deg, #4CAF50, #36A764);
+        background: linear-gradient(135deg, #0a58ca, #0dcaf0);
         border: none;
         padding: 10px 20px;
         font-size: 1rem;
@@ -79,7 +79,7 @@
 
     .btn-primary:hover {
         transform: translateY(-3px);
-        background: linear-gradient(135deg, #36A764, #4CAF50);
+        background: linear-gradient(135deg, #0a58ca, #0dcaf0);
     }
 
     /* Messages d'alerte */

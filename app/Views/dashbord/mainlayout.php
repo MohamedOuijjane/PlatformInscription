@@ -16,7 +16,7 @@
         /* Sidebar */
         .sidebar {
             width: 250px;
-            background-color: #0190BB;
+            background-color: #5f5f5f;
             color: #ecf0f1;
             min-height: 100vh;
             padding-top: 20px;
@@ -63,7 +63,7 @@
 
         /* Barre de navigation en haut */
         .navbar-custom {
-            background-color: #0190BB;
+            background-color: #5f5f5f;
             color: #ffffff;
             width: calc(100% - 250px);
             position: fixed;

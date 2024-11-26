@@ -56,7 +56,7 @@
     <div class="col-md-3 mb-4">
         <div class="card card-visitor">
             <div class="card-body">
-                <i class="bi bi-people"></i>
+                <i class="bi bi-people display-4 text-primary"></i>
                 <h5 class="card-title">Étudiants Inscrits</h5>
                 <h3 class="text-primary" id="studentCount">0</h3>
             </div>
@@ -65,7 +65,7 @@
     <div class="col-md-3 mb-4">
         <div class="card card-subscriber">
             <div class="card-body">
-                <i class="bi bi-person-check"></i>
+                <i class="bi bi-person-check display-4 text-info"></i>
                 <h5 class="card-title">Nouveaux Abonnés</h5>
                 <h3 class="text-info">1,303</h3>
             </div>
@@ -74,7 +74,7 @@
     <div class="col-md-3 mb-4">
         <div class="card card-sales">
             <div class="card-body">
-                <i class="bi bi-cash-stack"></i>
+                <i class="bi bi-cash-stack display-4 text-success"></i>
                 <h5 class="card-title">Revenus (DH)</h5>
                 <h3 class="text-success" id="totalRevenue">€0</h3>
             </div>
@@ -83,8 +83,8 @@
     <div class="col-md-3 mb-4">
         <div class="card card-orders">
             <div class="card-body">
-                <i class="bi bi-cart-check"></i>
-                <h5 class="card-title">Examens Réalisés</h5>
+                <i class="bi bi-clipboard-check display-4 text-success"></i>
+                <h5 class="card-title">Nombre Des Exams</h5>
                 <h3 class="text-purple" id="examsCompleted">0</h3>
             </div>
         </div>
@@ -161,7 +161,7 @@
                     labels: data.studentDistribution.labels,
                     datasets: [{
                         data: data.studentDistribution.values,
-                        backgroundColor: ['#007bff', '#F39A18 ', '#B8B8B8','#18C7F7']
+                        backgroundColor: ['#f2eb63', '#eb2009 ', '#B8B8B8','#18C7F7']
                     }]
                 }
             });

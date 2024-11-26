@@ -41,14 +41,13 @@
         border-radius: 12px;
     }
 
-    .badge.bg-success {
-        background-color: #28a745;
-        color: #fff;
+    .badge.bg-success { 
+     
+        background-color: #45b8fc !important;
     }
 
     .badge.bg-danger {
-        background-color: #dc3545;
-        color: #fff;
+        background-color: rgb(252 49 53) !important;
     }
 
     /* Effet de survol pour les lignes du tableau */

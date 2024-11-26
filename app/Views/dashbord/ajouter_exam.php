@@ -24,7 +24,7 @@
     }
 
     .card-header {
-        background-color: #007bff;
+        background-color: #b8b8b8;
         color: #ffffff;
         font-weight: bold;
         text-align: center;
@@ -35,7 +35,7 @@
 
     .form-label {
         font-weight: bold;
-        color: #555;
+        color: #000000;
     }
 
     .form-control {
@@ -50,7 +50,7 @@
     }
 
     .btn-success {
-        background: #28a745;
+        background: #37b6fd;
         border: none;
         padding: 10px 20px;
         font-size: 1rem;

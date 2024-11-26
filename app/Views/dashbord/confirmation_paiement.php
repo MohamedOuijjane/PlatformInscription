@@ -34,8 +34,8 @@
 
     /* Styles pour les boutons */
     .btn-success {
-        background-color: #21F695;
-        border-color: #21F695;
+        background-color: #37b6fd;
+        border-color: #37b6fd;
         transition: background-color 0.3s;
     }
 
@@ -86,7 +86,7 @@
                     <tr>
                         <td><?= $payment['id'] ?></td>
                         <td><?= $payment['registration_id'] ?></td> <!-- Assurez-vous que le champ 'username' existe dans la base de données -->
-                        <td><?= $payment['amount'] ?>€</td>
+                        <td><?= $payment['amount'] ?>dh</td>
                         <td><?= $payment['reference'] ?></td>
                         <td><?= $payment['payment_date'] ?></td>
                         <td><?= $payment['status'] ?></td>
