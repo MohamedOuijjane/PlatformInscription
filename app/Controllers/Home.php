@@ -9,42 +9,42 @@ class Home extends BaseController
         return view('index');
     }
 
-    public function inscriptionDetails()
+    public function inscription()
     {
-        // Load the index view
-        return view('inscriptionDetails/inscriptionDetails');
+        // Load the inscription view
+        return view('inscription');
     }
 
-    public function inscriptionbutton()
+    public function inscriptionDetails()
     {
-        $session = session();
-        $examId = $this->request->getGet('exam_id'); // Get exam ID from query parameters
+        // Récupérer l'exam_id de la requête GET
+        $examId = $this->request->getGet('exam_id');
 
+        // Vérifier si exam_id est présent
         if (!$examId) {
-            return redirect()->to('/loadexam')->with('error', 'Please select an exam.');
+            return redirect()->to('/inscriptionPage')->with('error', 'Veuillez sélectionner un examen.');
         }
 
-        // Save exam ID in the session
-        $session->set('exam_id', $examId);
-        return view('inscriptionDetails/inscriptionDetails');
+        return view('inscriptionDetails/inscriptionDetails', ['exam_id' => $examId]);
     }
 
     public function saveCin()
     {
-        $session = session();
+        // Vérifier que c'est une requête POST
+        if ($this->request->getMethod() === 'POST') {
+            $cin = $this->request->getPost('cin');
+            $examId = $this->request->getPost('exam_id'); // Récupérer exam_id depuis le formulaire
 
-        if ($this->request->getMethod() === 'post') {
-            $cin = $this->request->getPost('cin'); // Retrieve CIN from the form
-
-            if (empty($cin)) {
-                return redirect()->back()->with('error', 'CIN is required.');
+            // Valider que les champs ne sont pas vides
+            if (empty($cin) || empty($examId)) {
+                return redirect()->back()->with('error', 'CIN et Exam ID sont requis.');
             }
 
-            // Save CIN to session
-            $session->set('cin', $cin);
-            return redirect()->to('/register');
+            // Rediriger avec les données dans l'URL (GET)
+            return redirect()->to('/register?cin=' . $cin . '&exam_id=' . $examId);
         }
-        return redirect()->to('/register');
+
+      
     }
 
 }

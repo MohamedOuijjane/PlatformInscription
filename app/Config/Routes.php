@@ -5,31 +5,46 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+//main page route
+ $routes->get('/', 'Home::index');
+//calendrier et inscription view routes
+$routes->get('/calendrie', 'SessionsController::calendar');
+$routes->get('/inscriptionPage', 'SessionsController::Inscription');
+$routes->get('/inscriptionDetails','Home::inscriptionDetails');
 
-// Main Page Route
-$routes->get('/', 'Home::index');
 
-// Calendar and Inscription Routes
-$routes->get('/calendrie', 'SessionsController::calendar'); // View calendar
-$routes->get('/loadexam', 'SessionsController::Inscription'); 
+//login et register routes
+$routes->get('/login', 'Login::index'); 
+//$routes->get('/logout', 'Login::index'); 
+$routes->get('/register','Register::index'); // Passe cin et exam_id via GET
+//$routes->post('/login/validateLogin', 'Login::validateLogin');
+//route for registration
+$routes->post('/register/store', 'Register::store');// Enregistre les données utilisateur et inscription
+$routes->post('/saveCin', 'Home::saveCin'); // Gère CIN et exam_id via POST
 
-$routes->get('/inscriptionDetails', 'Home::inscriptionDetails'); // CIN entry page
-$routes->get('/inscriptionbutton', 'Home::inscriptionbutton'); // Save exam ID and redirect to CIN page
-$routes->post('/saveCin', 'Home::saveCin'); // Save CIN and redirect to registration form
 
-// Login and Register Routes
-$routes->get('/login', 'Login::index'); // Login page
-$routes->post('/login/authenticate', 'Login::authenticate'); // Handle login
-$routes->get('/logout', 'Login::logout'); // Logout user
+//new routes login
+$routes->post('/login/authenticate', 'Login::authenticate');
+$routes->get('/logout', 'Login::logout');
 
-$routes->get('/register', 'Register::register'); // Registration form page
-$routes->post('/register/store', 'Register::store'); // Save user registration and exam details
 
-// Dashboard Client Routes
-$routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard', ['filter' => 'authClient']); // Client dashboard
-$routes->get('/dashboardClient/profile', 'DashboardClient::profile'); // Profile page
-$routes->get('/dashboardClient/paiement', 'DashboardClient::paiement'); // Payment page
-$routes->get('/dashboardClient/convocation', 'DashboardClient::convocation'); // Convocation page
+//new route login for yassine Admin
+$routes->get('/dashboardYassine', 'Dashboard::index');
+//new route login for Mohamed Client
+$routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard', ['filter' => 'authClient']);
+
+
+// routes from inscription details to dashboard welcome
+$routes->post('/inscriptionDetails', 'Home::inscriptionDetails');
+
+
+
+
+//dashboard client routes
+//$routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard');
+$routes->get('/dashboardClient/profile',to: 'DashboardClient::profile');
+$routes->get('/dashboardClient/paiement',to: 'DashboardClient::paiement');
+$routes->get('/dashboardClient/convocation',to: 'DashboardClient::convocation');
 
 // Dashboard Admin Routes
 $routes->get('/dashboardYassine', 'Dashboard::index'); // Admin dashboard (Yassine-specific)
