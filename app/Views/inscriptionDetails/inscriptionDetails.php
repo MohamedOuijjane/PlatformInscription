@@ -167,18 +167,13 @@ Pré-inscrire en ligne
 
     
 <div class="form-container" >
-    <form class="form_container"  action="<?= base_url('inscriptionDetails') ?>" method="POST" > 
-        <div class="titleContainer">
-            <p class="title">Veuillez saisir votre CIN</p>
-        </div>
-        <div class="input_container">
-            <label class="input_label" for="cin_field">CIN <sup><span style="color: red;" ></span>*</sup> </label>
-            <input placeholder="Veuillez saisir votre CIN" name="cin" type="text" class="input_field" id="cin_field" required>
-        </div>
-        <div class="button_container">
-                    <button type="submit" class="submit_btn"><i class="fas fa-forward"> </i> Suivant</button>
-        </div> 
-         
-    </form>
+<form action="<?= base_url('/saveCin') ?>" method="POST">
+<input type="hidden" name="exam_id" value="<?= esc($exam_id) ?>">
+    <label for="cin">CIN :</label>
+    <input type="text" name="cin" id="cin" required>
+    <button type="submit">Suivant</button>
+</form>
+
+    
 </div>
 <?= $this->endSection() ?>

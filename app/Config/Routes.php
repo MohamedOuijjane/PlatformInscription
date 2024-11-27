@@ -16,10 +16,11 @@ $routes->get('/inscriptionDetails','Home::inscriptionDetails');
 //login et register routes
 $routes->get('/login', 'Login::index'); 
 //$routes->get('/logout', 'Login::index'); 
-$routes->get('/register','Register::index');
+$routes->get('/register','Register::index'); // Passe cin et exam_id via GET
 //$routes->post('/login/validateLogin', 'Login::validateLogin');
 //route for registration
-$routes->post('/register/store', 'Register::store');
+$routes->post('/register/store', 'Register::store');// Enregistre les données utilisateur et inscription
+$routes->post('/saveCin', 'Home::saveCin'); // Gère CIN et exam_id via POST
 
 
 //new routes login

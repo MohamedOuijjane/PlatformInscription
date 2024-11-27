@@ -24,7 +24,33 @@ class Home extends BaseController
 
     public function inscriptionDetails()
     {
-        // Load the inscriptionDetails view for GET requests
-        return view('inscriptionDetails/inscriptionDetails');
+        // Récupérer l'exam_id de la requête GET
+        $examId = $this->request->getGet('exam_id');
+
+        // Vérifier si exam_id est présent
+        if (!$examId) {
+            return redirect()->to('/inscriptionPage')->with('error', 'Veuillez sélectionner un examen.');
+        }
+
+        return view('inscriptionDetails/inscriptionDetails', ['exam_id' => $examId]);
+    }
+
+    public function saveCin()
+    {
+        // Vérifier que c'est une requête POST
+        if ($this->request->getMethod() === 'POST') {
+            $cin = $this->request->getPost('cin');
+            $examId = $this->request->getPost('exam_id'); // Récupérer exam_id depuis le formulaire
+
+            // Valider que les champs ne sont pas vides
+            if (empty($cin) || empty($examId)) {
+                return redirect()->back()->with('error', 'CIN et Exam ID sont requis.');
+            }
+
+            // Rediriger avec les données dans l'URL (GET)
+            return redirect()->to('/register?cin=' . $cin . '&exam_id=' . $examId);
+        }
+
+      
     }
 }

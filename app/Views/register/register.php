@@ -146,7 +146,7 @@ Sign up
             }
     </style>
 
-<form class="form_container" action="<?= base_url('/register/store') ?>" method="POST">
+<form class="form_container" action="<?= base_url('register/store') ?>" method="POST">
         <a class="navbar-brand"  href="<?= base_url('/')?> ">
             <img src="<?= base_url('images/logo.png') ?>" alt="Passerelle des langues" style="height: 110px;">
         </a>
@@ -162,6 +162,10 @@ Sign up
             </ul>
         </div>
     <?php endif; ?>
+    <div class="newInputs">
+    <input type="text" name="cin" value="<?= $cin ?>">
+    <input type="text" name="exam_id" value="<?= $exam_id ?>">
+    </div>
   <div class="input_container">
     <label class="input_label" for="username_field">Username</label>
     <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="icon">
