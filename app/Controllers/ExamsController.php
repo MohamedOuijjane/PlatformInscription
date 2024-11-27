@@ -9,7 +9,8 @@ use CodeIgniter\Controller;
 
 class ExamsController extends Controller
 {
-    public function index()
+public function index()
+
 {
     // Charger des données supplémentaires pour la vue si nécessaire
     $levels = ['A1', 'A2', 'B1', 'B2']; // Exemple de niveaux disponibles
@@ -58,6 +59,10 @@ class ExamsController extends Controller
     return redirect()->to('/dashbord/ajouter_exam')->with('error', 'Échec de l\'ajout de l\'examen.');
 }
 
+public function listeExamen()
+{
+    return view('/dashbord/liste_examens');
+}
      // Récupérer les examens avec recherche et filtrage (AJAX)
 public function fetchExams()
 {

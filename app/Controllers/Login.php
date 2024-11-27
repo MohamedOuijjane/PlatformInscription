@@ -35,6 +35,7 @@ class Login extends BaseController
 
                 // Redirect based on the user's role
                 if ($user['role'] === 'client') {
+                    
                     return redirect()->to('/dashboardClient');
                 } elseif ($user['role'] === 'admin') {
                     return redirect()->to('/dashboardYassine');
