@@ -165,7 +165,10 @@
             <i class="bi bi-stack"></i>
             <div class="profile">
                 <img src="<?= base_url('images/admin-foto.jpg') ?>" alt="Profile"> <!-- Chemin de l'image de profil -->
-                <span>Hi, Hizrian</span>
+                <?php  $session = session();
+                 $username = $session->get('username');
+                 ?>
+                <span><?= $username ?></span>
             </div>
         </div>
     </div>
