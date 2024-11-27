@@ -15,11 +15,11 @@
 
         /* Sidebar */
         .sidebar {
-            width: 250px;
+            
             background-color: #5f5f5f;
             color: #ecf0f1;
             min-height: 100vh;
-            padding-top: 20px;
+            
             position: fixed;
             transition: all 0.3s;
         }
@@ -160,9 +160,9 @@
             <input type="text" placeholder="Search...">
         </div>
         <div class="icons">
-            <i class="bi bi-envelope"></i>
+        
             <i class="bi bi-bell"></i>
-            <i class="bi bi-stack"></i>
+         
             <div class="profile">
                 <img src="<?= base_url('images/admin-foto.jpg') ?>" alt="Profile"> <!-- Chemin de l'image de profil -->
                 <?php  $session = session();
