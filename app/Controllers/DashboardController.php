@@ -8,7 +8,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('/dashbord/mainlayout');
+        return view('/dashbord/rapport');
     }
 
     public function ajouterExam()

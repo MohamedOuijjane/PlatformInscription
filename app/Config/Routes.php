@@ -28,8 +28,7 @@ $routes->post('/login/authenticate', 'Login::authenticate');
 $routes->get('/logout', 'Login::logout');
 
 
-//new route login for yassine Admin
-$routes->get('/dashboardYassine', 'Dashboard::index');
+
 //new route login for Mohamed Client
 $routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard', ['filter' => 'authClient']);
 
@@ -47,7 +46,7 @@ $routes->get('/dashboardClient/paiement',to: 'DashboardClient::paiement');
 $routes->get('/dashboardClient/convocation',to: 'DashboardClient::convocation');
 
 // Dashboard Admin Routes
-$routes->get('/dashboardYassine', 'Dashboard::index'); // Admin dashboard (Yassine-specific)
+$routes->get('/dashboardYassine', 'DashboardController::index'); // Admin dashboard (Yassine-specific)
 $routes->get('/dashbord', 'DashboardController::rapport'); // Admin dashboard main
 $routes->get('/dashbord/liste_examen', 'DashboardController::listeExamen'); // Exam list
 $routes->get('/dashbord/rapport', 'DashboardController::rapport'); // Report view
