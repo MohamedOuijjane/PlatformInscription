@@ -11,6 +11,7 @@ class ProfileController extends Controller
         // Supposons que l'utilisateur connecté est récupéré via la session
          $session = session();
          $userId = $session->get('user_id');
+         
 
          $userModel = new UsersModel();
         $user = $userModel->find(2);

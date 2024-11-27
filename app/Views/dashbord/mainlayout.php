@@ -150,7 +150,7 @@
         <a href="<?= base_url('/dashbord/liste_clients') ?>"><i class="bi bi-people"></i> Liste des Clients</a>
         <a href="<?= base_url('/dashbord/rapport') ?>"><i class="bi bi-bar-chart"></i> Charts</a>
         <a href="<?= base_url('/profile') ?>"><i class="bi bi-person"></i> Modifier Profil</a>
-        <a href="#"><i class="bi bi-box-arrow-right"></i> Log Out</a>
+        <a href="<?= base_url('/logout') ?>"><i class="bi bi-box-arrow-right"></i> Log Out</a>
     </div>
 
     <!-- Barre de navigation en haut -->
