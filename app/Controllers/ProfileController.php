@@ -10,11 +10,11 @@ class ProfileController extends Controller
     {
         // Supposons que l'utilisateur connecté est récupéré via la session
          $session = session();
-         $userId = $session->get('user_id');
+         $userId = $session->get('id');
          
 
          $userModel = new UsersModel();
-        $user = $userModel->find(2);
+        $user = $userModel->find($userId);
 
         if ($user) {
             return view('dashbord/modifier_profil', ['user' => $user]);
@@ -26,12 +26,12 @@ class ProfileController extends Controller
     public function updatePassword()
     {
          $session = session();
-         $userId = $session->get('user_id');
+         $userId = $session->get('id');
        
         $userModel = new UsersModel();
 
         // Vérifier que l'utilisateur existe
-        $user = $userModel->find(2);
+        $user = $userModel->find( $userId);
         if (!$user) {
             return redirect()->back()->with('error', 'Utilisateur non trouvé.');
         }

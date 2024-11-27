@@ -85,7 +85,7 @@
         <div class="mb-3 form-group-icon">
             <i class="bi bi-person-badge"></i>
             <label for="role" class="form-label">Rôle</label>
-            <input type="text" class="form-control readonly-field" id="role" value="Admin" readonly>
+            <input type="text" class="form-control readonly-field" id="role" value="<?= $user['role'] ?>" readonly>
         </div>
 
         <div class="mb-3 form-group-icon">
