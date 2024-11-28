@@ -19,13 +19,18 @@ class Home extends BaseController
     {
         // Récupérer l'exam_level de la requête GET
         $examLevel = $this->request->getGet('exam_level');
+        $examId = $this->request->getGet('exam_id');
+
 
         // Vérifier si exam_level est présent
         if (!$examLevel) {
             return redirect()->to('/inscriptionPage')->with('error', 'Veuillez sélectionner un examen.');
         }
 
-        return view('inscriptionDetails/inscriptionDetails', ['exam_level' => $examLevel]);
+        return view('inscriptionDetails/inscriptionDetails',  [
+            'exam_level' => $examLevel,
+            'exam_id' => $examId
+        ]);
     }
 
     public function saveCin()
@@ -35,6 +40,7 @@ class Home extends BaseController
             // Récupérer les valeurs postées
             $cin = $this->request->getPost('cin');
             $examLevel = $this->request->getPost('exam_level');
+            $examId = $this->request->getPost('exam_id');
     
             // Nettoyer les données (trim, stripslashes, htmlspecialchars)
             $cin = htmlspecialchars(trim(stripslashes($cin)));
@@ -50,7 +56,7 @@ class Home extends BaseController
             }
     
             // Rediriger avec les données dans l'URL (GET)
-            return redirect()->to('/register?cin=' . $cin . '&exam_level=' . $examLevel);
+            return redirect()->to('/register?cin=' . $cin . '&exam_level=' . $examLevel .'&exam_id=' . $examId);
         }
     }
 }

@@ -11,8 +11,12 @@ class Register extends BaseController
         // Récupérer CIN et Exam ID depuis les paramètres GET
         $cin = $this->request->getGet('cin');
         $examLevel = $this->request->getGet('exam_level');
-        
-        return view('register/register', ['cin' => $cin, 'exam_level' => $examLevel]);
+        $examId = $this->request->getGet('exam_id');
+        return view('register/register', [
+            'cin' => $cin,
+            'exam_level' => $examLevel,
+            'exam_id' => $examId
+            ]);
     }
     
     public function store()
@@ -25,6 +29,7 @@ class Register extends BaseController
         // Récupérer les données depuis le formulaire
         $cin = $this->request->getPost('cin');
         $examId = $this->request->getPost('exam_id');
+        $examLevel = $this->request->getPost('exam_level');
         $username = $this->request->getPost('username');
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
@@ -34,16 +39,19 @@ class Register extends BaseController
             'username' => 'required|min_length[3]|max_length[20]|is_unique[users.username]',
             'email'    => 'required|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[8]|max_length[255]',
-            'cin'      => 'required',
-            'exam_id'  => 'required',
         ]);
 
-        if (!$this->validate($validation->getRules())) {
+       /* if (!$this->validate($validation->getRules())) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }*/
+        if (!$this->validate($validation->getRules())) {
+            $errors = $validation->getErrors(); // Retrieve errors explicitly
+            return redirect()->back()->withInput()->with('errors', $errors);
         }
+        
 
         // Hasher le mot de passe
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         // Sauvegarder l'utilisateur dans la table Users
         $userData = [

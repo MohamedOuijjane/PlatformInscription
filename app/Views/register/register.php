@@ -162,6 +162,10 @@ Sign up
             </ul>
         </div>
     <?php endif; ?>
+        <div>
+            <input type="hidden" name="exam_level" value="<?= esc($exam_level) ?>">
+            <input type="hidden" name="exam_id" value="<?= esc($exam_id) ?>">
+        </div>
     <div class="input_container">
         <label class="input_label" for="cin_field">CIN</label>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">

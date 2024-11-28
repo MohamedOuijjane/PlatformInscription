@@ -178,13 +178,13 @@ Page d'Inscription
                     <p>Début d'inscription : <?= date('d F Y', strtotime($session['start_date'])) ?></p>
                     <p>Date Limite : <?= date('d F Y', strtotime($session['end_date'])) ?></p>
                 </div>
-                <a href="<?= base_url('/inscriptionDetails?exam_level=' . $session['level']) ?>" class="preinscription-btn">Se pré-inscrire en ligne</a>
-            </div>
+                <a href="<?= base_url(relativePath: '/inscriptionDetails?exam_level=' . $session['level'] . '&exam_id=' . $session['id']) ?>" class="preinscription-btn">Se pré-inscrire en ligne</a>
+                </div>
         <?php endforeach; ?>
     <?php else: ?>
         <p>Aucune session trouvée.</p>
     <?php endif; ?>
-</div>
+    </div>
 
 </div>
 <script>

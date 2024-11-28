@@ -190,6 +190,7 @@ Pré-inscrire en ligne
         </div>
         <div>
             <input type="hidden" name="exam_level" value="<?= esc($exam_level) ?>">
+            <input type="hidden" name="exam_id" value="<?= esc($exam_id) ?>">
         </div>
         <div class="input_container">
             <label class="input_label" for="cin_field">CIN <sup><span style="color: red;">*</span></sup></label>
