@@ -151,7 +151,7 @@ Sign up
             <img src="<?= base_url('images/logo.png') ?>" alt="Passerelle des langues" style="height: 110px;">
         </a>
   <div class="logo_container">
-    <h1 class="logo_title display-4 font-weight-bold">Sign Up for an Account</h1>
+    <h1 class="logo_title display-4 font-weight-bold">Enregistrez-vous dès maintenant</h1>
   </div>
   <?php if (session()->get('errors')): ?>
         <div class="alert alert-danger">
@@ -162,9 +162,12 @@ Sign up
             </ul>
         </div>
     <?php endif; ?>
-    <div class="newInputs">
-    <input type="text" name="cin" value="<?= $cin ?>">
-    <input type="text" name="exam_id" value="<?= $exam_id ?>">
+    <div class="input_container">
+    <label class="input_label" for="cin_field">CIN</label>
+    <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="icon">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="#141B34" d="M16 8c0-2.21-1.79-4-4-4s-4 1.79-4 4 1.79 4 4 4 4-1.79 4-4zm-4 8c-3.86 0-7 1.57-7 4v2h14v-2c0-2.43-3.14-4-7-4z"></path>
+    </svg>
+    <input placeholder="CIN" title="CIN" name="cin" type="text" class="input_field" id="cin_field" value="<?= $cin ?>" readonly>
     </div>
   <div class="input_container">
     <label class="input_label" for="username_field">Username</label>
