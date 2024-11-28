@@ -163,12 +163,14 @@ Sign up
         </div>
     <?php endif; ?>
     <div class="input_container">
-    <label class="input_label" for="cin_field">CIN</label>
-    <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="icon">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="#141B34" d="M16 8c0-2.21-1.79-4-4-4s-4 1.79-4 4 1.79 4 4 4 4-1.79 4-4zm-4 8c-3.86 0-7 1.57-7 4v2h14v-2c0-2.43-3.14-4-7-4z"></path>
-    </svg>
-    <input placeholder="CIN" title="CIN" name="cin" type="text" class="input_field" id="cin_field" value="<?= $cin ?>" readonly>
+        <label class="input_label" for="cin_field">CIN</label>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />
+        </svg>
+        <input placeholder="CIN" title="CIN" name="cin" type="text" class="input_field" id="cin_field" value="<?= $cin ?>" readonly>
     </div>
+
+
   <div class="input_container">
     <label class="input_label" for="username_field">Username</label>
     <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="icon">
