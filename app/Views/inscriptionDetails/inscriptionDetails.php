@@ -21,8 +21,8 @@ Pré-inscrire en ligne
     }
     form {
         width: 300%; /* Adjust to desired width (e.g., 100% for full width or 80% for slightly smaller) */
-        margin-left: 20%;
-        margin-top: 20% ;
+        margin-left: 40%;
+        margin-top: 1% ;
         border-color: black;
         border-radius: 5px;   
         background-color: #fafafa ;
@@ -156,6 +156,20 @@ Pré-inscrire en ligne
             font-size: 18px; /* Adjust font size for smaller screens */
         }
     }
+    .exam-id-container {
+        display: inline-block; /* Makes it behave like a block but flow inline */
+        text-align: center; /* Centers text inside the box */
+        background-color: #FFC878; /* Match the orange color from the second image */
+        color: #000; /* Black text */
+        font-weight: bold; /* Make the text bold */
+        font-size: 20px; /* Adjust font size as needed */
+        width: 60px; /* Set fixed width */
+        height: 60px; /* Set fixed height */
+        line-height: 60px; /* Vertically align text */
+        border-radius: 5px; /* Rounded corners */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+        margin-left: 42%;
+    }
 
 </style>
 <div class="background-section">
@@ -165,15 +179,26 @@ Pré-inscrire en ligne
 </div>
 <h4 class="clignote" >L'inscription peut être arrêtée avant la date limite dès qu'il n'y a plus de places disponibles.</h4>
 
-    
-<div class="form-container" >
-<form action="<?= base_url('/saveCin') ?>" method="POST">
-<input type="hidden" name="exam_id" value="<?= esc($exam_id) ?>">
-    <label for="cin">CIN :</label>
-    <input type="text" name="cin" id="cin" required>
-    <button type="submit">Suivant</button>
-</form>
+<div class="exam-id-container">
+    <?= esc($exam_level) ?>
+</div>
 
-    
+<div class="form-container" >
+    <form   action="<?= base_url('/saveCin') ?>" method="POST" > 
+        <div class="titleContainer">
+            <p class="title">Veuillez saisir votre CIN</p>
+        </div>
+        <div>
+        <input type="hidden" name="exam_level" value="<?= esc($exam_level) ?>">
+        </div>
+        <div class="input_container">
+            <label class="input_label" for="cin_field">CIN <sup><span style="color: red;" ></span>*</sup> </label>
+            <input placeholder="Veuillez saisir votre CIN" name="cin" type="text" class="input_field" id="cin_field" required>
+        </div>
+        <div class="button_container">
+                    <button type="submit" class="submit_btn"><i class="fas fa-forward"> </i> Suivant</button>
+        </div> 
+         
+    </form>
 </div>
 <?= $this->endSection() ?>

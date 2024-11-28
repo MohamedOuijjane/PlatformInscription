@@ -17,15 +17,15 @@ class Home extends BaseController
 
     public function inscriptionDetails()
     {
-        // Récupérer l'exam_id de la requête GET
-        $examId = $this->request->getGet('exam_id');
+        // Récupérer l'exam_level de la requête GET
+        $examLevel = $this->request->getGet('exam_level');
 
-        // Vérifier si exam_id est présent
-        if (!$examId) {
+        // Vérifier si exam_level est présent
+        if (!$examLevel) {
             return redirect()->to('/inscriptionPage')->with('error', 'Veuillez sélectionner un examen.');
         }
 
-        return view('inscriptionDetails/inscriptionDetails', ['exam_id' => $examId]);
+        return view('inscriptionDetails/inscriptionDetails', ['exam_level' => $examLevel]);
     }
 
     public function saveCin()
