@@ -10,14 +10,9 @@ class Register extends BaseController
     {
         // Récupérer CIN et Exam ID depuis les paramètres GET
         $cin = $this->request->getGet('cin');
-        $examId = $this->request->getGet('exam_id');
-
-        // Vérifier si CIN et Exam ID sont présents
-        // if (!$cin || !$examId) {
-        //     return redirect()->to('/inscriptionDetails')->with('error', 'Les données sont manquantes. Veuillez recommencer.');
-        // }
-
-        return view('register/register', ['cin' => $cin, 'exam_id' => $examId]);
+        $examLevel = $this->request->getGet('exam_level');
+        
+        return view('register/register', ['cin' => $cin, 'exam_level' => $examLevel]);
     }
     
     public function store()

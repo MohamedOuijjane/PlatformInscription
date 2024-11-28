@@ -183,27 +183,36 @@ Pré-inscrire en ligne
     <?= esc($exam_level) ?>
 </div>
 
-<div class="form-container" >
-<?php $validation = \Config\Services::validation(); ?>
-
-    <form   action="<?= base_url('/saveCin') ?>" method="POST" > 
+<div class="form-container">
+    <form action="<?= base_url('/saveCin') ?>" method="POST">
         <div class="titleContainer">
             <p class="title">Veuillez saisir votre CIN</p>
         </div>
         <div>
-        <input type="hidden" name="exam_level" value="<?= esc($exam_level) ?>">
+            <input type="hidden" name="exam_level" value="<?= esc($exam_level) ?>">
         </div>
         <div class="input_container">
-            <label class="input_label" for="cin_field">CIN <sup><span style="color: red;" ></span>*</sup> </label>
-            <input placeholder="Veuillez saisir votre CIN" name="cin" type="text" class="input_field" id="cin_field" required>
-            <?php if ($validation->hasError('cin')) : ?>
-            <small class="error"><?= $validation->getError('cin') ?></small>
-        <?php endif; ?>
+            <label class="input_label" for="cin_field">CIN <sup><span style="color: red;">*</span></sup></label>
+            <input
+                placeholder="Veuillez saisir votre CIN (ex: JK663322)"
+                name="cin"
+                type="text"
+                class="input_field"
+                id="cin_field"
+                pattern="[A-Za-z]{2}\d{4,8}"
+                title="Le CIN doit être composé de 2 lettres suivies de 4 à 8 chiffres (ex: JK663322)."
+                required>
+            <!-- Display error message if exists -->
+            <?php if (session()->getFlashdata('error')): ?>
+                <div class="error-message" style="color: red; margin-top: 5px;">
+                    <?= session()->getFlashdata('error') ?>
+                </div>
+            <?php endif; ?>
         </div>
         <div class="button_container">
-                    <button type="submit" class="submit_btn"><i class="fas fa-forward"> </i> Suivant</button>
-        </div> 
-         
+            <button type="submit" class="submit_btn"><i class="fas fa-forward"></i> Suivant</button>
+        </div>
     </form>
 </div>
+
 <?= $this->endSection() ?>

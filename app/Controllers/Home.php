@@ -32,43 +32,25 @@ class Home extends BaseController
     {
         // Vérifier que c'est une requête POST
         if ($this->request->getMethod() === 'POST') {
-            // Get the POST data
+            // Récupérer les valeurs postées
             $cin = $this->request->getPost('cin');
             $examLevel = $this->request->getPost('exam_level');
     
-            // Sanitize input
-            $cin = trim($cin); // Remove extra spaces
-            $cin = htmlspecialchars($cin, ENT_QUOTES, 'UTF-8'); // Convert special characters to HTML entities
-            $cin = stripslashes($cin); // Remove slashes if magic quotes are enabled (rare nowadays)
+            // Nettoyer les données (trim, stripslashes, htmlspecialchars)
+            $cin = htmlspecialchars(trim(stripslashes($cin)));
     
-            // Validate input
-            $validation = \Config\Services::validation(); // Load validation service
-    
-            $validation->setRules([
-                'cin' => [
-                    'label' => 'CIN',
-                    'rules' => 'required|alpha_numeric|min_length[5]|max_length[00]', // Adjust length as per your requirements
-                    'errors' => [
-                        'required' => 'Le champ CIN est obligatoire.',
-                        'alpha_numeric' => 'Le CIN ne doit contenir que des lettres et des chiffres.',
-                        'min_length' => 'Le CIN doit contenir au moins {param} caractères.',
-                        'max_length' => 'Le CIN ne doit pas dépasser {param} caractères.',
-                    ],
-                ],
-            ]);
-    
-            // Check if validation passes
-            if (!$validation->withRequest($this->request)->run()) {
-                // Return with errors
-                return redirect()->back()->withInput()->with('validation', $validation);
+            // Valider que les champs ne sont pas vides
+            if (empty($cin)) {
+                return redirect()->back()->with('error', 'CIN est requis.');
             }
     
-            // Redirect with sanitized and validated data in the URL
-            return redirect()->to('/register?cin=' . urlencode($cin) . '&exam_level=' . urlencode($examLevel));
+            // Valider le format de CIN
+            if (!preg_match('/^[A-Za-z]{2}\d{4,8}$/', $cin)) {
+                return redirect()->back()->with('error', 'Le CIN doit être composé de 2 lettres suivies de 4 à 8 chiffres (ex: JK663322).');
+            }
+    
+            // Rediriger avec les données dans l'URL (GET)
+            return redirect()->to('/register?cin=' . $cin . '&exam_level=' . $examLevel);
         }
-    
-        // If not a POST request, show an error or redirect
-        return redirect()->back()->with('error', 'Invalid request.');
     }
-    
 }
