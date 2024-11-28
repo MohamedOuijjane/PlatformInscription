@@ -153,15 +153,21 @@ Sign up
   <div class="logo_container">
     <h1 class="logo_title display-4 font-weight-bold">Enregistrez-vous dès maintenant</h1>
   </div>
-  <?php if (session()->get('errors')): ?>
-        <div class="alert alert-danger">
-            <ul>
-                <?php foreach (session()->get('errors') as $error): ?>
-                    <li><?= $error ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    <?php endif; ?>
+                  <?php if (session()->get('errors')): ?>
+                        <div class="alert alert-danger">
+                            <ul>
+                                <?php foreach (session()->get('errors') as $error): ?>
+                                    <li><?= $error ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (session()->has('error')): ?>
+                      <div class="alert alert-danger">
+                          <?= esc(session('error')) ?>
+                      </div>
+                    <?php endif; ?>
+
         <div>
             <input type="hidden" name="exam_level" value="<?= esc($exam_level) ?>">
             <input type="hidden" name="exam_id" value="<?= esc($exam_id) ?>">

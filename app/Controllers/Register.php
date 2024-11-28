@@ -34,21 +34,27 @@ class Register extends BaseController
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return redirect()->back()->withInput()->with('error', 'Veuillez fournir une adresse email valide!!!');
+        }
+
         // Valider les champs
         $validation->setRules([
             'username' => 'required|min_length[3]|max_length[20]|is_unique[users.username]',
-            'email'    => 'required|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[8]|max_length[255]',
-        ]);
+            'email' => 'required|valid_email|is_unique[users.email]',
 
-       /* if (!$this->validate($validation->getRules())) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-        }*/
+        ]);
+        
+        // If the CIN is empty
+        if (empty($cin)) {
+            return redirect()->back()->withInput()->with('error', 'Le champ CIN est obligatoire.');
+        }
+
         if (!$this->validate($validation->getRules())) {
             $errors = $validation->getErrors(); // Retrieve errors explicitly
             return redirect()->back()->withInput()->with('errors', $errors);
         }
-        
 
         // Hasher le mot de passe
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
@@ -61,9 +67,7 @@ class Register extends BaseController
             'CIN'      => $cin,
             'role'     => 'client',
         ];
-
         $userId = $userModel->insert($userData);
-
         if (!$userId) {
             return redirect()->back()->with('error', 'Erreur lors de l\'enregistrement de l\'utilisateur.');
         }
@@ -74,7 +78,6 @@ class Register extends BaseController
             'exam_id'           => $examId,
             'registration_date' => date('Y-m-d'),
         ];
-
         if (!$registrationModel->insert($registrationData)) {
             return redirect()->back()->with('error', 'Erreur lors de l\'enregistrement de l\'inscription.');
         }
