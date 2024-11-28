@@ -184,6 +184,8 @@ Pré-inscrire en ligne
 </div>
 
 <div class="form-container" >
+<?php $validation = \Config\Services::validation(); ?>
+
     <form   action="<?= base_url('/saveCin') ?>" method="POST" > 
         <div class="titleContainer">
             <p class="title">Veuillez saisir votre CIN</p>
@@ -194,6 +196,9 @@ Pré-inscrire en ligne
         <div class="input_container">
             <label class="input_label" for="cin_field">CIN <sup><span style="color: red;" ></span>*</sup> </label>
             <input placeholder="Veuillez saisir votre CIN" name="cin" type="text" class="input_field" id="cin_field" required>
+            <?php if ($validation->hasError('cin')) : ?>
+            <small class="error"><?= $validation->getError('cin') ?></small>
+        <?php endif; ?>
         </div>
         <div class="button_container">
                     <button type="submit" class="submit_btn"><i class="fas fa-forward"> </i> Suivant</button>
