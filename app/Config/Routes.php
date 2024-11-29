@@ -26,9 +26,13 @@ $routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard', ['filter' 
 $routes->post('/inscriptionDetails', 'Home::inscriptionDetails');
 //dashboard client routes
 //$routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard');
- $routes->get('/dashboardClient/profile',to: 'DashboardClient::profile');
+ $routes->match(['get', 'post'], '/dashboardClient/profile', 'DashboardClient::profile');
 $routes->get('/dashboardClient/paiement',to: 'DashboardClient::paiement');
 $routes->get('/dashboardClient/convocation',to: 'DashboardClient::convocation');
+$routes->get('/dashboardClient/convocationDisplayer',to: 'DashboardClient::convocationDisplayer');
+$routes->get('/dashboardClient/generatePDF',to: 'DashboardClient::generatePDF');
+
+
 
 
 

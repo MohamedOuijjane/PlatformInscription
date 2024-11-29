@@ -33,7 +33,7 @@ class CreateRegistrationsTable extends Migration
             'payment_status' => [
                 'type' => 'ENUM',
                 'constraint' => ['paid', 'pending', 'unpaid'],
-                'default' => 'pending'
+                'default' => 'unpaid'
             ],
             'amount' => [
                 'type' => 'FLOAT',

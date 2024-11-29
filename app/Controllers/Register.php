@@ -43,7 +43,6 @@ class Register extends BaseController
             'username' => 'required|min_length[3]|max_length[20]|is_unique[users.username]',
             'password' => 'required|min_length[8]|max_length[255]',
             'email' => 'required|valid_email|is_unique[users.email]',
-
         ]);
         
         // If the CIN is empty

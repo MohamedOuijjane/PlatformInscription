@@ -76,47 +76,64 @@
 
 </style>
 
-<div class="form-container">
+ <form action="/dashboardClient/profile" method="POST">
+    <div class="form-container">
         <p class="profile-message">Merci de bien vouloir mettre à jour les informations de votre profil, cher(e) client(e).</p>
+        <?php $session = session(); ?> 
 
-    <div class="form-group">
-        <label for="nom">Nom</label>
-        <i class="fa fa-user input-icon"></i>
-        <input type="text" id="nom" placeholder="Entrer le nom">
-    </div>
-    <div class="form-group">
-        <label for="prenom">Prénom</label>
-        <i class="fa fa-user input-icon"></i>
-        <input type="text" id="prenom" placeholder="Entrer le prénom">
-    </div>
-    <div class="form-group">
-        <label for="username">Nom d'utilisateur</label>
-        <i class="fa fa-user input-icon"></i>
-        <input type="text" id="username" value="Mohamed123" readonly>
-    </div>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <i class="fa fa-envelope input-icon"></i>
-        <input type="email" id="email" value="ouijjane22@admin.com" readonly>
-    </div>
-    <div class="form-group">
-        <label for="date-naissance">Date de Naissance</label>
-        <i class="fa fa-calendar input-icon"></i>
-        <input type="date" id="date-naissance">
-    </div>
-    <div class="form-group">
-        <label for="telephone">Numéro de Téléphone</label>
-        <i class="fa fa-phone input-icon"></i>
-        <input type="tel" id="telephone" placeholder="Entrer le numéro de téléphone">
-    </div>
-    <div class="form-group">
-        <label for="adresse">Adresse</label>
-        <i class="fa fa-map-marker input-icon"></i>
-        <input type="text" id="adresse" placeholder="Entrer l'adresse">
-    </div>
-</div>
+        <!-- Error Messages -->
+        <?php if ($session->get('errors')): ?>
+            <div class="alert alert-danger">
+                <?php foreach ($session->get('errors') as $error): ?>
+                    <p><?= esc($error) ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
 
-<!-- Enregister button -->
-<button type="button" class="submit-button">Enregister</button>
+        <!-- Form Fields -->
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <i class="fa fa-user input-icon"></i>
+            <input type="text" id="nom" name="nom" placeholder="Entrer le nom" value="<?= old('nom'); ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <i class="fa fa-user input-icon"></i>
+            <input type="text" id="prenom" name="prenom" placeholder="Entrer le prénom" value="<?= old('prenom'); ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="username">Nom d'utilisateur</label>
+            <i class="fa fa-user input-icon"></i>
+            <input type="text" id="username" value="<?= esc($session->get('username')); ?>" readonly>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <i class="fa fa-envelope input-icon"></i>
+            <input type="email" id="email" value="<?= esc($session->get('email')); ?>" readonly>
+        </div>
+        <div class="form-group">
+            <label for="date-naissance">Date de Naissance</label>
+            <i class="fa fa-calendar input-icon"></i>
+            <input type="date" id="date-naissance" name="date_naissance" value="<?= old('date_naissance'); ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="telephone">Numéro de Téléphone</label>
+            <i class="fa fa-phone input-icon"></i>
+            <input type="tel" id="telephone" name="telephone" placeholder="Entrer le numéro de téléphone" value="<?= old('telephone'); ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse</label>
+            <i class="fa fa-map-marker input-icon"></i>
+            <input type="text" id="adresse" name="adresse" placeholder="Entrer l'adresse" value="<?= old('adresse'); ?>" required>
+        </div>
+
+        <!-- Enregister Button -->
+        <button type="submit" class="submit-button">Enregister</button>
+    </div>
+</form>
+
+    
+
+
 
 <?= $this->endSection() ?>

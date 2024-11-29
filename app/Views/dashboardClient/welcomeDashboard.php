@@ -31,11 +31,12 @@
     }
     form {
     padding: 20px;
+    margin-bottom: 35%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     form h2 {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         color: #333333;
     }
 
@@ -63,8 +64,20 @@
         font-size: 25px;
 
     }
-    .titleContainer{
-        background-color: #f3f3f3;
+    .exam-id-container {
+        display: inline-block; /* Makes it behave like a block but flow inline */
+        text-align: center; /* Centers text inside the box */
+        background-color: #FFC878; /* Match the orange color from the second image */
+        color: #000; /* Black text */
+        font-weight: bold; /* Make the text bold */
+        font-size: 20px; /* Adjust font size as needed */
+        width: 60px; /* Set fixed width */
+        height: 60px; /* Set fixed height */
+        line-height: 60px; /* Vertically align text */
+        border-radius: 5px; /* Rounded corners */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+        margin-left: 45%;
+        margin-top: 20px;
     }
     .title::after {
         content: "";
@@ -91,7 +104,7 @@
     .spanDateExamen{
         font-weight: bold; 
         color: #666666;
-        margin-left: -241px;
+        margin-left: 25px;
     }
     .spanDateExamen2{
         color: #A3A3A3;
@@ -99,7 +112,7 @@
     .spanCIN{
         font-weight: bold; 
         color: #666666;
-        margin-left: -357px;
+        margin-left: -93px;
     }
     .spanCIN2{
         color: #A3A3A3;
@@ -129,25 +142,28 @@
 
 <div class="container">
     <div class="card">
-    <div class="card-header"><h1>Bonjour chèr(e) Client, $username!</h1></div>
+    <div class="card-header"><h1>Bonjour chèr(e) Client, <span><?= $username ?></span></h1></div>
         <div class="clignote">Votre préinscription en ligne a bien été envoyée!</div>
+        <div class="exam-id-container">
+                    <?= esc($examLevel) ?>
+        </div>
         <div class="form-container">
             <form class="form_container"> 
                 <div class="titleContainer">
-                    <p class="title">$Prufung B2</p>
+                    <p class="title">Vos informations d'inscription en ligne:</p>
                 </div>
                 <div class="spans">
                 <h5>
                     <span class="spanRef1">Référence d'inscription:</span>
-                    <span class="spanRef2">EK3663366552101100</span>
+                    <span class="spanRef2"><?= $reference ?></span>
                 </h5>
                 <h5 class="dateE" >
                     <span class="spanDateExamen">Date d'examen:</span>
-                    <span class="spanDateExamen2">$date</span>
+                    <span class="spanDateExamen2"><?= $examDate ?></span>
                 </h5>
                 <h5 class="CIN" >
                     <span class="spanCIN">CIN:</span>
-                    <span class="spanRef2">$CIN</span>
+                    <span class="spanRef2"><?= $CIN ?></span>
                 </h5>
 
                 </div>

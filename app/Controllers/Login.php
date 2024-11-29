@@ -30,6 +30,7 @@ class Login extends BaseController
                     'id' => $user['id'],
                     'username' => $user['username'],
                     'role' => $user['role'],
+                    'email' => $user['email'],
                     'isLoggedIn' => true,
                 ]);
 
@@ -54,6 +55,7 @@ class Login extends BaseController
     {
         $session = session();
         $session->destroy();
+        //$mainDashboardClientSession->destroy();
         return redirect()->to('/login');
     }
 }
