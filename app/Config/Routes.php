@@ -42,7 +42,7 @@ $routes->get('/dashboardClient/convocationDownloader',to: 'DashboardClient::conv
 
 
 // Dashboard Admin Routes Y.M
-$routes->get('/dashboardYassine', 'DashboardController::index'); // Admin dashboard (Yassine-specific)
+$routes->get('/dashboardYassine', 'DashboardController::index',['filter' => 'authAdmin']); // Admin dashboard (Yassine-specific)
 $routes->get('/dashbord', 'DashboardController::rapport'); // Admin dashboard main
 // Exam CRUD Routes
 $routes->get('/dashbord/ajouter_exam', 'ExamsController::index'); // Add exam form
