@@ -129,8 +129,8 @@
     <div class="sidebar">
         <h3>Client</h3>
         <a href="<?= base_url('/dashboardClient') ?>"><i class="bi bi-plus-circle"></i>Welcome</a>
-        <a href="<?= base_url('/dashboardClient/profile') ?>"><i class="bi bi-person-circle"></i> Profil</a>
-        <a href="<?= base_url('/dashboardClient/paiement') ?>"><i class="bi bi-wallet2"></i> Paiement</a>
+        <a href="<?= base_url('/dashboardClient/profileDisplayer') ?>"><i class="bi bi-person-circle"></i> Profil</a>
+        <a href="<?= base_url('/dashboardClient/paiementDisplayer') ?>"><i class="bi bi-wallet2"></i> Paiement</a>
         <a href="<?= base_url('/dashboardClient/convocation') ?>"><i class="bi bi-file-earmark-text"></i> Convocation</a>
         <a href="<?= base_url('/logout') ?>"><i class="bi bi-box-arrow-right"></i> Log Out</a>
     </div>

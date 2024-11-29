@@ -73,24 +73,21 @@
         white-space: nowrap;
     }
 </style>
+<form action="<?= base_url('/dashboardClient/paiement') ?>" method="POST">
+    <div class="form-container">
+        <p class="profile-message">Nous vous prions de bien vouloir poursuivre le paiement</p>
+        <div class="form-group">
+            <label for="reference">Veuillez entrer le numéro de référence du paiement</label>
+            <i class="fa fa-hashtag input-icon"></i>
+            <input type="text" id="reference" name="reference" placeholder="Numéro de référence" required>
+        </div>
 
-<div class="form-container">
-    <p class="profile-message">Nous vous prions de bien vouloir poursuivre le paiement</p>
-
-    <div class="form-group">
-        <label for="ref-paiement">Veuillez entrer le numéro de référence du paiement</label>
-        <i class="fa fa-hashtag input-icon"></i>
-        <input type="text" id="ref-paiement" placeholder="Numéro de référence">
+        <div class="form-group">
+            <label for="payment_date">La date du paiement</label>
+            <i class="fa fa-calendar input-icon"></i>
+            <input type="date" id="payment_date" name="payment_date" required>
+        </div>
     </div>
-    
-    <div class="form-group">
-        <label for="date-paiement">La date du paiement</label>
-        <i class="fa fa-calendar input-icon"></i>
-        <input type="date" id="date-paiement">
-    </div>
-</div>
-
-<!-- Valider button -->
-<button type="button" class="submit-button">Valider</button>
-
+    <button type="submit" class="submit-button">Valider</button>
+</form>
 <?= $this->endSection() ?>

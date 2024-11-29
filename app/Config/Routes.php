@@ -25,9 +25,14 @@ $routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard', ['filter' 
 // routes from inscription details to dashboard welcome
 $routes->post('/inscriptionDetails', 'Home::inscriptionDetails');
 //dashboard client routes
-//$routes->get('/dashboardClient', 'DashboardClient::welcomeDashboard');
- $routes->match(['get', 'post'], '/dashboardClient/profile', 'DashboardClient::profile');
-$routes->get('/dashboardClient/paiement',to: 'DashboardClient::paiement');
+ $routes->get( '/dashboardClient/profileDisplayer', 'DashboardClient::profileDisplayer');
+ $routes->post( '/dashboardClient/profile', 'DashboardClient::profile');
+
+$routes->get('/dashboardClient/paiementDisplayer',to: 'DashboardClient::paiementDisplayer');
+$routes->post('/dashboardClient/paiement',to: 'DashboardClient::paiement');
+
+// route post click paiement
+
 $routes->get('/dashboardClient/convocation',to: 'DashboardClient::convocation');
 $routes->get('/dashboardClient/convocationDownloader',to: 'DashboardClient::convocationDownloader');
 

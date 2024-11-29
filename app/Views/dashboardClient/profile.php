@@ -76,62 +76,75 @@
 
 </style>
 
- <form action="/dashboardClient/profile" method="POST">
-    <div class="form-container">
-        <p class="profile-message">Merci de bien vouloir mettre à jour les informations de votre profil, cher(e) client(e).</p>
-        <?php $session = session(); ?> 
+<div class="container">
+    <form action="<?= base_url('dashboardClient/profile') ?>" method="POST">
+        <div class="form-container">
+            <p class="profile-message">Merci de bien vouloir mettre à jour les informations de votre profil, cher(e) client(e).</p>
 
-        <!-- Error Messages -->
-        <?php if ($session->get('errors')): ?>
-            <div class="alert alert-danger">
-                <?php foreach ($session->get('errors') as $error): ?>
-                    <p><?= esc($error) ?></p>
-                <?php endforeach; ?>
+            <!-- Messages d'erreur -->
+            <?php if (session()->get('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php foreach (session()->get('errors') as $error): ?>
+                        <p><?= esc($error) ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
+            <!-- Messages de succès -->
+           
+
+            <!-- Champs du formulaire -->
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <i class="fa fa-user input-icon"></i>
+                <input type="text" id="nom" name="nom" placeholder="Entrer le nom" value="<?= esc($user['lastname'] ?? '') ?>" required>
             </div>
-        <?php endif; ?>
 
-        <!-- Form Fields -->
-        <div class="form-group">
-            <label for="nom">Nom</label>
-            <i class="fa fa-user input-icon"></i>
-            <input type="text" id="nom" name="nom" placeholder="Entrer le nom" value="<?= old('nom'); ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="prenom">Prénom</label>
-            <i class="fa fa-user input-icon"></i>
-            <input type="text" id="prenom" name="prenom" placeholder="Entrer le prénom" value="<?= old('prenom'); ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="username">Nom d'utilisateur</label>
-            <i class="fa fa-user input-icon"></i>
-            <input type="text" id="username" value="<?= esc($session->get('username')); ?>" readonly>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <i class="fa fa-envelope input-icon"></i>
-            <input type="email" id="email" value="<?= esc($session->get('email')); ?>" readonly>
-        </div>
-        <div class="form-group">
-            <label for="date-naissance">Date de Naissance</label>
-            <i class="fa fa-calendar input-icon"></i>
-            <input type="date" id="date-naissance" name="date_naissance" value="<?= old('date_naissance'); ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="telephone">Numéro de Téléphone</label>
-            <i class="fa fa-phone input-icon"></i>
-            <input type="tel" id="telephone" name="telephone" placeholder="Entrer le numéro de téléphone" value="<?= old('telephone'); ?>" required>
-        </div>
-        <div class="form-group">
-            <label for="adresse">Adresse</label>
-            <i class="fa fa-map-marker input-icon"></i>
-            <input type="text" id="adresse" name="adresse" placeholder="Entrer l'adresse" value="<?= old('adresse'); ?>" required>
-        </div>
+            <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <i class="fa fa-user input-icon"></i>
+                <input type="text" id="prenom" name="prenom" placeholder="Entrer le prénom" value="<?= esc($user['firstname'] ?? '') ?>" required>
+            </div>
 
-        <!-- Enregister Button -->
-        <button type="submit" class="submit-button">Enregister</button>
-    </div>
-</form>
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur</label>
+                <i class="fa fa-user input-icon"></i>
+                <input type="text" id="username" name="username" value="<?= esc($user['username'] ?? '') ?>" readonly>
+            </div>
 
+            <div class="form-group">
+                <label for="email">Email</label>
+                <i class="fa fa-envelope input-icon"></i>
+                <input type="email" id="email" name="email" value="<?= esc($user['email'] ?? '') ?>" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="date_naissance">Date de Naissance</label>
+                <i class="fa fa-calendar input-icon"></i>
+                <input type="date" id="date_naissance" name="date_naissance" value="<?= esc($user['birth_date'] ?? '') ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telephone">Numéro de Téléphone</label>
+                <i class="fa fa-phone input-icon"></i>
+                <input type="tel" id="telephone" name="telephone" placeholder="Entrer le numéro de téléphone" value="<?= esc($user['phone_number'] ?? '') ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="adresse">Adresse</label>
+                <i class="fa fa-map-marker input-icon"></i>
+                <input type="text" id="adresse" name="adresse" placeholder="Entrer l'adresse" value="<?= esc($user['address'] ?? '') ?>" required>
+            </div>
+            <?php if (session()->get('success')): ?>
+                <div class="alert alert-success">
+                    <p><?= session('success') ?></p>
+                </div>
+            <?php endif; ?>
+            <!-- Bouton Enregistrer -->
+            <button type="submit" class="submit-button">Enregister</button>
+        </div>
+    </form>
+</div>
     
 
 

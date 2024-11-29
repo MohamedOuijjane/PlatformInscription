@@ -2,6 +2,7 @@
 namespace App\Controllers;
 use App\Models\UserModel;
 use App\Models\RegistrationsModel;
+use App\Models\PaymentModel;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
@@ -46,17 +47,29 @@ class DashboardClient extends BaseController{
             'reference' => $registration['id'], // Registration reference
         ]);
     }
+    public function profileDisplayer(){
+        $session = session();
+        $userId = $session->get('id'); // Obtenez l'ID de l'utilisateur connecté
 
+        $userModel = new UserModel();
+
+        // Vérifiez que l'utilisateur existe
+        $user = $userModel->find($userId);
+        if (!$user) {
+            return redirect()->to('/dashboardClient')->with('error', 'Utilisateur introuvable.');
+        }
+        return view('/dashboardClient/profile', ['user' => $user]);
+    }
     public function profile()
     {
         $session = session();
-    
-        // Handle POST request
+        $userId = $session->get('id'); // Obtenez l'ID de l'utilisateur connecté
+
+        $userModel = new UserModel();
+
+        // Si une requête POST est soumise
         if ($this->request->getMethod() === 'POST') {
-            // Load UserModel
-            $userModel = new UserModel();
-    
-            // Validate input data
+            // Validez les données du formulaire
             $validation = $this->validate([
                 'nom' => 'required|string|max_length[255]',
                 'prenom' => 'required|string|max_length[255]',
@@ -64,43 +77,78 @@ class DashboardClient extends BaseController{
                 'telephone' => 'required|numeric|min_length[10]|max_length[15]',
                 'adresse' => 'required|string|max_length[255]',
             ]);
-    
+
             if (!$validation) {
                 return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
             }
-    
-            // Fetch data
-            $data = [
-                'nom' => $this->request->getPost('nom'),
-                'prenom' => $this->request->getPost('prenom'),
+
+            // Préparez les données pour la mise à jour
+            $updatedData = [
+                'lastname' => $this->request->getPost('nom'),
+                'firstname' => $this->request->getPost('prenom'),
                 'date_naissance' => $this->request->getPost('date_naissance'),
-                'telephone' => $this->request->getPost('telephone'),
-                'adresse' => $this->request->getPost('adresse'),
+                'phone_number' => $this->request->getPost('telephone'),
+                'address' => $this->request->getPost('adresse'),
             ];
-    
-            // Get the user ID from session
-            $userId = $session->get('id');
-            if ($userId) {
-                // Update the user record
-                if ($userModel->update($userId, $data)) {
-                    // Redirect with success message
-                    return redirect()->to('/dashboardClient/profile')->with('success', 'Profil mis à jour avec succès.');
-                } else {
-                    // Redirect with error message
-                    return redirect()->to('/dashboardClient/profile')->with('error', 'Une erreur s\'est produite lors de la mise à jour.');
-                }
+
+            // Mettez à jour les informations utilisateur
+            if ($userModel->update($userId, $updatedData)) {
+                return redirect()->to('/dashboardClient/profileDisplayer')->with('success', 'Profil mis à jour avec succès.');
+            } else {
+                return redirect()->to('/dashboardClient/profileDisplayer')->with('error', 'Erreur lors de la mise à jour du profil.');
             }
-    
-            // If user ID is not found in session
-            return redirect()->to('/dashboardClient/profile')->with('error', 'Utilisateur introuvable.');
-        }
-    
-        // Render the profile view for GET request
-        return view('/dashboardClient/profile');
+       }
+
     }
+    
         
-    public function paiement(){
+    public function paiementDisplayer(){
+
         return view('/dashboardClient/paiement');
+    }
+    public function paiement()
+    {
+        $paymentModel = new PaymentModel();
+        $registrationModel = new RegistrationsModel();
+
+        // Récupérer les données depuis le formulaire
+        $reference = $this->request->getPost('reference');
+        $paymentDate = $this->request->getPost('payment_date');
+
+        // Validation des champs
+        if (empty($reference) || empty($paymentDate)) {
+            return redirect()->back()->with('error', 'Tous les champs sont obligatoires.');
+        }
+
+        // Récupérer l'utilisateur connecté
+        $session = session();
+        $userId = $session->get('id');
+
+        if (!$userId) {
+            return redirect()->to('/login')->with('error', 'Veuillez vous connecter.');
+        }
+
+        // Vérifier l'inscription de l'utilisateur
+        $registration = $registrationModel->where('user_id', $userId)->first();
+
+        if (!$registration) {
+            return redirect()->back()->with('error', 'Aucune inscription trouvée.');
+        }
+
+        // Enregistrer le paiement
+        $paymentData = [
+            'registration_id' => $registration['id'],
+            'amount'          => 100.00, // Remplacez par le montant approprié
+            'status'          => 'pending',
+            'reference'       => $reference,
+            'payment_date'    => $paymentDate,
+        ];
+
+        if ($paymentModel->insert($paymentData)) {
+            return redirect()->to('/dashboardClient')->with('success', 'Paiement enregistré avec succès.');
+        } else {
+            return redirect()->back()->with('error', 'Une erreur est survenue lors de l\'enregistrement du paiement.');
+        }
     }
     public function convocation(){
        
