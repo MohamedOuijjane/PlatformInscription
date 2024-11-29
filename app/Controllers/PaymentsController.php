@@ -12,6 +12,7 @@ class PaymentsController extends BaseController
         // Créer une instance du modèle PaymentModel
         $paymentModel = new PaymentModel();
         
+        
         // Récupérer les paiements en attente
         $data['payments'] = $paymentModel->where('status', 'pending')->findAll();
         
