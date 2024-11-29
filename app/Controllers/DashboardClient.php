@@ -135,7 +135,7 @@ class DashboardClient extends BaseController{
             return redirect()->back()->with('error', 'Aucune inscription trouvée.');
         }
 
-        // Enregistrer le paiement
+        //Enregistrer le paiement
         $paymentData = [
             'registration_id' => $registration['id'],
             'amount'          => 100.00, // Remplacez par le montant approprié
