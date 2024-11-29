@@ -145,41 +145,31 @@ class DashboardClient extends BaseController{
 
         ]);
     }
-    public function convocationDisplayer() {
-        
-        return view('dashboardClient/convocationDownloader');
-    }
-    public function generatePDF() {
-        // Load necessary models and session data
+    public function convocationDownloader() {
         $session = session();
         $userId = $session->get('id');
-        
+
         if (!$userId) {
             return redirect()->to('/login')->with('error', 'Vous devez être connecté pour accéder à cette page.');
         }
-    
+
         $userModel = new UserModel();
         $registrationModel = new RegistrationsModel();
-    
-        // Fetch user and registration details
+
         $user = $userModel->find($userId);
         $registration = $registrationModel
-                        ->select('registrations.*, exams.level, exams.adresse, exams.ville, exams.exam_date, exams.heure, exams.start_date, exams.end_date')
+                        ->select('registrations.*, exams.level, exams.adresse, exams.ville, exams.exam_date, exams.heure')
                         ->join('exams', 'exams.id = registrations.exam_id')
                         ->where('registrations.user_id', $userId)
                         ->orderBy('registrations.registration_date', 'DESC')
                         ->first();
-    
-        // Check if the required data is available
+
         if (!$user || !$registration) {
             return redirect()->to('/login')->with('error', 'Impossible de charger vos données.');
         }
-    
-        // Initialize DomPDF
-        $dompdf = new Dompdf\Dompdf();
-    
-        // Render the view as HTML
-        $html = view('dashboardClient/convocationPDF', [
+
+        // Prepare HTML content
+        $html = view('/dashboardClient/convocationDownloader', [
             'username' => $user['username'],
             'prenom' => $user['firstname'],
             'nom' => $user['lastname'],
@@ -192,18 +182,23 @@ class DashboardClient extends BaseController{
             'examAddress' => $registration['adresse'],
             'ville' => $registration['ville'],
         ]);
-    
-        // Load HTML to DomPDF
+
+        // Initialize Dompdf
+        $options = new Options();
+        $options->set('defaultFont', 'Poppins');
+        $dompdf = new Dompdf($options);
+
+        // Load HTML content
         $dompdf->loadHtml($html);
-        
-        // (Optional) Set paper size
+
+        // Set paper size and orientation
         $dompdf->setPaper('A4', 'portrait');
-    
-        // Render PDF (first pass)
+
+        // Render the HTML as PDF
         $dompdf->render();
-    
-        // Stream the generated PDF (force download)
-        return $dompdf->stream("convocation.pdf", array("Attachment" => 1));
+
+        // Output the generated PDF
+        $dompdf->stream("convocation.pdf", ["Attachment" => true]);     
     }
     
 }

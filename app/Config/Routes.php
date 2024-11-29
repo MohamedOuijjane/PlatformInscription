@@ -29,8 +29,7 @@ $routes->post('/inscriptionDetails', 'Home::inscriptionDetails');
  $routes->match(['get', 'post'], '/dashboardClient/profile', 'DashboardClient::profile');
 $routes->get('/dashboardClient/paiement',to: 'DashboardClient::paiement');
 $routes->get('/dashboardClient/convocation',to: 'DashboardClient::convocation');
-$routes->get('/dashboardClient/convocationDisplayer',to: 'DashboardClient::convocationDisplayer');
-$routes->get('/dashboardClient/generatePDF',to: 'DashboardClient::generatePDF');
+$routes->get('/dashboardClient/convocationDownloader',to: 'DashboardClient::convocationDownloader');
 
 
 

@@ -104,7 +104,7 @@
             <p><span class="field-label">Adresse d'examen:</span><span><?= $ville ?>, <?=   $examAddress ?></span></p>
         </div>
 
-        <a href="<?= site_url('dashboardClient/convocationDisplayer') ?>" class="download-button">Télécharger la convocation en PDF</a>
+        <a href="<?= site_url('dashboardClient/convocationDownloader') ?>" class="download-button">Télécharger la convocation en PDF</a>
 
     </div>
 </div>

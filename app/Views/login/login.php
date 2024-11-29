@@ -172,6 +172,7 @@ Login
     </svg>
     <input placeholder="Password" title="Inpit title" name="password" type="password" class="input_field" id="password_field">
   </div>
+  <a href="/">Oublier le mot de passe?</a>
   <button title="Sign In" type="submit" class="btn btn-primary sign-in_btn">
     <span>Sign In</span>
   </button>
