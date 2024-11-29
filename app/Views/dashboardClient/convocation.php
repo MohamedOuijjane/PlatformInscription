@@ -104,8 +104,11 @@
             <p><span class="field-label">Adresse d'examen:</span><span><?= $ville ?>, <?=   $examAddress ?></span></p>
         </div>
 
-        <a href="<?= site_url('dashboardClient/convocationDownloader') ?>" class="download-button">Télécharger la convocation en PDF</a>
-
+        <?php if ($canDownloadConvocation): ?>
+            <a href="<?= site_url('dashboardClient/convocationDownloader') ?>" class="btn btn-success">Télécharger la convocation en PDF</a>
+        <?php else: ?>
+            <div class="alert alert-danger">Votre convocation sera disponible après la confirmation du paiement.</div>
+        <?php endif; ?>
     </div>
 </div>
 <?= $this->endSection() ?>

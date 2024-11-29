@@ -147,6 +147,9 @@
         <div class="exam-id-container">
                     <?= esc($examLevel) ?>
         </div>
+        <div class="alert alert-info">
+            <?= esc($paymentMessage) ?>
+        </div>
         <div class="form-container">
             <form class="form_container"> 
                 <div class="titleContainer">

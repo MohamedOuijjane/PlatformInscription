@@ -7,11 +7,9 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 
 class DashboardClient extends BaseController{
-    public function welcomeDashboard(){
-
+    public function welcomeDashboard()
+    {
         $session = session();
-        //$mainDashboardClientSession = session();
-    
         $userId = $session->get('id');
 
         if (!$userId) {
@@ -20,31 +18,39 @@ class DashboardClient extends BaseController{
 
         $userModel = new UserModel();
         $registrationModel = new RegistrationsModel();
+        $paymentModel = new PaymentModel();
 
-        // Récupérer les informations de l'utilisateur
         $user = $userModel->find($userId);
-
-        // Récupérer la dernière inscription de l'utilisateur
         $registration = $registrationModel
-                        ->select('registrations.*, exams.level, exams.adresse, exams.ville, exams.exam_date, exams.heure, exams.start_date, exams.end_date')
-                        ->join('exams', 'exams.id = registrations.exam_id')
-                        ->where('registrations.user_id', $userId)
-                        ->orderBy('registrations.registration_date', 'DESC')
-                        ->first();
+            ->select('registrations.*, exams.level, exams.exam_date')
+            ->join('exams', 'exams.id = registrations.exam_id')
+            ->where('registrations.user_id', $userId)
+            ->orderBy('registrations.registration_date', 'DESC')
+            ->first();
 
-        // Vérifier si les données nécessaires sont disponibles
-        if (!$user || !$registration) {
-            return redirect()->to('/login')->with('error', 'Impossible de charger vos données.');
+        $payment = $paymentModel->where('registration_id', $registration['id'])->first();
+
+        $paymentMessage = '';
+        if ($payment) {
+            if ($payment['status'] === 'unpaid') {
+                $paymentMessage = 'Vous devez effectuer le paiement pour finaliser votre inscription.';
+            } elseif ($payment['status'] === 'pending') {
+                $paymentMessage = 'Votre paiement est en attente d\'approbation par l\'administrateur.';
+            } elseif ($payment['status'] === 'paid') {
+                $paymentMessage = 'Votre paiement a été approuvé. Votre convocation est prête.';
+            }
+        } else {
+            $paymentMessage = 'Aucune information de paiement trouvée.';
         }
 
         return view('dashboardClient/welcomeDashboard', [
             'username' => $user['username'],
             'CIN' => $user['CIN'],
             'date' => $registration['registration_date'],
-            'examId' => $registration['exam_id'],
-            'examLevel' => $registration['level'], // Correct key for the exam level
+            'examLevel' => $registration['level'],
             'examDate' => $registration['exam_date'],
-            'reference' => $registration['id'], // Registration reference
+            'reference' => $registration['id'],
+            'paymentMessage' => $paymentMessage,
         ]);
     }
     public function profileDisplayer(){
@@ -150,9 +156,9 @@ class DashboardClient extends BaseController{
             return redirect()->back()->with('error', 'Une erreur est survenue lors de l\'enregistrement du paiement.');
         }
     }
-    public function convocation(){
-       
-        $session = session();    
+    public function convocation()
+    {
+        $session = session();
         $userId = $session->get('id');
 
         if (!$userId) {
@@ -161,24 +167,20 @@ class DashboardClient extends BaseController{
 
         $userModel = new UserModel();
         $registrationModel = new RegistrationsModel();
+        $paymentModel = new PaymentModel();
 
-        // Récupérer les informations de l'utilisateur
         $user = $userModel->find($userId);
-
-        // Récupérer la dernière inscription de l'utilisateur
         $registration = $registrationModel
-                        ->select('registrations.*, exams.level, exams.adresse, exams.ville, exams.exam_date, exams.heure, exams.start_date, exams.end_date')
-                        ->join('exams', 'exams.id = registrations.exam_id')
-                        ->where('registrations.user_id', $userId)
-                        ->orderBy('registrations.registration_date', 'DESC')
-                        ->first();
+            ->select('registrations.*, exams.level, exams.adresse, exams.ville, exams.exam_date')
+            ->join('exams', 'exams.id = registrations.exam_id')
+            ->where('registrations.user_id', $userId)
+            ->orderBy('registrations.registration_date', 'DESC')
+            ->first();
 
-        // Vérifier si les données nécessaires sont disponibles
-        if (!$user || !$registration) {
-            return redirect()->to('/login')->with('error', 'Impossible de charger vos données.');
-        }
+        $payment = $paymentModel->where('registration_id', $registration['id'])->first();
+        $canDownloadConvocation = $payment && $payment['status'] === 'paid';
 
-        return view('/dashboardClient/convocation', [
+        return view('dashboardClient/convocation', [
             'username' => $user['username'],
             'prenom' => $user['firstname'],
             'nom' => $user['lastname'],
@@ -190,7 +192,7 @@ class DashboardClient extends BaseController{
             'examDate' => $registration['exam_date'],
             'examAddress' => $registration['adresse'],
             'ville' => $registration['ville'],
-
+            'canDownloadConvocation' => $canDownloadConvocation,
         ]);
     }
     public function convocationDownloader() {
