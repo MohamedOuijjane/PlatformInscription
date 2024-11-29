@@ -76,7 +76,7 @@
             <div class="card-body">
                 <i class="bi bi-cash-stack display-4 text-success"></i>
                 <h5 class="card-title">Revenus (DH)</h5>
-                <h3 class="text-success" id="totalRevenue">€0</h3>
+                <h3 class="text-success" id="totalRevenue">0dh</h3>
             </div>
         </div>
     </div>

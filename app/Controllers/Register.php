@@ -23,6 +23,7 @@ class Register extends BaseController
     public function store()
     {
         $session = session();
+        
         $userModel = new UserModel();
         $registrationModel = new RegistrationsModel();
         $validation = \Config\Services::validation();
