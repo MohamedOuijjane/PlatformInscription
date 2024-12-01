@@ -36,9 +36,9 @@
             padding-top: 20px;
         }
         .navbar-brand {
-    margin-right: 800px; 
-    margin-left: 50px;
-}
+            margin-right: 800px; 
+            margin-left: 50px;
+        }
         /* top nav bar */
         .top-navbar {
             background-color: #0099cc;
@@ -61,12 +61,12 @@
         }
         .footer-logo {
             position: absolute;
-    bottom: 20%;
-    right: 0;
-    height: 163px;
-    margin: 12px;
-    margin-right: 20px;
-}
+            bottom: 20%;
+            right: 0;
+            height: 163px;
+            margin: 12px;
+            margin-right: 20px;
+        }
         .footer .container {
             display: flex;
             justify-content: space-between;
@@ -154,14 +154,14 @@
                 left: 0;
             }
             .navbar-fixed-top {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1030; /* Garder la navbar au-dessus des autres éléments */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optionnel pour une ombre subtile */
-    background-color: white; /* Conserver la couleur de fond même si elle était transparente */
-    transition: top 0.3s ease-in-out; /* Animation lors de l'apparition/disparition */
-}
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1030; /* Garder la navbar au-dessus des autres éléments */
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optionnel pour une ombre subtile */
+                background-color: white; /* Conserver la couleur de fond même si elle était transparente */
+                transition: top 0.3s ease-in-out; /* Animation lors de l'apparition/disparition */
+            }
 
 
     </style>
