@@ -93,6 +93,11 @@
         color: white;
     }
 
+    .badge.bg-warning {
+        background-color: #f6c23e !important;
+        color: white;
+    }
+
     /* Effet de transition */
     .select-niveau,
     .badge {
@@ -133,8 +138,11 @@
                         <td><?= esc($client['email']) ?></td>
                         <td><?= esc($client['phone_number']) ?></td>
                         <td>
-                            <span class="badge <?= $client['payment_status'] === 'paid' ? 'bg-success' : 'bg-danger' ?>">
-                                <?= $client['payment_status'] === 'paid' ? 'Payé' : 'Non Payé' ?>
+                            <span class="badge 
+                                <?= $client['payment_status'] === 'paid' ? 'bg-success' : 
+                                    ($client['payment_status'] === 'pending' ? 'bg-warning' : 'bg-danger') ?>">
+                                <?= $client['payment_status'] === 'paid' ? 'Payé' : 
+                                    ($client['payment_status'] === 'pending' ? 'En Attente' : 'Non Payé') ?>
                             </span>
                         </td>
                     </tr>
