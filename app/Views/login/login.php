@@ -35,15 +35,15 @@ Login
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            padding: 110px 40px 20px 40px;
+            gap: 20px;
+            padding: 40px;
             background-color: #ffffff;
             box-shadow: 
                     0px 50px 20px rgba(0, 0, 0, 0.01),
                     0px 30px 15px rgba(0, 0, 0, 0.03),
                     0px 15px 10px rgba(0, 0, 0, 0.06),
                     0px 5px 8px rgba(0, 0, 0, 0.08),
-                    0px 0px 0px rgba(0, 0, 0, 0.1);
+                    0px 5px 0px rgba(0, 0, 0, 0.1);
             border-radius: 11px;
             font-family: "Inter", sans-serif;
             }
@@ -53,7 +53,7 @@ Login
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
             }
             .title {
             margin: 0;
@@ -114,7 +114,7 @@ Login
             width: 100%;
             height: 40px;
             border: none;
-            background: #115DFC;
+            background: #1e88e5;
             border-radius: 7px;
             outline: none;
             color: #ffffff;
@@ -122,13 +122,12 @@ Login
             transition: background 0.3s ease;
             }
             .sign-in_btn:hover {
-            background: #0e4b9c;
+            background: #1565c0;
             }
             .sign-up_btn {
             width: 100%;
             height: 40px;
             border: none;
-            background: green;
             border-radius: 7px;
             outline: none;
             color: #ffffff;
@@ -145,26 +144,42 @@ Login
             .navbar-brand{
               margin-top: -41%;
             }
+            /* Style for the "Mot de passe oublié?" link */
+            a {
+                font-size: 0.85rem;
+                color: #1e88e5; /* Blue color for the link */
+                text-decoration: none; /* Remove underline */
+                font-weight: 600;
+                transition: color 0.3s ease;
+                display: inline-block;
+                margin-top: 0px; /* Space above the link */
+            }
+
+            a:hover {
+                color: #1565c0; /* Darker blue on hover */
+                text-decoration: underline; /* Optional underline on hover */
+            }
+
     </style>
          
 
 <form class="form_container"  action="<?= base_url('login/authenticate') ?>" method="POST">
-      <a class="navbar-brand"  href="<?= base_url('/')?> ">
-            <img src="<?= base_url('images/logo.png') ?>" alt="Passerelle des langues" style="height: 180px;">
-        </a>
-  <div class="logo_container">
-    <h1 class="logo_title display-4 font-weight-bold">Login to your Account</h1>
-  </div>
-  <div class="input_container">
 
-          <label class="input_label" for="username_field">Username</label>
+  <div class="input_container">
+  <div class="logo_container">
+  <a class="navbar-brand"  href="<?= base_url('/')?> ">
+            <img src="<?= base_url('images/logoCertifyEase.png') ?>" alt="Passerelle des langues" style="height: 90px;">
+        </a>
+    <h1 class="logo_title display-4 font-weight-bold">Connectez-vous</h1>
+  </div>
+          <label class="input_label" for="username_field">Nom d'utilisateur</label>
       <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="icon">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="#141B34" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z"></path>
       </svg>
       <input placeholder="Enter your username" title="Username input" name="username" type="text" class="input_field" id="username_field">
   </div>
   <div class="input_container">
-    <label class="input_label" for="password_field">PPassword</label>
+    <label class="input_label" for="password_field">Mot de passe</label>
     <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg" class="icon">
       <path stroke-linecap="round" stroke-width="1.5" stroke="#141B34" d="M18 11.0041C17.4166 9.91704 16.273 9.15775 14.9519 9.0993C13.477 9.03404 11.9788 9 10.329 9C8.67911 9 7.18091 9.03404 5.70604 9.0993C3.95328 9.17685 2.51295 10.4881 2.27882 12.1618C2.12602 13.2541 2 14.3734 2 15.5134C2 16.6534 2.12602 17.7727 2.27882 18.865C2.51295 20.5387 3.95328 21.8499 5.70604 21.9275C6.42013 21.9591 7.26041 21.9834 8 22"></path>
       <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#141B34" d="M6 9V6.5C6 4.01472 8.01472 2 10.5 2C12.9853 2 15 4.01472 15 6.5V9"></path>
@@ -172,14 +187,14 @@ Login
     </svg>
     <input placeholder="Password" title="Inpit title" name="password" type="password" class="input_field" id="password_field">
   </div>
-  <a href="/">Oublier le mot de passe?</a>
+  <a href="/">Mot de passe oublié?</a>
   <button title="Sign In" type="submit" class="btn btn-primary sign-in_btn">
-    <span>Sign In</span>
+    <span>Se connecter</span>
   </button>
   <?php if (session()->get('error')): ?>
             <div class="alert alert-danger"><?= session()->get('error') ?></div>
           <?php endif; ?>         
-  <p class="note">Terms of Use Conditions</p>
+  <p class="note">Conditions d'utilisation</p>
 </form>
 
 
