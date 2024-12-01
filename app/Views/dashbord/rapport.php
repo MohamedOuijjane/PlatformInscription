@@ -42,7 +42,6 @@
     .stats-card.success {
         border-left-color: #1cc88a;
     }
-
     .stats-card.info {
         border-left-color: #36b9cc;
     }
