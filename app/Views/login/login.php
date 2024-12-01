@@ -1,6 +1,6 @@
 <?= $this->extend('mainLayoutForm/mainForm') ?>
 <?= $this->section('title') ?>
-Login
+Se Connecter
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
@@ -77,6 +77,10 @@ Login
                 margin-right: 15px;
                 text-decoration: none;
             }
+            .text-white{
+              --bs-text-opacity: 1;
+              color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+            }
             .form_container {
             font-family: "Inter", sans-serif;
             width: fit-content;
@@ -88,7 +92,7 @@ Login
             align-items: center;
             justify-content: center;
             gap: 20px;
-            padding: 40px;
+            padding: 50px 40px 20px 40px;
             background-color: #ffffff;
             box-shadow: 
                     0px 50px 20px rgba(0, 0, 0, 0.01),
@@ -130,6 +134,7 @@ Login
             position: relative;
             display: flex;
             flex-direction: column;
+            gap: 3px;
             
             }
             .icon {
@@ -157,7 +162,7 @@ Login
             }
             .input_field:focus {
             border: 1px solid transparent;
-            box-shadow: 0px 0px 0px 2px #1e88e5;
+            box-shadow: 0px 0px 0px 1px #1e88e5;
             background-color: transparent;
             }
             .sign-in_btn {
@@ -167,6 +172,8 @@ Login
             background: #1e88e5;
             border-radius: 7px;
             outline: none;
+            margin-bottom: -30px;
+            margin-top: 10px;
             color: #ffffff;
             cursor: pointer;
             transition: background 0.3s ease;
@@ -184,6 +191,9 @@ Login
 
             a:hover {
                 color: #1565c0;
+            }
+            .navbar-brand{
+              margin-left: 50px;
             }
     </style>
 
@@ -237,8 +247,7 @@ Login
 
 <div class="input_container">
 <div class="logo_container">
-<a class="navbar-brand"  href="<?= base_url('/')?> ">
-      </a>
+
   <h1 class="logo_title display-4 font-weight-bold">Connectez-vous</h1>
 </div>
         <label class="input_label" for="username_field">Nom d'utilisateur</label>
