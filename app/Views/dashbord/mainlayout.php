@@ -6,89 +6,87 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        /* Couleurs de base et polices */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f8f9fa;
             color: #333;
         }
 
-        /* Sidebar */
         .sidebar {
-            
-            background-color: #5f5f5f;
+            background-color: #4e73df;
             color: #ecf0f1;
             min-height: 100vh;
-            
+            width: 250px;
             position: fixed;
-            transition: all 0.3s;
         }
 
         .sidebar .logo-container {
             text-align: center;
-            margin-top: 0;
-            margin-bottom: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .sidebar .logo-container img {
-            width: 200px;
-            height: 200px;
-        }
-
-        .sidebar a, .sidebar button {
+        .sidebar .logo-container h4 {
             color: white;
-            padding: 15px;
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .sidebar a {
+            color: white;
+            padding: 15px 20px;
             font-weight: bold;
             text-decoration: none;
             display: flex;
             align-items: center;
-            font-size: 1.1rem;
-            border: none;
-            background: none;
-            width: 100%;
-            text-align: left;
+            font-size: 1rem;
             transition: background 0.3s, color 0.3s;
-            cursor: pointer;
         }
 
-        .sidebar a i, .sidebar button i {
+        .sidebar a i {
             margin-right: 10px;
-           
         }
 
-        .sidebar a:hover, .sidebar button:hover {
-            background-color: #34495e;
-            color: #ffffff;
+        .sidebar a:hover,
+        .sidebar a.active {
+            background-color: #2e59d9;
         }
 
-        /* Barre de navigation en haut */
+        .sidebar .section-title {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: #d1d3e2;
+            margin: 10px 20px;
+        }
+
         .navbar-custom {
-            background-color: #5f5f5f;
+            background-color: #ffffff;
             color: #ffffff;
             width: calc(100% - 250px);
             position: fixed;
             top: 0;
             left: 250px;
-            padding: 10px 20px;
-            z-index: 1000;
+            padding: 22px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #e3e6f0;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-custom .search-bar {
             display: flex;
-            align-items: center;
-            background-color: white;
-            border-radius: 5px;
-            padding: 5px 10px;
-        }
-
-        .navbar-custom .search-bar i {
-            color: #0190BB;
-            font-size: 1rem;
-            font-weight: 800;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 30px;
+    padding: 5px 15px;
+    width: 300px;
+    box-shadow: 12px 8px 5px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-custom .search-bar input {
@@ -96,8 +94,12 @@
             outline: none;
             background: transparent;
             padding: 5px;
-            width: 200px;
+            width: 100%;
             color: black;
+        }
+
+        .navbar-custom .search-bar i {
+            color: #4e73df;
         }
 
         .navbar-custom .icons {
@@ -106,18 +108,31 @@
             gap: 20px;
         }
 
-        .navbar-custom .icons i {
-            font-size: 20px;
-            color: white;
+        .navbar-custom .icons .icon {
+            position: relative;
+            font-size: 25px;
+            color: black;
             cursor: pointer;
+        }
+
+        .navbar-custom .icons .icon .badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            border-radius: 50%;
+            padding: 3px 6px;
         }
 
         .navbar-custom .profile {
             display: flex;
             align-items: center;
-            gap: 10px;
-            color: white;
+            gap: 20px;
+            color: black;
             font-weight: bold;
+            justify-content: space-between;
         }
 
         .profile img {
@@ -126,58 +141,70 @@
             height: 30px;
         }
 
-        /* Contenu principal */
         .content {
             margin-left: 250px;
             padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            background-image: url('<?= base_url('images/b.jpg') ?>'); /* Chemin de l'image de fond */
-            background-size: cover;
-            background-position: center;
+            background-color: #efefef;
+            min-height: 100vh;
         }
     </style>
 </head>
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <div class="logo-container ">
-            <img src="<?= base_url('images/logo.png') ?>" alt="Logo">
+        <div class="logo-container">
+            <h4>CERTIFY EASY</h4>
         </div>
-        <a href="<?= base_url('/dashbord/ajouter_exam') ?>"><i class="bi bi-plus-square"></i> Ajouter Examen</a>
-        <a href="<?= base_url('/dashbord/confirmation_paiement') ?>"><i class="bi bi-credit-card"></i> Confirmation Paiement</a>
-        <a href="<?= base_url('/dashbord/liste_examen') ?>"><i class="bi bi-list"></i> Liste des Examens</a>
-        <a href="<?= base_url('/dashbord/liste_clients') ?>"><i class="bi bi-people"></i> Liste des Clients</a>
-        <a href="<?= base_url('/dashbord/rapport') ?>"><i class="bi bi-bar-chart"></i> Charts</a>
-        <a href="<?= base_url('/profile') ?>"><i class="bi bi-person"></i> Modifier Profil</a>
-        <a href="<?= base_url('/logout') ?>"><i class="bi bi-box-arrow-right"></i> Log Out</a>
+        <a href="<?= base_url('/dashbord/rapport') ?>" class="menu-link"><i class="bi bi-speedometer2"></i> Tableau de bord</a>
+        <div class="section-title">Interface</div>
+        <a href="<?= base_url('/dashbord/ajouter_exam') ?>" class="menu-link"><i class="bi bi-plus-square"></i> Ajouter Examen</a>
+        <a href="<?= base_url('/dashbord/confirmation_paiement') ?>" class="menu-link"><i class="bi bi-credit-card"></i> Confirmation Paiement</a>
+        <a href="<?= base_url('/dashbord/liste_examen') ?>" class="menu-link"><i class="bi bi-list"></i> Liste des Examens</a>
+        <div class="section-title">Addons</div>
+        <a href="<?= base_url('/dashbord/liste_clients') ?>" class="menu-link"><i class="bi bi-people"></i> Liste des Clients</a>
+        <a href="<?= base_url('/profile') ?>" class="menu-link"><i class="bi bi-person"></i> Modifier Profil</a>
+        <a href="<?= base_url('/logout') ?>" class="menu-link"><i class="bi bi-box-arrow-right"></i> Log Out</a>
     </div>
 
     <!-- Barre de navigation en haut -->
     <div class="navbar-custom">
         <div class="search-bar">
+            <input type="text" placeholder="Search for...">
             <i class="bi bi-search"></i>
-            <input type="text" placeholder="Search...">
         </div>
         <div class="icons">
-        
-            <i class="bi bi-bell"></i>
-         
+            <div class="icon">
+                <i class="bi bi-bell"></i>
+                <span class="badge">3+</span>
+            </div>
+            
             <div class="profile">
-                <img src="<?= base_url('images/admin-foto.jpg') ?>" alt="Profile"> <!-- Chemin de l'image de profil -->
-                <?php  $session = session();
+            <?php  $session = session();
                  $username = $session->get('username');
                  ?>
-                <span><?= $username ?></span>
+                <span><?= 'Admin : ' .$username ?></span>
+                <img src="<?= base_url('images/admin-foto.jpg') ?>" alt="Profile">
+                
             </div>
         </div>
     </div>
 
     <!-- Contenu principal -->
-    <div class="content">
+    <div class="content" id="content">
         <?= $this->renderSection('content') ?>
     </div>
 
+    <script>
+        // Ajout de la classe active dynamiquement en fonction de l'URL
+        const links = document.querySelectorAll('.menu-link');
+        const currentUrl = window.location.href;
+
+        links.forEach(link => {
+            if (link.href === currentUrl) {
+                link.classList.add('active');
+            }
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

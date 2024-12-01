@@ -2,91 +2,169 @@
 
 <?= $this->section('content') ?>
 <style>
-    /* Styles pour rendre les cartes et le contenu attrayant */
-    .row {
-        margin-top: 88px;
+    /* Conteneur global des statistiques */
+    
+    .stats-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        gap: 20px;
     }
-    .card {
+
+    /* Styles des cartes de statistiques */
+    .stats-card {
+        margin-top: 50px;
+        flex: 1;
+        min-width: 220px;
+        max-width: 24%;
+        background-color: white;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        transition: all 0.3s ease-in-out;
+        border-left: 5px solid transparent;
     }
-    .card-body {
-        text-align: center;
+
+    .stats-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
     }
-    .card-title {
-        font-weight: bold;
+
+    /* Bordures latérales de couleur */
+    .stats-card.primary {
+        border-left-color: #4e73df;
+    }
+
+    .stats-card.success {
+        border-left-color: #1cc88a;
+    }
+
+    .stats-card.info {
+        border-left-color: #36b9cc;
+    }
+
+    .stats-card.warning {
+        border-left-color: #f6c23e;
+    }
+
+    /* Contenu de la carte */
+    .stats-content {
+        flex: 1;
+    }
+
+    .stats-content h5 {
+        font-size: 0.9rem;
         color: #6c757d;
+        margin-bottom: 5px;
+        text-transform: uppercase;
     }
-    h3 {
+
+    .stats-content h3 {
+        font-size: 1.5rem;
         font-weight: bold;
-        margin-top: 10px;
+        margin: 0;
+        color: #333;
     }
-    .text-primary {
-        color: #007bff;
+
+    /* Icônes */
+    .stats-icon {
+        font-size: 2.5rem;
+        color: #d1d3e2;
     }
-    .text-success {
-        color: #28a745;
+
+    .stats-icon.primary {
+        color: #4e73df;
     }
-    .text-warning {
-        color: #ffc107;
+
+    .stats-icon.success {
+        color: #1cc88a;
     }
-    /* Styles pour les graphiques */
+
+    .stats-icon.info {
+        color: #36b9cc;
+    }
+
+    .stats-icon.warning {
+        color: #f6c23e;
+    }
+
+    /* Conteneur des graphiques */
     .chart-container {
         display: flex;
-        justify-content: space-around;
         flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 40px;
     }
+
     .chart-card {
         flex: 1;
-        margin: 15px;
-        padding: 20px;
-        max-width: 45%;
+        min-width: 45%;
+        background-color: white;
         border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     }
+
+    .chart-card h5 {
+        margin-bottom: 33px;
+    font-size: 1.4rem;
+    color: #21212c;
+    font-weight: bold;
+        
+    }
+
     canvas {
         max-width: 100%;
+        height: 300px;
     }
-    
 </style>
 
-<div class="row">
-    <!-- Cartes avec des statistiques clés -->
-    <div class="col-md-3 mb-4">
-        <div class="card card-visitor">
-            <div class="card-body">
-                <i class="bi bi-people display-4 text-primary"></i>
-                <h5 class="card-title">Étudiants Inscrits</h5>
-                <h3 class="text-primary" id="studentCount">0</h3>
-            </div>
+<div class="stats-container">
+    <!-- Carte : Earnings Monthly -->
+    <div class="stats-card primary">
+        <div class="stats-content">
+            <h5>Étudiants Inscrits</h5>
+            <h3 id="studentCount">0</h3>
+        </div>
+        <div class="stats-icon primary">
+            <i class="bi bi-people "></i>
         </div>
     </div>
-    <div class="col-md-3 mb-4">
-        <div class="card card-subscriber">
-            <div class="card-body">
-                <i class="bi bi-person-check display-4 text-info"></i>
-                <h5 class="card-title">Nouveaux Abonnés</h5>
-                <h3 class="text-info">1,303</h3>
-            </div>
+
+    <!-- Carte : Earnings Annual -->
+    <div class="stats-card success">
+        <div class="stats-content">
+            <h5>Revenus (DH)</h5>
+            <h3 id="totalRevenue">0</h3>
+        </div>
+        <div class="stats-icon success">
+            <i class="bi bi-currency-dollar"></i>
         </div>
     </div>
-    <div class="col-md-3 mb-4">
-        <div class="card card-sales">
-            <div class="card-body">
-                <i class="bi bi-cash-stack display-4 text-success"></i>
-                <h5 class="card-title">Revenus (DH)</h5>
-                <h3 class="text-success" id="totalRevenue">0dh</h3>
-            </div>
+
+    <!-- Carte : Tasks -->
+    <div class="stats-card info">
+        <div class="stats-content">
+            <h5>Nombre Des Exams</h5>
+            <h3 id="examsCompleted">0</h3>
+        </div>
+        <div class="stats-icon info">
+            <i class="bi bi-clipboard-check" ></i>
         </div>
     </div>
-    <div class="col-md-3 mb-4">
-        <div class="card card-orders">
-            <div class="card-body">
-                <i class="bi bi-clipboard-check display-4 text-success"></i>
-                <h5 class="card-title">Nombre Des Exams</h5>
-                <h3 class="text-purple" id="examsCompleted">0</h3>
-            </div>
+
+    <!-- Carte : Pending Requests -->
+    <div class="stats-card warning">
+        <div class="stats-content">
+            <h5>Pending Confirmation</h5>
+            <h3>18</h3>
+        </div>
+        <div class="stats-icon warning">
+            <i class="bi bi-chat-dots"></i>
         </div>
     </div>
 </div>
@@ -94,21 +172,19 @@
 <!-- Conteneur pour les graphiques -->
 <div class="chart-container">
     <div class="chart-card">
-        <h5 class="card-title text-center">Inscriptions par Mois</h5>
+        <h5>Inscriptions par Mois</h5>
         <canvas id="lineChart"></canvas>
     </div>
     <div class="chart-card">
-        <h5 class="card-title text-center">Revenus par Mois (DH)</h5>
+        <h5>Revenus par Mois (DH)</h5>
         <canvas id="barChart"></canvas>
     </div>
-</div>
-<div class="chart-container">
     <div class="chart-card">
-        <h5 class="card-title text-center">Répartition des Étudiants</h5>
+        <h5>Répartition des Étudiants</h5>
         <canvas id="pieChart"></canvas>
     </div>
     <div class="chart-card">
-        <h5 class="card-title text-center">Statut des Paiements</h5>
+        <h5>Statut des Paiements</h5>
         <canvas id="doughnutChart"></canvas>
     </div>
 </div>
@@ -121,12 +197,10 @@
         try {
             const response = await fetch('<?= base_url('/exams/getChartData') ?>');
             const data = await response.json();
-
-            // Mettre à jour les cartes avec des statistiques clés
+           // Mettre à jour les cartes avec des statistiques clés
             document.getElementById('studentCount').innerText = data.studentCount;
             document.getElementById('totalRevenue').innerText = `${data.totalRevenue}DH`;
             document.getElementById('examsCompleted').innerText = data.examsCompleted;
-
             // Graphique Linéaire : Inscriptions par Mois
             new Chart(document.getElementById('lineChart'), {
                 type: 'line',
@@ -147,7 +221,7 @@
                 data: {
                     labels: data.months,
                     datasets: [{
-                        label: 'Revenus (€)',
+                        label: 'Revenus (DH)',
                         data: data.monthlyRevenue,
                         backgroundColor: '#2ecc71'
                     }]
@@ -161,7 +235,7 @@
                     labels: data.studentDistribution.labels,
                     datasets: [{
                         data: data.studentDistribution.values,
-                        backgroundColor: ['#f2eb63', '#eb2009 ', '#B8B8B8','#18C7F7']
+                        backgroundColor: ['#f6c23e', '#e74a3b', '#4e73df', '#1cc88a']
                     }]
                 }
             });
@@ -173,7 +247,7 @@
                     labels: ['Payé', 'En Attente', 'Non Payé'],
                     datasets: [{
                         data: data.paymentStatus,
-                        backgroundColor: ['#28a745', '#f1c40f', '#e74c3c']
+                        backgroundColor: ['#1cc88a', '#f6c23e', '#e74a3b']
                     }]
                 }
             });
