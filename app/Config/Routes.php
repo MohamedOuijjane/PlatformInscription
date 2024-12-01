@@ -64,3 +64,10 @@ $routes->get('/exams/getChartData', 'ExamsController::getChartData'); // Fetch d
 // Admin Profile Management
 $routes->get('/profile', 'ProfileController::index'); // Profile page
 $routes->post('/profile/updatePassword', 'ProfileController::updatePassword'); // Change admin password
+
+
+
+//forgetpassword route forgetPassword
+$routes->get('forgetPassword', 'Forget::forgetpassword');
+
+

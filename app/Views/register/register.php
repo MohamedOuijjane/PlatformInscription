@@ -190,10 +190,7 @@ S'inscrire
             .sign-up_btn:hover {
             background: #1565c0;
             }
-            .note {
-            font-size: 0.75rem;
-            color: #8B8E98;
-            }
+            
             .navbar-brand{
               margin-left: 50px;
             }
