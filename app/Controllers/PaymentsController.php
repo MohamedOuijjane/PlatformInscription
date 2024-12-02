@@ -41,6 +41,6 @@ class PaymentsController extends BaseController
         $paymentModel->update($id, ['status' => 'unpaid']);
         
         // Rediriger avec un message de succès
-        return redirect()->to('/dashbord/confirmation_paiement')->with('success', 'Paiement refusé avec succès.');
+        return redirect()->to('/dashbord/confirmation_paiement')->with('error', 'Paiement refusé avec succès.');
     }
 }

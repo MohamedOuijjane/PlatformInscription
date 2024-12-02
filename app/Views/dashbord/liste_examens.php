@@ -124,8 +124,79 @@
     .action-icon.delete:hover {
         color: #c82333;
     }
-</style>
+     /* Global Alert Styles */
+     .top-alert {
+        position: fixed;
+        top: 61px;
+        left: 78%;
+    transform: translateX(-50%);
+    width: 36%;
+    max-width: 800px;
+    border-radius: 8px;
+    color: white;
+    padding: 11px 20px;
+    font-size: 1rem;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.5s ease-in-out;
+    }
 
+    .top-alert-success {
+        background-color: #1cc88a; /* Green for success */
+    }
+
+    .top-alert-error {
+        background-color: red; /* Red for error */
+    }
+
+    .top-alert i {
+        font-size: 1.5rem;
+        margin-right: 10px;
+    }
+
+    .top-alert button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    /* Slide down animation */
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+<!-- Top Alerts -->
+<?php if (session()->has('success')): ?>
+    <div class="top-alert top-alert-success">
+        <div>
+            <i class="bi bi-check-circle"></i>
+            <?= session('success') ?>
+        </div>
+        <button onclick="this.parentElement.style.display='none';">&times;</button>
+    </div>
+<?php endif; ?>
+
+<?php if (session()->has('error')): ?>
+    <div class="top-alert top-alert-error">
+        <div>
+            <i class="bi bi-x-circle"></i>
+            <?= session('error') ?>
+        </div>
+        <button onclick="this.parentElement.style.display='none';">&times;</button>
+    </div>
+<?php endif; ?>
 <div class="card">
     <div class="card-header d-flex justify-content-between">
         <span>Examens Disponibles</span>

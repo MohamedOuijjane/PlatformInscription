@@ -77,45 +77,83 @@
     .btn-success:hover {
         background-color: #4e73df;
     }
-
-    /* Styles des alertes */
-    .alert {
-        margin-bottom: 20px;
-        font-size: 0.9rem;
+/* Global Alert Styles */
+.top-alert {
+        position: fixed;
+        top: 61px;
+        left: 78%;
+    transform: translateX(-50%);
+    width: 36%;
+    max-width: 800px;
+    border-radius: 8px;
+    color: white;
+    padding: 11px 20px;
+    font-size: 1rem;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.5s ease-in-out;
     }
 
-    .alert ul {
-        margin: 0;
-        padding-left: 20px;
+    .top-alert-success {
+        background-color: #1cc88a; /* Green for success */
     }
+
+    .top-alert-error {
+        background-color: red; /* Red for error */
+    }
+
+    .top-alert i {
+        font-size: 1.5rem;
+        margin-right: 10px;
+    }
+
+    .top-alert button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    /* Slide down animation */
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+   
 </style>
+<?php if (session()->has('success')): ?>
+    <div class="top-alert top-alert-success">
+        <div>
+            <i class="bi bi-check-circle"></i>
+            <?= session('success') ?>
+        </div>
+        <button onclick="this.parentElement.style.display='none';">&times;</button>
+    </div>
+<?php endif; ?>
 
+<?php if (session()->has('error')): ?>
+    <div class="top-alert top-alert-error">
+        <div>
+            <i class="bi bi-x-circle"></i>
+            <?= session('error') ?>
+        </div>
+        <button onclick="this.parentElement.style.display='none';">&times;</button>
+    </div>
+<?php endif; ?>
 <div class="container-ajouter">
     <div class="card">
         <div class="card-header">Ajouter un Examen</div>
         <div class="card-body">
-
-            <!-- Affichage des messages de succès ou d'erreur -->
-            <?php if (session()->has('success')): ?>
-                <div class="alert alert-success">
-                    <?= esc(session('success')) ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if (session()->has('error')): ?>
-                <?php if (is_array(session('error'))): ?>
-                    <div class="alert alert-danger">
-                        <ul>
-                            <?php foreach (session('error') as $err): ?>
-                                <li><?= esc($err) ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                <?php else: ?>
-                    <div class="alert alert-danger"><?= esc(session('error')) ?></div>
-                <?php endif; ?>
-            <?php endif; ?>
-
             <!-- Formulaire -->
             <form method="post" action="<?= base_url('ExamsController/addExam') ?>">
                 <div class="row g-3">
