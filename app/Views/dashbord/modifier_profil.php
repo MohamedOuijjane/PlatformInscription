@@ -2,180 +2,151 @@
 
 <?= $this->section('content') ?>
 <style>
-    .container-profile {
-        max-width: 900px;
-        margin: 50px auto;
-        background-color: #ffffff;
+    /* General Container */
+    .container-password {
+        max-width: 450px;
+        margin: 80px auto;
+        background: linear-gradient(to bottom right, #ffffff, #f3f4f6);
         border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         padding: 30px;
-        display: flex;
-        gap: 30px;
-    }
-
-    /* Section gauche (icône admin) */
-    .profile-icon {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-right: 2px solid #e9ecef;
-        padding-right: 20px;
-    }
-
-    .profile-icon i {
-        font-size: 120px;
-        color: #0190BB;
-        margin-bottom: 20px;
-    }
-
-    .profile-info {
         text-align: center;
     }
 
-    .profile-info h5 {
-        font-size: 1.25rem;
+    /* Logo at the top */
+    .logo-container {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .logo-container img {
+        max-width: 100px;
+        margin-bottom: 10px;
+    }
+
+    .logo-container h3 {
         font-weight: bold;
         color: #4e73df;
     }
 
-    .profile-info p {
-        font-size: 0.95rem;
-        color: #6c757d;
-    }
-
-    /* Section droite (formulaire) */
-    .profile-form {
-        flex: 2;
-    }
-
-    .profile-form h3 {
-        text-align: center;
-        color: #0190BB;
-        font-weight: bold;
+    /* Input Fields */
+    .form-group {
+        position: relative;
         margin-bottom: 20px;
     }
 
     .form-label {
         font-weight: bold;
-        color: #333;
+        display: block;
         margin-bottom: 5px;
+        color: #333;
+        text-align: left;
     }
 
     .form-control {
-        border-radius: 8px;
+        width: 100%;
+        padding: 12px 15px;
+        padding-right: 40px;
         border: 1px solid #d1d3e2;
-        padding-left: 40px;
-        height: 45px;
+        border-radius: 10px;
         font-size: 0.95rem;
-        transition: all 0.3s ease-in-out;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
     }
 
     .form-control:focus {
         border-color: #4e73df;
-        box-shadow: 0 0 5px rgba(78, 115, 223, 0.3);
+        box-shadow: 0 0 8px rgba(78, 115, 223, 0.3);
     }
 
-    .form-group-icon {
-        position: relative;
-    }
-
-    .form-group-icon i {
+    /* Password Toggle */
+    .toggle-password {
         position: absolute;
-    top: 69%;
-    left: 12px;
-    transform: translateY(-50%);
-    color: #3f424c;
-    font-size: 1.4rem;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 1.25rem;
+        color: #aaa;
     }
 
-    .readonly-field {
-        background-color: #f8f9fa !important;
-        pointer-events: none;
+    .toggle-password:hover {
+        color: #4e73df;
     }
 
-    .btn-primary {
-        background-color: #4e73df;
-        border: none;
-        font-size: 1rem;
+    /* Button */
+    .btn-submit {
+        background: linear-gradient(to right, #4e73df, #2e59d9);
+        color: #fff;
         font-weight: bold;
-        text-transform: uppercase;
         padding: 12px;
         width: 100%;
-        border-radius: 8px;
-        transition: background-color 0.3s ease-in-out;
-        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
     }
 
-    .btn-primary:hover {
-        background-color: #2e59d9;
+    .btn-submit:hover {
+        background: linear-gradient(to right, #2e59d9, #224abe);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
-    .alert {
+    /* Welcome Header */
+    .welcome {
         margin-bottom: 20px;
-        font-size: 0.9rem;
-    }
-    #R{
-        color: #2e59d9;
+        color: #333;
+        font-weight: bold;
+        text-align: center;
     }
 </style>
 
-<div class="container-profile">
-    <!-- Section gauche -->
-    <div class="profile-icon">
-        <i class="bi bi-person-circle" id="R"></i>
-        <div class="profile-info">
-            <h5><?= $user['username'] ?></h5>
-            <p>Administrateur Certify Easy</p>
+<div class="container-password">
+    <!-- Logo -->
+    <div class="logo-container">
+        <img src="<?= base_url('images/logo.png') ?>" alt="Logo">
+        <h3>Certify Easy</h3>
+    </div>
+
+    <!-- Welcome Message -->
+    <div class="welcome">
+        <p>Bienvenue, <?= session('user_name') ?> !</p>
+        <h4>Modifier le Mot de Passe</h4>
+    </div>
+
+    <!-- Form -->
+    <?php if (session()->has('success')): ?>
+        <div class="alert alert-success"><?= session('success') ?></div>
+    <?php endif; ?>
+
+    <?php if (session()->has('error')): ?>
+        <div class="alert alert-danger"><?= session('error') ?></div>
+    <?php endif; ?>
+
+    <form method="post" action="<?= base_url('profile/updatePassword') ?>">
+        <div class="form-group">
+            <label for="new_password" class="form-label">Nouveau Mot de Passe</label>
+            <input type="password" class="form-control" id="new_password" name="new_password" placeholder="Entrer votre nouveau mot de passe" required>
+            <i class="bi bi-eye toggle-password" onclick="togglePassword('new_password')"></i>
         </div>
-    </div>
-
-    <!-- Section droite -->
-    <div class="profile-form">
-        <h3>Modifier le Profil</h3>
-
-        <?php if (session()->has('success')): ?>
-            <div class="alert alert-success"><?= session('success') ?></div>
-        <?php endif; ?>
-
-        <?php if (session()->has('error')): ?>
-            <div class="alert alert-danger"><?= session('error') ?></div>
-        <?php endif; ?>
-
-        <form method="post" action="<?= base_url('profile/updatePassword') ?>">
-            <div class="mb-3 form-group-icon">
-                <i class="bi bi-person"></i>
-                <label for="prenom" class="form-label">Nom</label>
-                <input type="text" class="form-control readonly-field" id="prenom" value="<?= $user['username'] ?>" readonly>
-            </div>
-
-            <div class="mb-3 form-group-icon">
-                <i class="bi bi-envelope"></i>
-                <label for="nom" class="form-label">Email</label>
-                <input type="email" class="form-control readonly-field" id="nom" value="<?= $user['email'] ?>" readonly>
-            </div>
-
-            <div class="mb-3 form-group-icon">
-                <i class="bi bi-person-badge"></i>
-                <label for="role" class="form-label">Rôle</label>
-                <input type="text" class="form-control readonly-field" id="role" value="<?= $user['role'] ?>" readonly>
-            </div>
-
-            <div class="mb-3 form-group-icon">
-                <i class="bi bi-lock"></i>
-                <label for="motDePasse" class="form-label">Nouveau Mot de Passe</label>
-                <input type="password" class="form-control" id="motDePasse" name="new_password" placeholder="Entrer votre nouveau mot de passe">
-            </div>
-
-            <div class="mb-3 form-group-icon">
-                <i class="bi bi-lock"></i>
-                <label for="confirmerMotDePasse" class="form-label">Confirmer le Mot de Passe</label>
-                <input type="password" class="form-control" id="confirmerMotDePasse" name="confirm_password" placeholder="Confirmer votre nouveau mot de passe">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Sauvegarder les Modifications</button>
-        </form>
-    </div>
+        <div class="form-group">
+            <label for="confirm_password" class="form-label">Confirmer le Mot de Passe</label>
+            <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirmer votre nouveau mot de passe" required>
+            <i class="bi bi-eye toggle-password" onclick="togglePassword('confirm_password')"></i>
+        </div>
+        <button type="submit" class="btn-submit">Sauvegarder les Modifications</button>
+    </form>
 </div>
+
+<script>
+    function togglePassword(id) {
+        const field = document.getElementById(id);
+        if (field.type === "password") {
+            field.type = "text";
+        } else {
+            field.type = "password";
+        }
+    }
+</script>
 <?= $this->endSection() ?>

@@ -22,6 +22,22 @@ class ProfileController extends Controller
             return redirect()->to('/dashboard')->with('error', 'Utilisateur non trouvé.');
         }
     }
+    public function profiladmin(){
+         // Supposons que l'utilisateur connecté est récupéré via la session
+         $session = session();
+         $userId = $session->get('id');
+         
+
+         $userModel = new UsersModel();
+        $user = $userModel->find($userId);
+
+        if ($user) {
+            return view('dashbord/profil_admin', ['user' => $user]);
+           
+        } else {
+            return redirect()->to('/dashboard')->with('error', 'Utilisateur non trouvé.');
+        }
+    }
 
     public function updatePassword()
     {

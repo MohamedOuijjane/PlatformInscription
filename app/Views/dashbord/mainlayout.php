@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de Bord Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -16,62 +17,65 @@
             background-color: #4e73df;
             color: #ecf0f1;
             min-height: 100vh;
-            width: 250px;
+            width: 260px;
             position: fixed;
+            transition: all 0.3s ease-in-out;
         }
 
         .sidebar .logo-container {
             text-align: center;
             padding: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .sidebar .logo-container h4 {
             color: white;
-            margin-top: 30px;
-            font-size: 20px;
+            font-size: 1.5rem;
             font-weight: bold;
-            
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .sidebar a {
             color: white;
             padding: 15px 20px;
-            font-weight: bold;
+            font-weight: 500;
             text-decoration: none;
             display: flex;
             align-items: center;
             font-size: 1rem;
-            transition: background 0.3s, color 0.3s;
+            border-radius: 10px;
+            margin: 5px 10px;
         }
 
         .sidebar a i {
+            font-size: 1.5rem; /* Bigger icon size */
             margin-right: 10px;
         }
 
-        .sidebar a:hover,
-        .sidebar a.active {
+        .sidebar a:hover {
             background-color: #2e59d9;
+        }
+
+        .sidebar a.active {
+            background-color: #224abe;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .sidebar .section-title {
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #d1d3e2;
             margin: 10px 20px;
         }
 
         .navbar-custom {
             background-color: #ffffff;
-            color: #ffffff;
-            width: calc(100% - 250px);
+            width: calc(100% - 260px);
             position: fixed;
             top: 0;
-            left: 250px;
-            padding: 22px 20px;
+            left: 260px;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -81,12 +85,12 @@
 
         .navbar-custom .search-bar {
             display: flex;
-    align-items: center;
-    background-color: #f9f9f9;
-    border-radius: 30px;
-    padding: 5px 15px;
-    width: 300px;
-    box-shadow: 12px 8px 5px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            background-color: #f1f1f1;
+            border-radius: 30px;
+            padding: 5px 15px;
+            width: 350px;
+            box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-custom .search-bar input {
@@ -95,7 +99,7 @@
             background: transparent;
             padding: 5px;
             width: 100%;
-            color: black;
+            color: #555;
         }
 
         .navbar-custom .search-bar i {
@@ -110,8 +114,8 @@
 
         .navbar-custom .icons .icon {
             position: relative;
-            font-size: 25px;
-            color: black;
+            font-size: 1.5rem;
+            color: #333;
             cursor: pointer;
         }
 
@@ -130,21 +134,21 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            color: black;
+            color: #555;
             font-weight: bold;
-            justify-content: space-between;
         }
 
         .profile img {
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .content {
-            margin-left: 250px;
+            margin-left: 260px;
             padding: 20px;
-            background-color: #efefef;
+            background-color: #f9f9f9;
             min-height: 100vh;
         }
     </style>
@@ -159,17 +163,17 @@
         <div class="section-title">Interface</div>
         <a href="<?= base_url('/dashbord/ajouter_exam') ?>" class="menu-link"><i class="bi bi-plus-square"></i> Ajouter Examen</a>
         <a href="<?= base_url('/dashbord/confirmation_paiement') ?>" class="menu-link"><i class="bi bi-credit-card"></i> Confirmation Paiement</a>
-        <a href="<?= base_url('/dashbord/liste_examen') ?>" class="menu-link"><i class="bi bi-list"></i> Liste des Examens</a>
-        <div class="section-title">Addons</div>
+        <a href="<?= base_url('/dashbord/liste_examen') ?>" class="menu-link"><i class="bi bi-list-task"></i> Liste des Examens</a>
         <a href="<?= base_url('/dashbord/liste_clients') ?>" class="menu-link"><i class="bi bi-people"></i> Liste des Clients</a>
-        <a href="<?= base_url('/profile') ?>" class="menu-link"><i class="bi bi-person"></i> Modifier Profil</a>
-        <a href="<?= base_url('/logout') ?>" class="menu-link"><i class="bi bi-box-arrow-right"></i> Log Out</a>
+        <div class="section-title">Addons</div>
+        <a href="<?= base_url('/profile') ?>" class="menu-link"><i class="bi bi-shield-lock"></i> Changer Mot de passe</a>
+        <a href="<?= base_url('/logout') ?>" class="menu-link"><i class="bi bi-box-arrow-right"></i> Déconnexion</a>
     </div>
 
-    <!-- Barre de navigation en haut -->
+    <!-- Top Navbar -->
     <div class="navbar-custom">
         <div class="search-bar">
-            <input type="text" placeholder="Search for...">
+            <input type="text" placeholder="Rechercher...">
             <i class="bi bi-search"></i>
         </div>
         <div class="icons">
@@ -177,25 +181,21 @@
                 <i class="bi bi-bell"></i>
                 <span class="badge">3+</span>
             </div>
-            
             <div class="profile">
-            <?php  $session = session();
-                 $username = $session->get('username');
-                 ?>
-                <span><?= 'Admin : ' .$username ?></span>
-                <img src="<?= base_url('images/admin-foto.jpg') ?>" alt="Profile">
-                
+                <?php $session = session(); ?>
+                <span><?= 'Admin : ' . $session->get('username') ?></span>
+                <a href="<?= base_url('/profiladmin') ?>"> <img src="<?= base_url('images/profiladmin.png') ?>" alt="Profile"></a>
             </div>
         </div>
     </div>
 
-    <!-- Contenu principal -->
-    <div class="content" id="content">
+    <!-- Main Content -->
+    <div class="content">
         <?= $this->renderSection('content') ?>
     </div>
 
     <script>
-        // Ajout de la classe active dynamiquement en fonction de l'URL
+        // Highlight the active sidebar link
         const links = document.querySelectorAll('.menu-link');
         const currentUrl = window.location.href;
 
@@ -205,6 +205,5 @@
             }
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
