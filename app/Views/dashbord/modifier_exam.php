@@ -2,90 +2,92 @@
 
 <?= $this->section('content') ?>
 <style>
-    /* Styles généraux */
-    body {
+    /* Styles globaux */
+    .content {
+     
+    margin-left: 258px;
+    padding: 80px;
+    background-color: #efefef;
+    min-height: 100vh;
+} 
+   body {
+
         font-family: 'Roboto', sans-serif;
-        background: linear-gradient(135deg, #f4f6f8, #d9e4ec);
+        background: linear-gradient(135deg, #f9fafc, #dbe2ec);
     }
-
-    .container-modifier {
-        max-width: 700px;
-        margin: 70px auto;
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        padding: 30px;
+    .container-modifier{
+        margin-top: 50px;
     }
+   
 
-    .card {
-        border-radius: 30px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        border: none;
-        background: #ffffff;
-        border: 1px solid beige;
-    }
-
+    /* En-tête de la carte */
     .card-header {
-        background-color: transparent;
-        color: #007bff;
-        font-weight: bold;
-        text-align: center;
-        padding-bottom: 5px;
-        font-size: 1.5rem;
+        background-color: #4e73df;
+    color: #fdfdfd;
+    font-weight: bold;
+    padding: 14px;
+    font-size: 1.2rem;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
+    /* Étiquettes des champs */
     .form-label {
-        font-weight: 600;
-        color: #000000;
+    font-weight: bold;
+    color: #343a40;
+    font-size: 1rem;
+    margin-bottom: 14px;
     }
 
+    /* Champs du formulaire */
     .form-control {
-        border-radius: 10px;
-        border: 1px solid #ddd;
-        transition: border-color 0.3s, box-shadow 0.3s;
-        height: 40px;
+        border-radius: 7px;
+    border: 2px solid #cbcbcb;
+    height: 54px;
+    font-size: -1.05rem;
+    padding-left: 17px;
+    transition: all 0.3s ease-in-out;
     }
 
     .form-control:focus {
-        border-color: #007bff;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+        border-color: #2e59d9;
+        box-shadow: 0 0 5px rgba(46, 89, 217, 0.3);
     }
 
-    /* Styles des icônes */
-    .form-group-icon {
-        position: relative;
+    .form-control::placeholder {
+        color: black;
+        font-weight: bold;
     }
 
-    .form-group-icon i {
-        position: absolute;
-        top: 73%;
-        left: 15px;
-        transform: translateY(-50%);
-        color: #007bff;
+    /* Bouton d'envoi */
+    #sv {
+        background-color: #4e73df;
+    border: none;
+    padding: 11px 45px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    width: 22%;
+    color: white;
+    /* text-transform: uppercase; */
+    transition: all 0.3s ease-in-out;
+    border-radius: 4px ;
+    margin-left: 77%;
+    }
+
+    .btn-success:hover {
+        background-color: #4e73df;
+    }
+
+    /* Styles des alertes */
+    .alert {
+        margin-bottom: 20px;
         font-size: 0.9rem;
     }
 
-    /* Bouton */
-    .btn-primary {
-        background: linear-gradient(135deg, #0a58ca, #0dcaf0);
-        border: none;
-        padding: 10px 20px;
-        font-size: 1rem;
-        border-radius: 20px;
-        transition: background 0.3s, transform 0.2s;
-        width: 100%;
-        color: #fff;
-    }
-
-    .btn-primary:hover {
-        transform: translateY(-3px);
-        background: linear-gradient(135deg, #0a58ca, #0dcaf0);
-    }
-
-    /* Messages d'alerte */
-    .alert {
-        margin-bottom: 20px;
-        border-radius: 5px;
+    .alert ul {
+        margin: 0;
+        padding-left: 20px;
     }
 </style>
 
@@ -149,7 +151,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary mt-4">Sauvegarder les Modifications</button>
+                <button type="submit" class="btn btn-primary mt-4" id="sv">Sauvegarder </button>
             </form>
         </div>
     </div>

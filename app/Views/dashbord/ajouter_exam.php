@@ -2,69 +2,91 @@
 
 <?= $this->section('content') ?>
 <style>
-    body {
+    /* Styles globaux */
+    .content {
+     
+    margin-left: 258px;
+    padding: 80px;
+    background-color: #efefef;
+    min-height: 100vh;
+}    body {
+
         font-family: 'Roboto', sans-serif;
-        background: linear-gradient(135deg, #f4f6f8, #d9e4ec);
+        background: linear-gradient(135deg, #f9fafc, #dbe2ec);
     }
 
     .container-ajouter {
-        max-width: 700px;
-        margin: 70px auto;
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        padding: 30px;
+       margin-top: 50px;
     }
 
-    .card {
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        border: none;
-        background: #ffffff;
-    }
-
+    /* En-tête de la carte */
     .card-header {
-        background-color: #b8b8b8;
-        color: #ffffff;
-        font-weight: bold;
-        text-align: center;
-        padding: 10px 0;
-        font-size: 1.5rem;
-        border-radius: 10px 10px 0 0;
+        background-color: #4e73df;
+    color: #fdfdfd;
+    font-weight: bold;
+    padding: 14px;
+    font-size: 1.2rem;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
+    /* Étiquettes des champs */
     .form-label {
-        font-weight: bold;
-        color: #000000;
+    font-weight: bold;
+    color: #343a40;
+    font-size: 1rem;
+    margin-bottom: 14px;
     }
 
+    /* Champs du formulaire */
     .form-control {
-        border-radius: 5px;
-        border: 1px solid #ddd;
-        height: 40px;
+        border-radius: 7px;
+    border: 2px solid #cbcbcb;
+    height: 54px;
+    font-size: -1.05rem;
+    padding-left: 17px;
+    transition: all 0.3s ease-in-out;
     }
 
     .form-control:focus {
-        border-color: #007bff;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        border-color: #2e59d9;
+        box-shadow: 0 0 5px rgba(46, 89, 217, 0.3);
     }
 
+    .form-control::placeholder {
+        color: #b0b3c0;
+        font-style: italic;
+    }
+
+    /* Bouton d'envoi */
     .btn-success {
-        background: #37b6fd;
-        border: none;
-        padding: 10px 20px;
-        font-size: 1rem;
-        border-radius: 5px;
-        width: 100%;
-        color: #ffffff;
+        background-color: #4e73df;
+    border: none;
+    padding: 11px 45px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    width: 22%;
+    color: white;
+    /* text-transform: uppercase; */
+    transition: all 0.3s ease-in-out;
+    border-radius: 4px ;
+    margin-left: 77%;
     }
 
     .btn-success:hover {
-        background: #218838;
+        background-color: #4e73df;
     }
 
+    /* Styles des alertes */
     .alert {
         margin-bottom: 20px;
+        font-size: 0.9rem;
+    }
+
+    .alert ul {
+        margin: 0;
+        padding-left: 20px;
     }
 </style>
 
@@ -75,27 +97,26 @@
 
             <!-- Affichage des messages de succès ou d'erreur -->
             <?php if (session()->has('success')): ?>
-    <div class="alert alert-success">
-        <?= esc(session('success')) ?>
-    </div>
-<?php endif; ?>
+                <div class="alert alert-success">
+                    <?= esc(session('success')) ?>
+                </div>
+            <?php endif; ?>
 
-<?php if (session()->has('error')): ?>
-    <?php if (is_array(session('error'))): ?>
-        <div class="alert alert-danger">
-            <ul>
-                <?php foreach (session('error') as $err): ?>
-                    <li><?= esc($err) ?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    <?php else: ?>
-        <div class="alert alert-danger"><?= esc(session('error')) ?></div>
-    <?php endif; ?>
-<?php endif; ?>
+            <?php if (session()->has('error')): ?>
+                <?php if (is_array(session('error'))): ?>
+                    <div class="alert alert-danger">
+                        <ul>
+                            <?php foreach (session('error') as $err): ?>
+                                <li><?= esc($err) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php else: ?>
+                    <div class="alert alert-danger"><?= esc(session('error')) ?></div>
+                <?php endif; ?>
+            <?php endif; ?>
 
-
-           
+            <!-- Formulaire -->
             <form method="post" action="<?= base_url('ExamsController/addExam') ?>">
                 <div class="row g-3">
                     <!-- Champ: Niveau -->
@@ -107,6 +128,8 @@
                             <option value="A2">A2</option>
                             <option value="B1">B1</option>
                             <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
                         </select>
                     </div>
 
@@ -152,4 +175,5 @@
         </div>
     </div>
 </div>
+
 <?= $this->endSection() ?>
