@@ -13,32 +13,40 @@
             color: #333;
         }
 
+        /* Sidebar Styles */
         .sidebar {
             background-color: #4e73df;
             color: #ecf0f1;
             min-height: 100vh;
             width: 260px;
             position: fixed;
-            transition: all 0.3s ease-in-out;
         }
 
         .sidebar .logo-container {
             text-align: center;
             padding: 20px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+           
+            position: relative;
+        }
+
+        .sidebar .logo-container i {
+            font-size: 2.5rem; /* Icon size */
+            color: white;
+            margin-bottom: 10px;
         }
 
         .sidebar .logo-container h4 {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem; /* Larger title */
             font-weight: bold;
             letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 5px;
         }
 
         .sidebar a {
             color: white;
-            padding: 15px 20px;
+            padding: 10px 20px;
             font-weight: 500;
             text-decoration: none;
             display: flex;
@@ -49,7 +57,7 @@
         }
 
         .sidebar a i {
-            font-size: 1.5rem; /* Bigger icon size */
+            font-size: 1.5rem; /* Icon size */
             margin-right: 10px;
         }
 
@@ -69,6 +77,7 @@
             margin: 10px 20px;
         }
 
+        /* Navbar Styles */
         .navbar-custom {
             background-color: #ffffff;
             width: calc(100% - 260px);
@@ -145,6 +154,7 @@
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
+        /* Content Area */
         .content {
             margin-left: 260px;
             padding: 20px;
@@ -157,7 +167,8 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="logo-container">
-            <h4>CERTIFY EASY</h4>
+            <i class="bi bi-pie-chart"></i> <!-- Dashboard Icon -->
+            <h4>Certify Easy</h4> <!-- Sidebar Title -->
         </div>
         <a href="<?= base_url('/dashbord/rapport') ?>" class="menu-link"><i class="bi bi-speedometer2"></i> Tableau de bord</a>
         <div class="section-title">Interface</div>

@@ -4,13 +4,12 @@
 <style>
     /* General Container */
     .container-password {
-        max-width: 450px;
-        margin: 80px auto;
-        background: linear-gradient(to bottom right, #ffffff, #f3f4f6);
-        border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        padding: 30px;
-        text-align: center;
+        max-width: 485px;
+    margin: 148px auto;
+    background: linear-gradient(to bottom right, #ffffff, #f3f4f6);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
     }
 
     /* Logo at the top */
@@ -62,12 +61,12 @@
     /* Password Toggle */
     .toggle-password {
         position: absolute;
-        top: 50%;
-        right: 15px;
-        transform: translateY(-50%);
-        cursor: pointer;
-        font-size: 1.25rem;
-        color: #aaa;
+    top: 70%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: #212529;
     }
 
     .toggle-password:hover {
@@ -105,13 +104,13 @@
 <div class="container-password">
     <!-- Logo -->
     <div class="logo-container">
-        <img src="<?= base_url('images/logo.png') ?>" alt="Logo">
-        <h3>Certify Easy</h3>
+        <img src="<?= base_url('images/profiladmin.png') ?>" alt="Logo">
+        <h3>Bienvenue,<?= session('username') ?>!</h3>
     </div>
 
     <!-- Welcome Message -->
     <div class="welcome">
-        <p>Bienvenue, <?= session('user_name') ?> !</p>
+        
         <h4>Modifier le Mot de Passe</h4>
     </div>
 
@@ -135,7 +134,7 @@
             <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirmer votre nouveau mot de passe" required>
             <i class="bi bi-eye toggle-password" onclick="togglePassword('confirm_password')"></i>
         </div>
-        <button type="submit" class="btn-submit">Sauvegarder les Modifications</button>
+        <button type="submit" class="btn-submit">Modifier</button>
     </form>
 </div>
 
