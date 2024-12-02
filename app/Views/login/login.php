@@ -18,9 +18,10 @@ Se Connecter
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
-            background-image: url('<?= base_url('images/b.jpg') ?>'); /* Chemin de l'image de fond */
+            background-image: url('<?= base_url('images/BC3.png') ?>'); /* Chemin de l'image de fond */
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
 
         /* Navbar Styles */
@@ -90,9 +91,13 @@ Se Connecter
             height: fit-content;
             display: flex;
             margin: 80px auto;
-            margin-top: 120px;
+            margin-top: 160px;
             flex-direction: column;
             align-items: center;
+            background-image: url('<?= base_url('images/logoForm.png') ?>'); /* Chemin de l'image de fond */
+            background-size: 40% 65%; /* Make the image cover the right half of the form */
+            background-position: right ; /* Position the image on the right side */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
             justify-content: center;
             gap: 20px;
             padding: 50px 40px 20px 40px;
@@ -198,9 +203,17 @@ Se Connecter
             .navbar-brand{
               margin-left: 50px;
             }
+            .return_img {
+                position: absolute;
+                top: 9; /* Positions the image at the top */
+                left: 68%; /* Centers the image horizontally */
+                transform: translateX(-50%); /* Adjusts the image to be perfectly centered */
+                z-index: 10; /* Ensures the image stays on top of other content */
+            }
+
     </style>
 
-    
+  <a href="<?= base_url('/') ?>"><img class="return_img" src="<?= base_url('images/return.png') ?>" alt="HomeButton" height="50px" width="50px" ></a>  
     <!-- Login Form -->
     <form class="form_container"  action="<?= base_url('login/authenticate') ?>" method="POST">
 

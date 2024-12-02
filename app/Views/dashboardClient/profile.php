@@ -19,8 +19,10 @@
 
     .form-group label {
         display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
+        font-size: 0.85rem;
+            color: #8B8E98;
+            font-weight: 600;
+        margin-bottom: 2px;
     }
 
     .form-group .input-icon {
@@ -35,9 +37,12 @@
         width: 100%;
         padding: 8px 8px 8px 30px; /* Extra left padding for icon space */
         font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+        border: 1px solid #00f2ff;
+        border-radius: 9px;
+        transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+
     }
+
 
     input[readonly] {
         background-color: #f9f9f9;
@@ -51,16 +56,18 @@
         margin: 20px 0;
         font-size: 18px;
         font-weight: bold;
-        background-color: #4CAF50; /* Green background */
+        outline: none;
+        background: #1e88e5;
         color: white;
         border: none;
-        border-radius: 4px;
+        border-radius: 10px;
         cursor: pointer;
+        transition: background 0.3s ease;
         text-align: center;
     }
 
     .submit-button:hover {
-        background-color: #45a049; /* Darker green */
+        background: #1565c0;
     }
     .profile-message {
     font-size: 24px;
@@ -71,7 +78,7 @@
     margin-bottom: 30px;
     color: #2c3e50; /* A nice dark blue-gray color */
     padding: 10px;
-    border-bottom: 2px solid #4CAF50; /* Adds a stylish underline */
+    border-bottom: 2px solid #1e88e5; /* Adds a stylish underline */
     }
 
 </style>

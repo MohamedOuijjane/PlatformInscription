@@ -18,64 +18,11 @@ S'inscrire
                 background-color: #f9f9f9;
                 color: #333;
                 line-height: 1.6;
+                background-image: url('<?= base_url('images/BC.png') ?>'); /* Chemin de l'image de fond */
+                background-size: cover;
+                background-position: center;
             }
-                /* Navbar Styles */
-        .navbar {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #ffffff;
-            z-index: 1030;
-            margin-top: 37px
-        }
-
-        .navbar .navbar-nav {
-            margin-left: 100px ;
-        }
-
-        .navbar .navbar-nav .nav-item {
-            position: relative;
-            padding: 0 15px;
-        }
-
-        .navbar .navbar-nav .nav-link {
-            font-size: 1.1em;
-            font-weight: 500;
-            color: #333;
-            padding: 10px 10px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-
-          .navbar .navbar-nav .nav-link:hover {
-              color: #2596be;
-          }
-        .navbar .navbar-nav .nav-item::after {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                width: 0;
-                height: 2px;
-                background-color: #2596be;
-                transition: width 0.3s ease, left 0.3s ease;
-            }
-
-            .navbar .navbar-nav .nav-item:hover::after {
-                width: 100%;
-                left: 0;
-            }
-            .top-navbar {
-            background-color: #0099cc;
-            color: white;
-            padding: 5px 0;
-            }
-            .top-navbar .contact-info a, .top-navbar .contact-info span {
-                color: white;
-                margin-right: 15px;
-                text-decoration: none;
-            }
+         
             .text-white{
               --bs-text-opacity: 1;
               color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
@@ -97,10 +44,14 @@ S'inscrire
             height: fit-content;
             display: flex;
             margin-left: 500px;
-            margin-top: 120px;
+            margin-top: 70px;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            background-image: url('<?= base_url('images/logoForm.png') ?>'); /* Chemin de l'image de fond */
+            background-size: 40% 60%; /* Make the image cover the right half of the form */
+            background-position: right ; /* Position the image on the right side */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
             gap: 20px;
             padding: 50px 40px 20px 40px;
             background-color: #ffffff;
@@ -194,54 +145,18 @@ S'inscrire
             .navbar-brand{
               margin-left: 50px;
             }
+            .return_img {
+                position: absolute;
+                top: 11%; /* Positions the image at the top */
+                left: 71%; /* Centers the image horizontally */
+                transform: translateX(-50%); /* Adjusts the image to be perfectly centered */
+                z-index: 10; /* Ensures the image stays on top of other content */
+            }
          
     </style>
-<!-- Top Navbar -->
-<nav class="top-navbar">
-            <div class="container-fluid d-flex justify-content-between">
-                <span>Lundi au Jeudi entre 10h et 16h</span>
-                <div class="contact-info">
-                    <a href="mailto:ouijjane22@gmail.com" class="text-white">
-                        <i class="bi bi-envelope"></i> contact@certifyease.ma
-                    </a>
-                    <span class="mx-3 text-white">|</span>
-                    <span class="text-white">
-                        <i class="bi bi-telephone"></i> 06 56 70 62 70 / +212 656-706270
-                    </span>
-                    <span class="mx-3 text-white">|</span>
-                    <a href="<?= base_url('/login') ?> " class="text-white">
-                        <i class="bi bi-person"></i> Connexion 
-                    </a>
-                </div>
-            </div>
-        </nav>
-
-    <!-- Main Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-        <a class="navbar-brand"  href="<?= base_url('/')?> ">
-        <img src="<?= base_url('images/logoCertifyEase.png') ?>" alt="Passerelle des langues" height="50px" width="50px"  >
-      </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?= base_url('/') ?>">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/calendrie') ?>">Calendrier</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/inscriptionPage') ?>">Inscription</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+      <a href="<?= base_url('/') ?>"><img class="return_img" src="<?= base_url('images/return.png') ?>" alt="HomeButton" height="50px" width="50px" ></a>  
     <!-- Login Form -->
+     <img src="" alt="">
 <form class="form_container" action="<?= base_url('register/store') ?>" method="POST">
   <div class="logo_container">
     <h1 class="logo_title display-4 font-weight-bold">Enregistrez-vous dès maintenant</h1>

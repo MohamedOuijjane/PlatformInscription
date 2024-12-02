@@ -9,32 +9,33 @@
     font-family: "Inter", sans-serif;
     }
     .container {
-        margin-top: 10%;
+        margin-top: 5%;
+        border-radius: 10px;
+
+
     }
     .form-container {
-        font-family: "Inter", sans-serif;
+        font-family: Arial, sans-serif;
         width: 100%;
         max-width: 400px;
         padding: 10px;
-        border-radius: 5px;
+        margin-bottom: 45px;
+        border-radius: 10px;
         text-align: center;
         margin-right: 50%;
+        background: transparent;
+        
     }
     form {
         width: 300%;
         margin: 10%;
-        border-color: black;
-        border-radius: 5px;   
-        background-color: #fafafa ;
-        border: 1px solid;
-        border-color:#cccccc;
+        border-radius: 10px;   
+        border: 1px solid #1e88e5;
+        background: transparent;
+        padding: 20px;
+        margin-bottom: 35%;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
-    form {
-    padding: 20px;
-    margin-bottom: 35%;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
     form h2 {
         margin-bottom: 10px;
         color: #333333;
@@ -138,11 +139,11 @@
         color: #343a40;
     }
 
-</style>
+</style>    
 
 <div class="container">
     <div class="card">
-    <div class="card-header"><h1>Bonjour chèr(e) Client, <span><?= $username ?></span></h1></div>
+    <div class="card-header"><h1>Bonjour cher(ère) client(e), <span><?= $username ?></span></h1></div>
         <div class="clignote">Votre préinscription en ligne a bien été envoyée!</div>
         <div class="exam-id-container">
                     <?= esc($examLevel) ?>

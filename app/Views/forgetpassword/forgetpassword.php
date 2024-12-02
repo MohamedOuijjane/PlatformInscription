@@ -177,7 +177,7 @@ Se Connecter
             outline: none;
             
             color: #ffffff;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             cursor: pointer;
             transition: background 0.3s ease;
             }

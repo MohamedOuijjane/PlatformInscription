@@ -107,7 +107,7 @@
     <div class="container">
         <div class="form-container">
             <div class="card-header">
-                <img src="<?= base_url('images/logo.png') ?>" width="80px" height="80px" alt="Logo" class="img-fluid rounded-circle mb-3">
+                <img src="<?= base_url('images/logo.png') ?>" width="80px" height="80px" alt="Centre CertifyEase" class="img-fluid rounded-circle mb-3">
                 <h1>Bonjour cher(ère) client(e): <?= esc($username); ?></h1>
             </div>
 
