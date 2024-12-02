@@ -34,7 +34,7 @@
     /* Étiquettes des champs */
     .form-label {
     font-weight: bold;
-    color: #343a40;
+    color: #4e73df;
     font-size: 1rem;
     margin-bottom: 14px;
     }
