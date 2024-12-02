@@ -12,15 +12,7 @@ class ExamsController extends Controller
 public function index()
 
 {
-    // Charger des données supplémentaires pour la vue si nécessaire
-    $levels = ['A1', 'A2', 'B1', 'B2']; // Exemple de niveaux disponibles
-    $cities = ['Paris', 'Lyon', 'Marseille', 'Nice', 'Toulouse']; // Exemple de villes disponibles
-
-    // Passer les données à la vue
-    return view('dashbord/ajouter_exam', [
-        'levels' => $levels,
-        'cities' => $cities,
-    ]);
+    return view('dashbord/ajouter_exam');
 }
 
     public function addExam()
@@ -35,9 +27,16 @@ public function index()
         'dateLimite' => 'required|valid_date'
     ];
 
-    if (!$this->validate($rules)) {
-        return redirect()->back()->withInput()->with('error', $this->validator->getErrors());
-    }
+    
+        if (!$this->validate($rules)) {
+            return redirect()->to('/dashbord/ajouter_exam')
+                             ->withInput()
+                             ->with('fieldErrors', $this->validator->getErrors())
+                             ->with('error', 'SVP rempliir les chmaps corectement');
+        }
+        
+
+  
     
 
     $data = [
@@ -154,10 +153,11 @@ public function updateExam($id)
         'dateDebut' => 'required|valid_date',
         'dateLimite' => 'required|valid_date'
     ];
-
+    
     if (!$this->validate($rules)) {
-        return redirect()->back()->withInput()->with('error', $this->validator->getErrors());
+        return redirect()->to('/ExamsController/editExam/' . $id)->with('error', 'Veuillez corriger les erreurs ci-dessous.');
     }
+  
 
     // Récupérer les données du formulaire
     $data = [

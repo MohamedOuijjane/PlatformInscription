@@ -78,27 +78,55 @@
     .btn-success:hover {
         background-color: #4e73df;
     }
-
-    /* Styles des alertes */
-    .alert {
-        margin-bottom: 20px;
-        font-size: 0.9rem;
+    /* Global Alert Styles */
+    .top-alert {
+        position: fixed;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 800px;
+        border-radius: 8px;
+        color: white;
+        padding: 15px 20px;
+        font-size: 1rem;
+        z-index: 1050;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        animation: slideDown 0.5s ease-in-out;
+    }
+    .top-alert-error {
+        background-color: #e74a3b;
     }
 
-    .alert ul {
-        margin: 0;
-        padding-left: 20px;
+    .top-alert button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+    /* en Cas error update dans le model  */
+    .error-message {
+        color: red;
+        font-size: 0.9rem;
+        margin-top: -10px;
+        margin-bottom: 10px;
     }
 </style>
-
+<!-- General Error Alert -->
+<?php if (session()->has('error')): ?>
+    <div class="top-alert top-alert-error">
+        <?= session('error') ?>
+        <button onclick="this.parentElement.style.display='none';">&times;</button>
+    </div>
+<?php endif; ?>
 <div class="container-modifier">
     <div class="card">
         <div class="card-header">Modifier l'Examen</div>
         <div class="card-body">
-
-            
-           
-
             <!-- Formulaire de modification -->
             <form method="post" action="<?= base_url('ExamsController/updateExam/' . $exam['id']) ?>">
                 <div class="row g-3">
