@@ -67,3 +67,7 @@ $routes->post('/profile/updatePassword', 'ProfileController::updatePassword'); /
 //get profil
 
 $routes->get('/profiladmin', 'ProfileController::profiladmin');
+
+//genere une rapport pdf
+$routes->get('/printrapport', 'ExamsController::printrapport');
+$routes->get('/telecgarger', 'ExamsController::imprimer');

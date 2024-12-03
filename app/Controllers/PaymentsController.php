@@ -25,6 +25,7 @@ class PaymentsController extends BaseController
         // Créer une instance du modèle PaymentModel
         $paymentModel = new PaymentModel();
         
+        
         // Mettre à jour le statut du paiement à "paid"
         $paymentModel->update($id, ['status' => 'paid']);
         

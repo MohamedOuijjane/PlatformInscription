@@ -24,25 +24,8 @@ class CreateRegistrationsTable extends Migration
             'registration_date' => [
                 'type' => 'DATE',
                 'null' => false
-            ],
-            'payment_reference' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-                'null' => true
-            ],
-            'payment_status' => [
-                'type' => 'ENUM',
-                'constraint' => ['paid', 'pending', 'unpaid'],
-                'default' => 'unpaid'
-            ],
-            'amount' => [
-                'type' => 'FLOAT',
-                'null' => true
-            ],
-            'payment_date' => [
-                'type' => 'DATE',
-                'null' => true
             ]
+          
         ]);
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('user_id', 'Users', 'id');

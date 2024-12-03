@@ -120,9 +120,42 @@
         max-width: 100%;
         height: 300px;
     }
+    .btn-container a {
+       
+        display: inline-block; 
+    background-color: #4e73df;
+    color: white;
+    padding: 12px 17px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    }
+
+    .btn-container a:hover {
+        background-color: #375a9e;
+    }
+
+    .btn-container i {
+        margin-right: 8px;
+    }
+    .content-header{
+        position: absolute;
+    margin-left: 84%;
+    margin-top: 159px;
+    }
 </style>
 
 <div class="stats-container">
+<div class="content-header">
+    <div class="btn-container">
+        <a href="<?= base_url('/telecharger') ?>" download>
+            <i class="bi bi-download"></i> Télécharger
+        </a>
+    </div> 
+    </div>  
     <!-- Carte : Earnings Monthly -->
     <div class="stats-card primary">
         <div class="stats-content">
@@ -160,13 +193,15 @@
     <div class="stats-card warning">
         <div class="stats-content">
             <h5>Pending Confirmation</h5>
-            <h3>18</h3>
+            <h3 id="NombrePaymentenattente">0</h3>
         </div>
         <div class="stats-icon warning">
             <i class="bi bi-chat-dots"></i>
         </div>
     </div>
+   
 </div>
+
 
 <!-- Conteneur pour les graphiques -->
 <div class="chart-container">
@@ -200,6 +235,8 @@
             document.getElementById('studentCount').innerText = data.studentCount;
             document.getElementById('totalRevenue').innerText = `${data.totalRevenue}DH`;
             document.getElementById('examsCompleted').innerText = data.examsCompleted;
+            document.getElementById('NombrePaymentenattente').innerText = data.NombrePaymentenattente;
+            
             // Graphique Linéaire : Inscriptions par Mois
             new Chart(document.getElementById('lineChart'), {
                 type: 'line',

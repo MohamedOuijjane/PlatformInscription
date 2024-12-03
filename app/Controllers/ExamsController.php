@@ -5,7 +5,10 @@ namespace App\Controllers;
 use App\Models\ExamModel;
 use App\Models\PaymentModel;
 use App\Models\RegistrationsModel;
+use App\Models\UsersModel;
 use CodeIgniter\Controller;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class ExamsController extends Controller
 {
@@ -179,66 +182,114 @@ public function updateExam($id)
 }
 
 
-     public function getChartData()
-    {
-        $registrationModel = new RegistrationsModel();
-        $paymentModel = new PaymentModel();
-        $examModel = new ExamModel();
+public function getChartData()
+{
+    $registrationModel = new RegistrationsModel();
+    $paymentModel = new PaymentModel();
+    $examModel = new ExamModel();
 
-        // Calculer les statistiques clés
-        $studentCount = $registrationModel->countAllResults();
-        $totalRevenue = $paymentModel->selectSum('amount')->where('status', 'paid')->get()->getRow()->amount;
-        $examsCompleted = $examModel->where('end_date <', date('Y-m-d'))->countAllResults();
+    // Calculer les statistiques clés
+    $studentCount = $registrationModel->countAllResults();
+    $totalRevenue = $paymentModel->selectSum('amount')->where('status', 'paid')->get()->getRow()->amount;
+    $examsCompleted = $examModel->where('end_date <', date('Y-m-d'))->countAllResults();
 
-        // Récupérer les inscriptions par mois
-        $monthlyInscriptions = $registrationModel->select("MONTHNAME(registration_date) as month, COUNT(*) as count")
-                                                 ->groupBy('month')
-                                                 ->orderBy('MONTH(registration_date)')
-                                                 ->findAll();
+    // Récupérer les inscriptions par mois
+    $monthlyInscriptions = $registrationModel->select("MONTHNAME(registration_date) as month, COUNT(*) as count")
+                                             ->groupBy('month')
+                                             ->orderBy('MONTH(registration_date)')
+                                             ->findAll();
 
-        $months = array_column($monthlyInscriptions, 'month');
-        $inscriptions = array_column($monthlyInscriptions, 'count');
+    $months = array_column($monthlyInscriptions, 'month');
+    $inscriptions = array_column($monthlyInscriptions, 'count');
 
-        // Récupérer les revenus par mois
-        $monthlyRevenue = $paymentModel->select("MONTHNAME(payment_date) as month, SUM(amount) as revenue")
-                                       ->where('status', 'paid')
-                                       ->groupBy('month')
-                                       ->orderBy('MONTH(payment_date)')
-                                       ->findAll();
+    // Récupérer les revenus par mois
+    $monthlyRevenue = $paymentModel->select("MONTHNAME(payment_date) as month, SUM(amount) as revenue")
+                                   ->where('status', 'paid')
+                                   ->groupBy('month')
+                                   ->orderBy('MONTH(payment_date)')
+                                   ->findAll();
 
-        $revenue = array_column($monthlyRevenue, 'revenue');
+    $revenue = array_column($monthlyRevenue, 'revenue');
 
-        // Répartition des étudiants par niveau
-        $studentDistribution = $registrationModel->select("exams.level, COUNT(*) as count")
-                                                 ->join('exams', 'exams.id = registrations.exam_id')
-                                                 ->groupBy('exams.level')
-                                                 ->findAll();
+    // Répartition des étudiants par niveau
+    $studentDistribution = $registrationModel->select("exams.level, COUNT(*) as count")
+                                             ->join('exams', 'exams.id = registrations.exam_id')
+                                             ->groupBy('exams.level')
+                                             ->findAll();
 
-        $labels = array_column($studentDistribution, 'level');
-        $values = array_column($studentDistribution, 'count');
+    $labels = array_column($studentDistribution, 'level');
+    $values = array_column($studentDistribution, 'count');
 
-        // Statut des paiements
-        $paymentStatus = [
-            $paymentModel->where('status', 'paid')->countAllResults(),
-            $paymentModel->where('status', 'pending')->countAllResults(),
-            $paymentModel->where('status', 'unpaid')->countAllResults()
-        ];
+    // Statut des paiements
+    $paymentStatus = [
+        $paymentModel->where('status', 'paid')->countAllResults(),
+        $paymentModel->where('status', 'pending')->countAllResults(),
+        $paymentModel->where('status', 'unpaid')->countAllResults()
+    ];
 
-        // Préparer les données pour les graphiques
-        $data = [
-            'studentCount' => $studentCount,
-            'totalRevenue' => $totalRevenue,
-            'examsCompleted' => $examsCompleted,
-            'months' => $months,
-            'monthlyInscriptions' => $inscriptions,
-            'monthlyRevenue' => $revenue,
-            'studentDistribution' => [
-                'labels' => $labels,
-                'values' => $values
-            ],
-            'paymentStatus' => $paymentStatus
-        ];
+    // Nombre des paiements en attente
+    $NombrePaymentenattente = $paymentModel->where('status', 'pending')->countAllResults();
 
-        return $this->response->setJSON($data);
-    }
+    // Préparer les données pour les graphiques
+    $data = [
+        'studentCount' => $studentCount,
+        'totalRevenue' => $totalRevenue,
+        'examsCompleted' => $examsCompleted,
+        'months' => $months,
+        'monthlyInscriptions' => $inscriptions,
+        'monthlyRevenue' => $revenue,
+        'studentDistribution' => [
+            'labels' => $labels,
+            'values' => $values
+        ],
+        'paymentStatus' => $paymentStatus,
+        'NombrePaymentenattente' => $NombrePaymentenattente // Ajouter cette ligne
+    ];
+
+    return $this->response->setJSON($data);
+}
+
+
+
+
+
+public function imprimer()
+{
+    // Charger les données pour le rapport
+    $examModel = new ExamModel();
+    $paymentModel = new PaymentModel();
+
+    $data = [
+        'totalExams' => $examModel->countAll(),
+        'totalRevenue' => $paymentModel->selectSum('amount')->where('status', 'paid')->get()->getRow()->amount,
+        'monthlyStats' => $paymentModel->select("MONTHNAME(payment_date) AS month, SUM(amount) AS revenue")
+                                        ->groupBy("MONTH(payment_date)")
+                                        ->orderBy("MONTH(payment_date)")
+                                        ->get()
+                                        ->getResultArray()
+    ];
+
+    // Charger la vue
+    $html = view('dashbord/printrapport', $data);
+
+    // Initialize Dompdf
+    $options = new \Dompdf\Options();
+    $options->set('defaultFont', 'Poppins');
+    $dompdf = new \Dompdf\Dompdf($options);
+
+    // Charger le contenu HTML
+    $dompdf->loadHtml($html);
+
+    // Configurer la taille et l'orientation de la page
+    $dompdf->setPaper('A4', 'portrait');
+
+    // Rendre le HTML en PDF
+    $dompdf->render();
+
+    // Télécharger le PDF
+    $dompdf->stream("rapport.pdf", ["Attachment" => true]);
+}
+
+
+
 }

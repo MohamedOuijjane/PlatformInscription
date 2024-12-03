@@ -156,6 +156,7 @@ class DashboardClient extends BaseController{
             return redirect()->back()->with('error', 'Une erreur est survenue lors de l\'enregistrement du paiement.');
         }
     }
+
     public function convocation()
     {
         $session = session();
