@@ -65,7 +65,7 @@ Pré-inscrire en ligne
         padding-left: 10px;
         margin-bottom: 5px;
         margin-left: 85%;
-        background-color: #70bce4;
+        background-color: #1e88e5;
         color: white;
         border: none;
         border-radius: 4px;
@@ -76,7 +76,7 @@ Pré-inscrire en ligne
     }
 
     form button:hover {
-        background-color: #0e4b99;
+        background-color: #1565c0;
     }
     .title{
         padding: 10px;
@@ -102,7 +102,7 @@ Pré-inscrire en ligne
             background-size: cover; /* Makes the image cover the entire container */
             background-position: center; /* Centers the background image */
             width: 1580px;
-            margin-left: -115px;
+            margin-left: -58px;
             height: 150px; /* Adjust height as needed */
             display: flex;
             align-items: center;

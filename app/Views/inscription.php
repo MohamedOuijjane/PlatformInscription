@@ -104,11 +104,12 @@ Page d'Inscription
             background-size: cover; /* Makes the image cover the entire container */
             background-position: center; /* Centers the background image */
             width: 1580px;
-            margin-left: -125px;
+            margin-left: -171px;
             height: 150px; /* Adjust height as needed */
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-top: -48px;
         }
 
         /* Centered div with text */

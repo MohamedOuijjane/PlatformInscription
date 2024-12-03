@@ -67,19 +67,23 @@
     }
 
     .download-button {
-        display: inline-block;
-        background-color: #28a745;
-        color: #fff;
-        text-decoration: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        margin-top: 20px;
+        padding: 12px;
+        margin: 20px 0;
+        font-size: 18px;
+        font-weight: bold;
+        outline: none;
+        background: #1e88e5;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
         text-align: center;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        margin-top: 50px;
     }
 
     .download-button:hover {
-        background-color: #218838;
+        background-color: #1565c0;
     }
 </style>
 
@@ -87,7 +91,7 @@
 <div class="container">
     <div class="form-container">
         <div class="card-header">
-            <img src="<?= base_url('images/logo.png') ?>" width="80px" height="80px" alt="Logo">
+            <img src="<?= base_url('images/logoCertifyEase.png') ?>" width="80px" height="80px" alt="Centre CertifyEase">
             <h1>Bonjour cher(ère) client(e):  <?= esc($username); ?>.</h1>
             <h5>Le : <?= date('d-m-Y'); ?></h5>
         </div>

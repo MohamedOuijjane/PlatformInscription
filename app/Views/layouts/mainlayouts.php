@@ -36,9 +36,9 @@
             padding-top: 20px;
         }
         .navbar-brand {
-    margin-right: 800px; 
-    margin-left: 50px;
-}
+            margin-right: 800px; 
+            margin-left: 50px;
+        }
         /* top nav bar */
         .top-navbar {
             background-color: #0099cc;
@@ -61,11 +61,12 @@
         }
         .footer-logo {
             position: absolute;
-    bottom: 20%;
-    right: 0;
-    height: 163px;
-    margin: 12px;
-}
+            bottom: 20%;
+            right: 0;
+            height: 163px;
+            margin: 12px;
+            margin-right: 20px;
+        }
         .footer .container {
             display: flex;
             justify-content: space-between;
@@ -126,7 +127,7 @@
                 font-size: 1.1em;
                 font-weight: 500;
                 color: #333;
-                padding: 10px 15px;
+                padding: 10px 10px;
                 text-transform: uppercase;
                 transition: color 0.3s ease;
             }
@@ -153,14 +154,14 @@
                 left: 0;
             }
             .navbar-fixed-top {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1030; /* Garder la navbar au-dessus des autres éléments */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optionnel pour une ombre subtile */
-    background-color: white; /* Conserver la couleur de fond même si elle était transparente */
-    transition: top 0.3s ease-in-out; /* Animation lors de l'apparition/disparition */
-}
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1030; /* Garder la navbar au-dessus des autres éléments */
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optionnel pour une ombre subtile */
+                background-color: white; /* Conserver la couleur de fond même si elle était transparente */
+                transition: top 0.3s ease-in-out; /* Animation lors de l'apparition/disparition */
+            }
 
 
     </style>
@@ -171,8 +172,8 @@
             <div class="container-fluid d-flex justify-content-between">
                 <span>Lundi au Jeudi entre 10h et 16h</span>
                 <div class="contact-info">
-                    <a href="mailto:contact@osd.ma" class="text-white">
-                        <i class="bi bi-envelope"></i> contact@cerifyease.ma
+                    <a href="mailto:ouijjane22@gmail.com" class="text-white">
+                        <i class="bi bi-envelope"></i> contact@certifyease.ma
                     </a>
                     <span class="mx-3 text-white">|</span>
                     <span class="text-white">
@@ -180,7 +181,7 @@
                     </span>
                     <span class="mx-3 text-white">|</span>
                     <a href="<?= base_url('/login') ?> " class="text-white">
-                        <i class="bi bi-person"></i> Login
+                        <i class="bi bi-person"></i> Connexion 
                     </a>
                 </div>
             </div>
@@ -191,7 +192,7 @@
     <div class="container-fluid">
         <!-- Logo aligné à gauche -->
         <a class="navbar-brand" href="<?= base_url('/') ?>">
-            <img src="<?= base_url('images/logo.png') ?>" alt="Passerelle des langues" style="height: 70px;">
+            <img src="<?= base_url('images/logoCertifyEase.png') ?>" alt="Passerelle des langues" height="50px" width="50px" >
         </a>
         <!-- Bouton pour le menu responsive -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -210,7 +211,7 @@
                     <a class="nav-link" href="<?= base_url('/inscriptionPage') ?>">Inscription</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#footer">About</a>
+                    <a class="nav-link" href="#footer">À propos</a>
                 </li>
             </ul>
         </div>
@@ -254,7 +255,7 @@
     </div>
   </div>
   <!-- Ajout du logo en bas à droite -->
-  <img src="<?= base_url('images/logo.png') ?>" alt="Logo" class="footer-logo">
+  <img src="<?= base_url('images/logoCertifyEase.png') ?>" alt="Logo" class="footer-logo">
   <div class="footer-bottom">
     <p>COPYRIGHT © 2023. ALL RIGHTS RESERVED.</p>
   </div>

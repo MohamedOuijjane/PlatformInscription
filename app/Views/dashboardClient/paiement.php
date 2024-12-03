@@ -9,7 +9,8 @@
         display: flex;
         flex-direction: column;
         width: 50%;
-        margin: 10% auto 0;
+        margin: 10% auto;
+        margin-top: 20%;
     }
 
     .form-group {
@@ -20,8 +21,10 @@
 
     .form-group label {
         display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
+        font-size: 0.9rem;
+        color: #8B8E98;
+        font-weight: 600;
+        margin-bottom: 2px;
     }
 
     .form-group .input-icon {
@@ -34,30 +37,34 @@
 
     .form-group input {
         width: 100%;
-        padding: 10px 10px 10px 35px; /* Extra left padding for icon */
+        padding: 8px 8px 8px 30px; /* Extra left padding for icon space */
         font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+        border: 1px solid #00f2ff;
+        border-radius: 9px;
+        transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
     }
 
     /* Style for the 'Valider' button */
     .submit-button {
-        padding: 8px 40px; /* Adjust padding for a smaller button */
-        font-size: 16px;
+        width: 100%;
+        padding: 12px;
+        margin: 20px 0;
+        margin-left: 1px;
+        font-size: 18px;
         font-weight: bold;
-        margin-left: 45%;
-        background-color: #4CAF50;
+        outline: none;
+        background: #1e88e5;
         color: white;
         border: none;
-        border-radius: 4px;
+        border-radius: 10px;
         cursor: pointer;
-        text-align: center;
-        display: inline-flex; /* Prevents full-width stretching */
+        transition: background 0.3s ease;
+        text-align: center; /* Prevents full-width stretching */
         
     }
 
     .submit-button:hover {
-        background-color: #45a049;
+        background-color: #1565c0;
     }
     
     .profile-message {
@@ -67,15 +74,16 @@
         text-align: center;
         color: #2c3e50;
         padding: 10px;
-        border-bottom: 2px solid #4CAF50;
+        border-bottom: 2px solid #1e88e5;
         margin-bottom: 30px;
         margin-left: -15% ;
         white-space: nowrap;
     }
 </style>
+<div class="form-container">
 <form action="<?= base_url('/dashboardClient/paiement') ?>" method="POST">
-    <div class="form-container">
         <p class="profile-message">Nous vous prions de bien vouloir poursuivre le paiement</p>
+        
         <div class="form-group">
             <label for="reference">Veuillez entrer le numéro de référence du paiement</label>
             <i class="fa fa-hashtag input-icon"></i>
@@ -87,7 +95,9 @@
             <i class="fa fa-calendar input-icon"></i>
             <input type="date" id="payment_date" name="payment_date" required>
         </div>
-    </div>
+
     <button type="submit" class="submit-button">Valider</button>
 </form>
+</div>
+
 <?= $this->endSection() ?>

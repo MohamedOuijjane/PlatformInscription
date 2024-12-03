@@ -38,7 +38,7 @@ $routes->get('/dashboardClient/convocationDownloader',to: 'DashboardClient::conv
 
 
 
-
+//routes
 
 
 // Dashboard Admin Routes Y.M
@@ -71,3 +71,10 @@ $routes->get('/profiladmin', 'ProfileController::profiladmin');
 //genere une rapport pdf
 $routes->get('/printrapport', 'ExamsController::printrapport');
 $routes->get('/telecgarger', 'ExamsController::imprimer');
+
+
+
+//forgetpassword route forgetPassword
+$routes->get('forgetPassword', 'Forget::forgetpassword');
+
+
