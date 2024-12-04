@@ -1,117 +1,149 @@
-# Certify Easy - Plateforme de Gestion des Inscriptions aux Examens de Langues
+Certify Easy
+Plateforme de Gestion des Inscriptions aux Examens de Langues
 
-Certify Easy est une solution digitale complète et professionnelle conçue pour simplifier et optimiser la gestion des inscriptions, des paiements et des examens de langues. Cette plateforme offre une interface utilisateur intuitive et des outils d'administration puissants pour répondre aux besoins des candidats et des administrateurs.
+Certify Easy est une solution digitale complète pour simplifier et optimiser la gestion des inscriptions, paiements, et examens de langues. Elle propose une interface utilisateur intuitive et des outils administratifs puissants adaptés aux besoins des candidats et des administrateurs.
 
----
-
-## Table des Matières
-- [Description](#description)
-- [Caractéristiques](#caractéristiques)
-- [Technologies Utilisées](#technologies-utilisées)
-- [Prérequis](#prérequis)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Migration et Seeders](#migration-et-seeders)
-- [Fonctionnalités](#fonctionnalités)
-- [Commandes Utiles](#commandes-utiles)
-- [Structure du Projet](#structure-du-projet)
-
-
-## Description
-
-Dans un monde où la maîtrise des compétences linguistiques est primordiale, Certify Easy facilite la gestion des examens de langues pour les institutions et organismes éducatifs. La plateforme est dotée de deux interfaces principales :
-- **Tableau de bord candidat :** Permet aux utilisateurs de s'inscrire à des examens, de gérer leurs informations personnelles et de suivre leurs paiements.
-- **Tableau de bord administrateur :** Fournit des outils avancés pour gérer les examens, les paiements, et superviser les candidats.
-
-Certify Easy repose sur des technologies modernes pour offrir une expérience utilisateur fluide, sécurisée et optimisée.
-
----
-
-## Caractéristiques
-
-- **Gestion des Examens :** Ajout, modification et suppression des examens.
-- **Inscription des Candidats :** Interface utilisateur intuitive pour gérer les inscriptions.
-- **Paiements :** Suivi des paiements et confirmation des statuts.
-- **Rapports :** Génération de rapports statistiques (graphiques interactifs et export en PDF).
-- **Notifications en Temps Réel :** Alertes de validation et de suivi.
-- **Sécurité des Données :** Architecture robuste pour protéger les informations sensibles.
-
-
-
-## Technologies Utilisées
-
-- **Backend :** PHP 8 avec CodeIgniter 4.
-- **Frontend :** HTML5, CSS, Bootstrap 5, JavaScript et Ajax.
-- **Graphiques :** Chart.js.
-- **Génération PDF :** Dompdf.
-- **Base de Données :** MySQL.
-- **Versioning :** Git et GitHub.
-
----
-
-## Prérequis
-
-Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
-- PHP 8.0 ou supérieur.
-- Composer (gestionnaire de dépendances PHP).
-- MySQL 5.7 ou supérieur.
-
-
-
----
-
-## Installation
-
-1. Clonez le dépôt Git :
-   ```bash
-   git clone https://github.com/MohamedOuijjane/PlatformInscription.git
-   cd PlatformInscription
-   git checkout master// cette commande pour travail dans la branche principal 
-Installez les dépendances PHP avec Composer :
-composer install
-Installez Dompdf pour la génération des PDF :
-
-composer require dompdf/dompdf
+Table des Matières
+Description
+Caractéristiques
+Technologies Utilisées
+Prérequis
+Installation
 Configuration
-Renommez le fichier .env.example en .env :
-
-Passez en mode production en modifiant la ligne suivante dans le fichier .env :
-
-
-CI_ENVIRONMENT = production
-
-Exécutez les migrations pour créer les tables nécessaires :
-php spark migrate
-
+Migration et Seeders
 Fonctionnalités
+Commandes Utiles
+Structure du Projet
+Contributeurs
+Description
+Dans un monde où la maîtrise des langues est essentielle, Certify Easy simplifie la gestion des examens pour les institutions éducatives.
+La plateforme offre :
+
+Tableau de bord candidat : Inscription aux examens, gestion des informations personnelles, suivi des paiements.
+Tableau de bord administrateur : Gestion des examens, suivi des paiements, génération de rapports, supervision des candidats.
+Grâce à des technologies modernes, Certify Easy garantit une expérience utilisateur fluide, sécurisée, et performante.
+
+Caractéristiques
 Pour les Administrateurs :
-Gestion complète des examens (création, édition, suppression).
-Gestion des candidats et des paiements.
+Création, modification et suppression des examens.
+Gestion des inscriptions et paiements des candidats.
 Suivi des statistiques via des graphiques interactifs.
+Génération de rapports PDF.
+Notifications en temps réel.
 Pour les Candidats :
 Mise à jour des informations personnelles.
-Inscription à des examens disponibles.
+Inscription simplifiée aux examens disponibles.
 Paiement en ligne avec suivi du statut.
-Commandes Utiles
-Développement :
+Technologies Utilisées
+Backend : PHP 8 avec CodeIgniter 4.
+Frontend : HTML5, CSS3, Bootstrap 5, JavaScript, et Ajax.
+Graphiques : Chart.js.
+Génération PDF : Dompdf.
+Base de Données : MySQL.
+Versioning : Git et GitHub.
+Prérequis
+Avant de démarrer, assurez-vous d'avoir :
+
+PHP 8.0 ou supérieur.
+Composer (gestionnaire de dépendances PHP).
+MySQL 5.7 ou supérieur.
+Serveur Apache/Nginx.
+Installation
+Cloner le dépôt Git :
+
+bash
+Copier le code
+git clone https://github.com/MohamedOuijjane/PlatformInscription.git
+cd PlatformInscription
+git checkout master
+Installer les dépendances PHP avec Composer :
+
+bash
+Copier le code
+composer install
+Installer Dompdf pour les PDF dynamiques :
+
+bash
+Copier le code
+composer require dompdf/dompdf
+Configurer l'environnement :
+
+Renommer le fichier .env.example en .env.
+Modifier cette ligne pour passer en mode production :
+plaintext
+Copier le code
+CI_ENVIRONMENT = production
+Exécuter les migrations :
+
+bash
+Copier le code
+php spark migrate
 Lancer le serveur de développement :
 
-Accédez à l'application http://localhost/PlatformInscription/public/
-Migration et Rollback :
+bash
+Copier le code
+php spark serve
+Accédez à l'application :
+http://localhost:8080
+
+Configuration
+Assurez-vous que votre base de données MySQL est correctement configurée dans le fichier .env :
+
+plaintext
+Copier le code
+database.default.hostname = localhost
+database.default.database = votre_base_de_données
+database.default.username = votre_utilisateur
+database.default.password = votre_mot_de_passe
+database.default.DBDriver = MySQLi
+Migration et Seeders
 Créer une migration :
 
+bash
+Copier le code
 php spark make:migration NomMigration
-Exécuter les migrations :php spark migrate
-pour genere le pdf :composer require dompdf/dompdf
-pour que sa ca marche bein il faut inser la base de donnes
-Revenir en arrière (rollback) :php spark migrate:rollback
+Exécuter les migrations :
+
+bash
+Copier le code
+php spark migrate
+Rollback des migrations :
+
+bash
+Copier le code
+php spark migrate:rollback
+Fonctionnalités
+Administrateurs :
+Gestion des examens (ajout, modification, suppression).
+Suivi des paiements et des inscriptions.
+Statistiques et rapports en PDF.
+Candidats :
+Inscription aux examens disponibles.
+Paiement sécurisé en ligne.
+Gestion des informations personnelles.
+Commandes Utiles
+Lancer le serveur de développement :
+bash
+Copier le code
+php spark serve
+Générer des PDF :
+bash
+Copier le code
+composer require dompdf/dompdf
 Structure du Projet
-app/ : Contient les contrôleurs, modèles et vues.
-public/ : Répertoire accessible au public.
-writable/ : Fichiers générés dynamiquement, journaux et cache.
-database/ : Contient les migrations et seeders.
-vendor/ : Dépendances installées par Composer.
+plaintext
+Copier le code
+PlatformInscription/
+├── app/            # Contrôleurs, modèles, et vues
+├── public/         # Fichiers accessibles publiquement
+├── writable/       # Fichiers dynamiques, journaux, cache
+├── database/       # Migrations et seeders
+├── vendor/         # Dépendances installées par Composer
+└── .env            # Configuration d'environnement
+Contributeurs
+Développé par :
 
-Dévelopé par :
-[Meskaoui Yassine et Mohammed Ouijjane]
-
+Meskaoui Yassine
+Mohammed Ouijjane
+Licence
+Ce projet est sous licence MIT. Consultez le fichier LICENSE pour plus d'informations.
