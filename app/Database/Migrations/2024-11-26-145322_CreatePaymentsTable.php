@@ -12,7 +12,7 @@ class CreatePaymentsTable extends Migration
             'id' => ['type' => 'INT', 'auto_increment' => true],
             'registration_id' => ['type' => 'INT', 'null' => false],
             'amount' => ['type' => 'DECIMAL', 'constraint' => '10,2', 'null' => false],
-            'status' => ['type' => 'ENUM', 'constraint' => ['paid', 'pending', 'unpaid'], 'default' => 'pending'],
+            'status' => ['type' => 'ENUM', 'constraint' => ['paid', 'pending', 'unpaid'], 'default' => 'unpaid'],
             'reference' => ['type' => 'VARCHAR', 'constraint' => '100', 'null' => false],
             'payment_date' => ['type' => 'DATE', 'null' => true]
         ]);
