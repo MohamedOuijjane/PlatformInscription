@@ -101,13 +101,10 @@ Migration et Rollback :
 Créer une migration :
 
 php spark make:migration NomMigration
-Exécuter les migrations :
-php spark migrate
-Revenir en arrière (rollback) :
-bash
-Copier le code
-php spark migrate:rollback
-
+Exécuter les migrations :php spark migrate
+pour genere le pdf :composer require dompdf/dompdf
+pour que sa ca marche bein il faut inser la base de donnes
+Revenir en arrière (rollback) :php spark migrate:rollback
 Structure du Projet
 app/ : Contient les contrôleurs, modèles et vues.
 public/ : Répertoire accessible au public.
