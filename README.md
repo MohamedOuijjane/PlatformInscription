@@ -101,7 +101,7 @@ Avant de démarrer :
    php spark serve
    ```
    Accédez à l'application :  
-   [http://localhost:8080](http://localhost:8080)
+   http://localhost/PlatformInscription/public/
    
    7. **Cree la base de  donnes nommé Platform  :**
    8. **Insere ADmin important dans la base de donnes !!!!!  :**
