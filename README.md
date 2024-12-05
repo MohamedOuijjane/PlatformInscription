@@ -124,7 +124,7 @@ database.default.DBDriver = MySQLi
 
 ---
 
-## **Migration et Seeders**
+## **Migration Comandes **
 
 - **Créer une migration :**  
   ```bash
