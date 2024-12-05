@@ -67,7 +67,7 @@ Avant de démarrer :
 
 ## **Installation**
 
-1. **Cloner le dépôt :**  
+1. **Cloner le dépôt (le peojet est dans Branch master et pas main attention !!) :**  
    ```bash
    git clone https://github.com/MohamedOuijjane/PlatformInscription.git
    cd PlatformInscription
@@ -102,6 +102,12 @@ Avant de démarrer :
    ```
    Accédez à l'application :  
    [http://localhost:8080](http://localhost:8080)
+   
+   7. **Cree la base de  donnes nommé Platform  :**
+   8. **Insere ADmin important dans la base de donnes !!!!!  :**
+ ** voici la requete sql  dans le tableu user :INSERT INTO `users` ( username, firstname, lastname, email, password, phone_number, address, birth_date, role, created_at, updated_at, CIN) VALUES
+( 'Admin', 'ALI', 'IBNZOHR', 'admin123@gmail.com', '$2y$10$8PdiV03S/oq0wUvUi49Ei.v0r27YuOAC6ptOPeiVpvJTgQK/qXyUC', '0652724370', 'TILILA HAY ZARKTOUNI', '2003-12-17', 'admin', '2022-11-27 08:31:59', '2024-11-27 08:31:59', 'HH101186');
+le code sera 123456789 et username Admin vous pouvez chnage le mot de pass dans dashboard !!!!
 
 ---
 
@@ -134,6 +140,10 @@ database.default.DBDriver = MySQLi
   ```bash
   php spark migrate:rollback
   ```
+  **Rollback des migrations :**  
+  ```bash
+  php spark migrate:rollback
+  ```
 
 ---
 
@@ -142,7 +152,7 @@ database.default.DBDriver = MySQLi
 ### **Administrateurs :**
 - Gestion des examens (création, modification, suppression).  
 - Suivi des paiements et des inscriptions.  
-- Statistiques et rapports en PDF.  
+- Statistiques et rapports .  
 
 ### **Candidats :**
 - Inscription aux examens disponibles.  
